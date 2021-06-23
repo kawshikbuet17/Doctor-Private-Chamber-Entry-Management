@@ -10,13 +10,39 @@
 #define EN eS_PORTC4
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
 #include "lcd.h"
+#include "keypad.h"
 #include <string.h>
+#include <stdio.h>
 #include <stdlib.h>
+
+
+
+// r0 || r1 || r2 || r3  =>  int0
+ISR(INT0_vect)
+{
+	char c[10];
+	int key = Keypad_Get_Key();
+	// do 
+}
+
 
 int main (void)
 {
+	
+	//////////////////////////////////////////////////////////////////////////
+	// keypad interrupt section
+	MCUCR|= 0b00000011; // rising edge of int0 generates the interrupt
+	
+	GICR |= 1<<INT0;
+	
+	sei();
+	
+	Keypad_Init();
+	//////////////////////////////////////////////////////////////////////////
+	
 	DDRC = 0xFF;
 	ADCSRA = 0x85; 		//make ADC enable and div factor = 32
 	ADMUX = 0xC0; 		//2.56V, right-justified, input ADC0
