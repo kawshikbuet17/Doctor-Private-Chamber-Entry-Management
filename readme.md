@@ -11,6 +11,11 @@
 
 [Starting Code](https://github.com/WorldFamousElectronics/PulseSensorStarterProject)
 
+### LCD without I2c 
+Total 6 pin
+
+[Interfacing with atmega32](https://electrosome.com/interfacing-lcd-atmega32-microcontroller-atmel-studio/)
+
 ## Connection
 
 9 - Reset\
@@ -18,6 +23,7 @@
 11 - GND\
 14 - RXD = Bluetooth module\
 15 - TXD = Bluetooth module\
+16 ~ 21 = LCD4bit \
 22 - SCL\
 23 - SDA\
 30 - AVCC = VCC\
