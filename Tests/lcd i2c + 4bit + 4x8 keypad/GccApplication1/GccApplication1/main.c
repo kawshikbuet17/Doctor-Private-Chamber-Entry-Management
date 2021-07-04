@@ -17,45 +17,60 @@ extern void lcd_backlight(char on);   //not in lcd.h
 
 #include "lcd_4bit.h"
 
+#include "USART_RS232_H_file.h"		/* include USART library */
 
 
 int main(void)
 {
 	
-	DDRD = DDRD | 0b11111100;
 	
 	
+	USART_Init(9600);						/* initialize USART with 9600 baud rate */
+	
+	//////////////////////////////////////////////////////////////////////////
+	//LCD 4 bit
+	DDRD = DDRD | 0b11111100; 
 	Lcd4_Init();
-	
 	Lcd4_Set_Cursor(1,1);
-	Lcd4_Write_String("eta ki jinish");
+	Lcd4_Write_String("etai jinish");
+	//////////////////////////////////////////////////////////////////////////
 	
-	
+	//////////////////////////////////////////////////////////////////////////
+	//lcd with i2c
     lcd_init(LCD_ON_DISPLAY);
     lcd_backlight(0);
-    _delay_ms(200);
+    _delay_ms(500);
     lcd_backlight(1);
-    _delay_ms(200);
+    _delay_ms(500);
     
 	lcd_clrscr();
 	lcd_gotoxy(0, 0);
-	lcd_puts("Na re vai");
+	lcd_puts("ho re vai");
+	//////////////////////////////////////////////////////////////////////////
 	
+	USART_SendString("hello there");
 	
-	DDRB = 0b11111111;
-	DDRA = 0b00000000;
-	
-	PORTB = 0b11111111;
+	lcd_puts("sent");
+	int count  = 0;
 	
     while (1)
     {
-        
-		
-		if(PINA & 0b00010000)
+		char Data_in;
+		Data_in = USART_RxChar();						/* receive data from Bluetooth device*/
+		char temp[100];
+		sprintf(temp , "count = %d",count);
+		if(Data_in =='1')
 		{
-			lcd_puts("1");
+			Lcd4_Init();
+			Lcd4_Write_String(temp);
 		}
-		
-        _delay_ms(250);
+		else if(Data_in =='2')
+		{
+			lcd_clrscr();
+			lcd_puts(temp);
+		}
+		else
+			USART_SendString("Select proper option");	/* send message for selecting proper option */
+		lcd_puts("hehe");
     }
 }
