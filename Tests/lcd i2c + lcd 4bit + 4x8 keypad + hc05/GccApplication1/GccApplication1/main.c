@@ -23,15 +23,14 @@ extern void lcd_backlight(char on);   //not in lcd.h
 
 #include "lcd_4bit.h"
 
-#include "USART_RS232_H_file.h"		/* include USART library */
-
+#include "hc05.h"
 
 int main(void)
 {
 	
 	
 	
-	USART_Init(9600);						/* initialize USART with 9600 baud rate */
+	HC05_Init_Data_Mode();
 	
 	//////////////////////////////////////////////////////////////////////////
 	//LCD 4 bit
@@ -54,7 +53,6 @@ int main(void)
 	lcd_puts("ho re vai");
 	//////////////////////////////////////////////////////////////////////////
 	
-	USART_SendString("x");
 	
 	lcd_puts("sent");
 	int count  = 0;
@@ -62,15 +60,15 @@ int main(void)
 	while (1)
 	{
 		char Data_in;
-		Data_in = USART_RxChar();						/* receive data from Bluetooth device*/
+		Data_in = HC05_ReceiveChar();						/* receive data from Bluetooth device*/
 		char temp[100];
 		
-		sprintf(temp , "data$%c$",Data_in);
+		sprintf(temp , "data$%d$",Data_in);
 		
 		Lcd4_Clear();
 		Lcd4_Set_Cursor(0,0);
 		Lcd4_Write_String(temp);
-		_delay_ms(1000);
+		//_delay_ms(1000);
 		
 		//sprintf(temp , "count = %d ",count);
 		//if(Data_in =='1')
@@ -90,7 +88,7 @@ int main(void)
 			//USART_SendString("y");	/* send message for selecting proper option */
 		temp[1]=0;
 		temp[0]=Data_in;
-		USART_SendString(temp);
+		HC05_SendString(temp);
 		count++;
 	}
 }

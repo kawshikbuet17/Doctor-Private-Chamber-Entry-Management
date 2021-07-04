@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../hc05.c \
 ../lcd_i2cmaster.c \
 ../main.c \
 ../twimaster.c \
@@ -50,24 +51,28 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+hc05.o \
 lcd_i2cmaster.o \
 main.o \
 twimaster.o \
 USART_RS232_C_file.o
 
 OBJS_AS_ARGS +=  \
+hc05.o \
 lcd_i2cmaster.o \
 main.o \
 twimaster.o \
 USART_RS232_C_file.o
 
 C_DEPS +=  \
+hc05.d \
 lcd_i2cmaster.d \
 main.d \
 twimaster.d \
 USART_RS232_C_file.d
 
 C_DEPS_AS_ARGS +=  \
+hc05.d \
 lcd_i2cmaster.d \
 main.d \
 twimaster.d \
@@ -87,6 +92,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+./hc05.o: .././hc05.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ./lcd_i2cmaster.o: .././lcd_i2cmaster.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
