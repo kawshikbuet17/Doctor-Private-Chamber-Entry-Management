@@ -24,7 +24,7 @@ Total 6 pin
 [Interfacting with Atmega16/32](https://www.electronicwings.com/avr-atmega/hc-05-bluetooth-module-interfacing-with-atmega1632)
 
 ## Connection
-
+1 ~ 8 - B0 ~ B7 = Keypad8 Columns \
 9 - Reset\
 10 - VCC\
 11 - GND\
@@ -36,5 +36,6 @@ Total 6 pin
 30 - AVCC = VCC\
 31 - GND\
 32 - AREF = 1 micro F with GND\
+33 ~ 36 - A4 ~ A7 = Keypad8 Rows\
 39 - ADC1 = palse sensor analog input\
 40 - ADC0 = temp sensor analog input\
