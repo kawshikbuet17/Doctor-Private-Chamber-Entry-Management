@@ -4,6 +4,8 @@
 ### 4x4 Keypad Module
 [Pin & Circuit](https://components101.com/misc/4x4-keypad-module-pinout-configuration-features-datasheet)
 
+![Keys](Literature/keypad.png)
+
 ### Pulse sensor
 [Pin Out](https://components101.com/sensors/pulse-sensor)
 
@@ -36,4 +38,3 @@ Total 6 pin
 32 - AREF = 1 micro F with GND\
 39 - ADC1 = palse sensor analog input\
 40 - ADC0 = temp sensor analog input\
-

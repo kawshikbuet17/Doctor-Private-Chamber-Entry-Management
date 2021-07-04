@@ -24,7 +24,7 @@ extern void lcd_backlight(char on);   //not in lcd.h
 #include "lcd_4bit.h"
 
 #include "hc05.h"
-
+#include "keypad8.h"
 int main(void)
 {
 	
@@ -52,43 +52,19 @@ int main(void)
 	lcd_gotoxy(0, 0);
 	lcd_puts("ho re vai");
 	//////////////////////////////////////////////////////////////////////////
-	
-	
-	lcd_puts("sent");
-	int count  = 0;
+
+	Keypad_Init();
 	
 	while (1)
 	{
-		char Data_in;
-		Data_in = HC05_ReceiveChar();						/* receive data from Bluetooth device*/
-		char temp[100];
-		
-		sprintf(temp , "data$%d$",Data_in);
-		
-		Lcd4_Clear();
-		Lcd4_Set_Cursor(0,0);
-		Lcd4_Write_String(temp);
-		//_delay_ms(1000);
-		
-		//sprintf(temp , "count = %d ",count);
-		//if(Data_in =='1')
-		//{
-			//Lcd4_Init();
-			//Lcd4_Set_Cursor(1,0);
-			//
-			//Lcd4_Write_String(temp);
-		//}
-		//else if(Data_in =='2')
-		//{
-			//lcd_clrscr();
-			//lcd_gotoxy(0, 0);
-			//lcd_puts(temp);
-		//}
-		//else
-			//USART_SendString("y");	/* send message for selecting proper option */
-		temp[1]=0;
-		temp[0]=Data_in;
-		HC05_SendString(temp);
-		count++;
+		if(Keypad_KeyPressed())
+		{
+			int_fast8_t x = Keypad_GetKey();
+			char temp[10];
+			sprintf(temp , "key: %d ",x);
+			lcd_gotoxy(0,1);
+			lcd_puts(temp);
+			Keypad_Init();
+		}
 	}
 }

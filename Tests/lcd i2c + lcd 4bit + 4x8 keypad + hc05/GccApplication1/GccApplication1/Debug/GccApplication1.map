@@ -39,6 +39,12 @@ Discarded input sections
  .text          0x00000000        0x0 hc05.o
  .data          0x00000000        0x0 hc05.o
  .bss           0x00000000        0x0 hc05.o
+ .text.HC05_ReceiveChar
+                0x00000000        0x8 hc05.o
+ .text.HC05_SendChar
+                0x00000000        0x8 hc05.o
+ .text.HC05_SendString
+                0x00000000       0x1a hc05.o
  .text          0x00000000        0x0 lcd_i2cmaster.o
  .data          0x00000000        0x0 lcd_i2cmaster.o
  .bss           0x00000000        0x0 lcd_i2cmaster.o
@@ -75,6 +81,10 @@ Discarded input sections
                 0x00000000        0xe main.o
  .text.Lcd4_Shift_Left
                 0x00000000        0xe main.o
+ .bss.capsLocked
+                0x00000000        0x2 main.o
+ .data.numLocked
+                0x00000000        0x2 main.o
  .text          0x00000000        0x0 twimaster.o
  .data          0x00000000        0x0 twimaster.o
  .bss           0x00000000        0x0 twimaster.o
@@ -347,7 +357,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1000
+.text           0x00000000     0x106a
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
                 0x00000000                __vector_default
@@ -432,105 +442,111 @@ END GROUP
  .text.HC05_Init_Data_Mode
                 0x00000092       0x14 hc05.o
                 0x00000092                HC05_Init_Data_Mode
- .text.HC05_ReceiveChar
-                0x000000a6        0x8 hc05.o
-                0x000000a6                HC05_ReceiveChar
- .text.HC05_SendChar
-                0x000000ae        0x8 hc05.o
-                0x000000ae                HC05_SendChar
- .text.HC05_SendString
-                0x000000b6       0x1a hc05.o
-                0x000000b6                HC05_SendString
  .text.I2C_WRITESEQ
-                0x000000d0       0x42 lcd_i2cmaster.o
-                0x000000d0                I2C_WRITESEQ
+                0x000000a6       0x42 lcd_i2cmaster.o
+                0x000000a6                I2C_WRITESEQ
  .text.wr_lcd_mode
-                0x00000112       0x94 lcd_i2cmaster.o
+                0x000000e8       0x94 lcd_i2cmaster.o
  .text.lcd_gotoxy
-                0x000001a6       0x2a lcd_i2cmaster.o
-                0x000001a6                lcd_gotoxy
+                0x0000017c       0x2a lcd_i2cmaster.o
+                0x0000017c                lcd_gotoxy
  .text.lcd_clrscr
-                0x000001d0       0x12 lcd_i2cmaster.o
-                0x000001d0                lcd_clrscr
+                0x000001a6       0x12 lcd_i2cmaster.o
+                0x000001a6                lcd_clrscr
  .text.lcd_putc
-                0x000001e2       0x3e lcd_i2cmaster.o
-                0x000001e2                lcd_putc
+                0x000001b8       0x3e lcd_i2cmaster.o
+                0x000001b8                lcd_putc
  .text.lcd_puts
-                0x00000220       0x1a lcd_i2cmaster.o
-                0x00000220                lcd_puts
+                0x000001f6       0x1a lcd_i2cmaster.o
+                0x000001f6                lcd_puts
  .text.lcd_init
-                0x0000023a       0xee lcd_i2cmaster.o
-                0x0000023a                lcd_init
+                0x00000210       0xee lcd_i2cmaster.o
+                0x00000210                lcd_init
  .text.lcd_backlight
-                0x00000328        0x8 lcd_i2cmaster.o
-                0x00000328                lcd_backlight
+                0x000002fe        0x8 lcd_i2cmaster.o
+                0x000002fe                lcd_backlight
  .text.pinChange
-                0x00000330      0x380 main.o
-                0x00000330                pinChange
+                0x00000306      0x380 main.o
+                0x00000306                pinChange
  .text.Lcd4_Port
-                0x000006b0       0x80 main.o
-                0x000006b0                Lcd4_Port
+                0x00000686       0x80 main.o
+                0x00000686                Lcd4_Port
  .text.Lcd4_Cmd
-                0x00000730       0x4a main.o
-                0x00000730                Lcd4_Cmd
+                0x00000706       0x4a main.o
+                0x00000706                Lcd4_Cmd
  .text.Lcd4_Clear
-                0x0000077a        0xe main.o
-                0x0000077a                Lcd4_Clear
+                0x00000750        0xe main.o
+                0x00000750                Lcd4_Clear
  .text.Lcd4_Set_Cursor
-                0x00000788       0x3c main.o
-                0x00000788                Lcd4_Set_Cursor
+                0x0000075e       0x3c main.o
+                0x0000075e                Lcd4_Set_Cursor
  .text.Lcd4_Init
-                0x000007c4       0x6c main.o
-                0x000007c4                Lcd4_Init
+                0x0000079a       0x6c main.o
+                0x0000079a                Lcd4_Init
  .text.Lcd4_Write_Char
-                0x00000830       0x8e main.o
-                0x00000830                Lcd4_Write_Char
+                0x00000806       0x8e main.o
+                0x00000806                Lcd4_Write_Char
  .text.Lcd4_Write_String
-                0x000008be       0x2c main.o
-                0x000008be                Lcd4_Write_String
- .text.main     0x000008ea       0xd0 main.o
-                0x000008ea                main
+                0x00000894       0x2c main.o
+                0x00000894                Lcd4_Write_String
+ .text.Keypad_Init
+                0x000008c0        0xe main.o
+                0x000008c0                Keypad_Init
+ .text.Keypad_KeyPressed
+                0x000008ce        0x8 main.o
+                0x000008ce                Keypad_KeyPressed
+ .text.Keypad_GetRow
+                0x000008d6       0x2c main.o
+                0x000008d6                Keypad_GetRow
+ .text.Keypad_GetCol
+                0x00000902       0x3c main.o
+                0x00000902                Keypad_GetCol
+ .text.Keypad_GetKey
+                0x0000093e       0x18 main.o
+                0x0000093e                Keypad_GetKey
+ .text.main     0x00000956       0xce main.o
+                0x00000956                main
  .text.i2c_init
-                0x000009ba        0x8 twimaster.o
-                0x000009ba                i2c_init
+                0x00000a24        0x8 twimaster.o
+                0x00000a24                i2c_init
  .text.i2c_start
-                0x000009c2       0x3e twimaster.o
-                0x000009c2                i2c_start
+                0x00000a2c       0x3e twimaster.o
+                0x00000a2c                i2c_start
  .text.i2c_stop
-                0x00000a00        0xc twimaster.o
-                0x00000a00                i2c_stop
+                0x00000a6a        0xc twimaster.o
+                0x00000a6a                i2c_stop
  .text.i2c_write
-                0x00000a0c       0x1c twimaster.o
-                0x00000a0c                i2c_write
+                0x00000a76       0x1c twimaster.o
+                0x00000a76                i2c_write
  .text.avr-libc
-                0x00000a28       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x00000a28                sprintf
+                0x00000a92       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00000a92                sprintf
  .text.avr-libc
-                0x00000a6c      0x3c2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00000a6c                vfprintf
+                0x00000ad6      0x3c2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x00000ad6                vfprintf
  .text.avr-libc
-                0x00000e2e       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00000e2e                strnlen_P
+                0x00000e98       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00000e98                strnlen_P
  .text.avr-libc
-                0x00000e44       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00000e44                strnlen
+                0x00000eae       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00000eae                strnlen
  .text.avr-libc
-                0x00000e5a       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00000e5a                fputc
+                0x00000ec4       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00000ec4                fputc
  .text.avr-libc
-                0x00000ed2       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00000ed2                __ultoa_invert
+                0x00000f3c       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00000f3c                __ultoa_invert
  .text.libgcc.prologue
-                0x00000f8e       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00000f8e                __prologue_saves__
+                0x00000ff8       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00000ff8                __prologue_saves__
  .text.libgcc.prologue
-                0x00000fc6       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00000fc6                __epilogue_restores__
-                0x00000ffc                . = ALIGN (0x2)
+                0x00001030       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00001030                __epilogue_restores__
+                0x00001066                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000ffc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000ffc                _exit
-                0x00000ffc                exit
+ .fini9         0x00001066        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00001066                _exit
+                0x00001066                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -549,11 +565,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000ffc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001066        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001000                _etext = .
+                0x0000106a                _etext = .
 
-.data           0x00800060       0x2a load address 0x00001000
+.data           0x00800060       0x24 load address 0x0000106a
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -564,31 +580,30 @@ END GROUP
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800065       0x24 main.o
+                0x00800065       0x1f main.o
  *(.gnu.linkonce.r*)
-                0x0080008a                . = ALIGN (0x2)
- *fill*         0x00800089        0x1 
-                0x0080008a                _edata = .
-                0x0080008a                PROVIDE (__data_end, .)
+                0x00800084                . = ALIGN (0x2)
+                0x00800084                _edata = .
+                0x00800084                PROVIDE (__data_end, .)
 
-.bss            0x0080008a        0x3
-                0x0080008a                PROVIDE (__bss_start, .)
+.bss            0x00800084        0x3
+                0x00800084                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
- COMMON         0x0080008a        0x3 lcd_i2cmaster.o
-                0x0080008a                _lcd_maxx
-                0x0080008b                _lcd_x
-                0x0080008c                _lcd_y
-                0x0080008d                PROVIDE (__bss_end, .)
-                0x00001000                __data_load_start = LOADADDR (.data)
-                0x0000102a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800084        0x3 lcd_i2cmaster.o
+                0x00800084                _lcd_maxx
+                0x00800085                _lcd_x
+                0x00800086                _lcd_y
+                0x00800087                PROVIDE (__bss_end, .)
+                0x0000106a                __data_load_start = LOADADDR (.data)
+                0x0000108e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080008d        0x0
+.noinit         0x00800087        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080008d                _end = .
+                0x00800087                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -660,69 +675,69 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x1c0
+.debug_aranges  0x00000000      0x1e8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x38 hc05.o
  .debug_aranges
                 0x00000038       0x78 lcd_i2cmaster.o
  .debug_aranges
-                0x000000b0       0xb8 main.o
+                0x000000b0       0xe0 main.o
  .debug_aranges
-                0x00000168       0x58 twimaster.o
+                0x00000190       0x58 twimaster.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x21a5
+.debug_info     0x00000000     0x22a0
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_info    0x000004e6      0x101 hc05.o
  .debug_info    0x000005e7      0x734 lcd_i2cmaster.o
- .debug_info    0x00000d1b     0x12cd main.o
- .debug_info    0x00001fe8      0x1bd twimaster.o
+ .debug_info    0x00000d1b     0x13c8 main.o
+ .debug_info    0x000020e3      0x1bd twimaster.o
 
-.debug_abbrev   0x00000000      0xa64
+.debug_abbrev   0x00000000      0xaf5
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_abbrev  0x000004a3       0xcd hc05.o
  .debug_abbrev  0x00000570      0x1ed lcd_i2cmaster.o
- .debug_abbrev  0x0000075d      0x222 main.o
- .debug_abbrev  0x0000097f       0xe5 twimaster.o
+ .debug_abbrev  0x0000075d      0x2b3 main.o
+ .debug_abbrev  0x00000a10       0xe5 twimaster.o
 
-.debug_line     0x00000000     0x125c
+.debug_line     0x00000000     0x133a
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_line    0x00000116      0x12d hc05.o
  .debug_line    0x00000243      0x3c6 lcd_i2cmaster.o
- .debug_line    0x00000609      0x9cf main.o
- .debug_line    0x00000fd8      0x284 twimaster.o
+ .debug_line    0x00000609      0xaad main.o
+ .debug_line    0x000010b6      0x284 twimaster.o
 
-.debug_frame    0x00000000      0x408
+.debug_frame    0x00000000      0x46c
  *(.debug_frame)
  .debug_frame   0x00000000       0x60 hc05.o
  .debug_frame   0x00000060      0x14c lcd_i2cmaster.o
- .debug_frame   0x000001ac      0x1c8 main.o
- .debug_frame   0x00000374       0x94 twimaster.o
+ .debug_frame   0x000001ac      0x22c main.o
+ .debug_frame   0x000003d8       0x94 twimaster.o
 
-.debug_str      0x00000000      0x652
+.debug_str      0x00000000      0x6ad
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_str     0x00000196      0x1ca hc05.o
                                 0x208 (size before relaxing)
  .debug_str     0x00000360      0x173 lcd_i2cmaster.o
                                 0x343 (size before relaxing)
- .debug_str     0x000004d3      0x12c main.o
-                                0x39f (size before relaxing)
- .debug_str     0x000005ff       0x53 twimaster.o
+ .debug_str     0x000004d3      0x187 main.o
+                                0x3e0 (size before relaxing)
+ .debug_str     0x0000065a       0x53 twimaster.o
                                 0x22d (size before relaxing)
 
-.debug_loc      0x00000000     0x19de
+.debug_loc      0x00000000     0x1aee
  *(.debug_loc)
  .debug_loc     0x00000000       0x57 hc05.o
  .debug_loc     0x00000057      0x5ea lcd_i2cmaster.o
- .debug_loc     0x00000641     0x1283 main.o
- .debug_loc     0x000018c4      0x11a twimaster.o
+ .debug_loc     0x00000641     0x1393 main.o
+ .debug_loc     0x000019d4      0x11a twimaster.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -742,12 +757,12 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x198
+.debug_ranges   0x00000000      0x1c0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x28 hc05.o
  .debug_ranges  0x00000028       0x80 lcd_i2cmaster.o
- .debug_ranges  0x000000a8       0xa8 main.o
- .debug_ranges  0x00000150       0x48 twimaster.o
+ .debug_ranges  0x000000a8       0xd0 main.o
+ .debug_ranges  0x00000178       0x48 twimaster.o
 
 .debug_macro
  *(.debug_macro)

@@ -129,6 +129,9 @@
     <Compile Include="i2cmaster.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="keypad8.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="lcd.h">
       <SubType>compile</SubType>
     </Compile>

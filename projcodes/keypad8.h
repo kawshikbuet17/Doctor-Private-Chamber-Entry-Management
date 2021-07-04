@@ -11,7 +11,7 @@ void Keypad_Init()
 	// col: b7-b0
 	// row: a7-a4
 	// cols will function as output, rows will as input
-    DDRA = (DDRA & 3) | 0x00;
+    DDRA = (DDRA & 0b00000011) | 0x00;
 	DDRB = 0xFF;
 	PORTA = 0x00;       /** you may use 0b 0000 00XX if ADC has any operations after that. However, we are not reading that data for getting rows */
 	PORTB = 0xFF;
