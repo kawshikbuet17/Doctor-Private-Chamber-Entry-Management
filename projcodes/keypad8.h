@@ -8,22 +8,21 @@ int lcd_cursor_pos = -1;  // may be an extern integer
 
 void Keypad_Init()
 {
-	// col: b7-b4, a7-a4
-	// row: a3b2b1b0
+	// col: b7-b0
+	// row: a7-a4
 	// cols will function as output, rows will as input
-	DDRA = 0xF0;
-	DDRB = 0xF0;
-	PORTA = 0xF0;
-	PORTB = 0xF0;
+    DDRA = (DDRA & 3) | 0x00;
+	DDRB = 0xFF;
+	PORTA = 0x00;       /** you may use 0b 0000 00XX if ADC has any operations after that. However, we are not reading that data for getting rows */
+	PORTB = 0xFF;
 }
 
 int getRow()
 {
-	int row = 0, r;
-	for(int i = 0; i < 4; i++) {
-		r = (PINA & (1<<3)) | (PINB & 7);
-		if(r & (1 << i)) {
-			row = i;
+	int row = 0;
+	for(int i = 4; i < 8; i++) {
+		if(PINA & (1 << i)) {
+			row = i - 4;
 			break;
 		}
 	}
@@ -32,13 +31,13 @@ int getRow()
 
 int getCol()
 {
-	int col = 0, r;
-	DDRA = 0x08;	// reverting roles
-	DDRB = 0x0F;
+	int col = 0;
+	DDRA = 0xF3;	// reverting roles
+	DDRB = 0x00;
+    PORTA = 0xF0;
 
 	for(int i = 0; i < 8; i++) {
-		r = (PINA & 0xF0) | ((PINB & 0xF0) >> 4);
-		if(r & (1 << i)) {
+		if(PINB & (1 << i)) {
 			col = i;
 			break;
 		}
@@ -51,6 +50,7 @@ int getCol()
 char KeyPad_getKey()
 {
 	int row = getRow();
+   	_delay_ms(2);
 	int col = getCol();
 	unsigned char c = '';
 
