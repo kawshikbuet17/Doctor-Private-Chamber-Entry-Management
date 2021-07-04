@@ -4,7 +4,6 @@
 unsigned int numLocked = 1;
 unsigned int capsLocked = 0;
 
-int lcd_cursor_pos = -1;  // may be an extern integer
 
 void Keypad_Init()
 {
@@ -13,40 +12,41 @@ void Keypad_Init()
 	// cols will function as output, rows will as input
     DDRA = (DDRA & 0b00000011) | 0x00;
 	DDRB = 0xFF;
-	PORTA = 0x00;       /** you may use 0b 0000 00XX if ADC has any operations after that. However, we are not reading that data for getting rows */
+	// PORTA = 0x00;       /** you may use 0b 0000 00XX if ADC has any operations after that. However, we are not reading that data for getting rows */
 	PORTB = 0xFF;
 }
 
-int getRow()
+int_fast8_t Keypad_KeyPressed()
 {
-	int row = 0;
-	for(int i = 4; i < 8; i++) {
-		if(PINA & (1 << i)) {
-			row = i - 4;
-			break;
-		}
-	}
-	return row;
+	return (PINA >> 4);
 }
 
-int getCol()
+int_fast8_t Keypad_GetRow()
 {
-	int col = 0;
-	DDRA = 0xF3;	// reverting roles
-	DDRB = 0x00;
-    PORTA = 0xF0;
-
-	for(int i = 0; i < 8; i++) {
-		if(PINB & (1 << i)) {
-			col = i;
-			break;
-		}
+	int pin = PINA >> 4;
+	for(int i=0;i<4;i++)
+	{
+		if(pin&(1<<i))
+			return i;
 	}
-
-	Keypad_Init();
-	return col;
+	// report error
+	return -1;
 }
 
+int_fast8_t Keypad_GetCol()
+{
+	for(int i=0;i<8;i++)
+	{
+		PORTB = PORTB ^ (1<<i);
+		if(!(Keypad_KeyPressed()))
+		{
+			return i;
+		}
+	}	
+	// report error
+	return -1;
+}
+/*
 char KeyPad_getKey()
 {
 	int row = getRow();
@@ -96,14 +96,21 @@ char KeyPad_getKey()
 				lcd_cursor_pos -= 2;
 			}
 			else if(col == 6) {
-				/* codes for PREV */
+				// codes for PREV 
 			}
 			else if(col == 7) {
-				/* codes for NEXT */
+				// codes for NEXT
 			}
 		}
 	}
 
 	lcd_cursor_pos ++;
 	return c;
+}
+*/
+int_fast8_t Keypad_GetKey()
+{
+	int_fast8_t row = Keypad_GetRow();
+	int_fast8_t col = Keypad_GetCol();
+	return row * 8 + col;
 }

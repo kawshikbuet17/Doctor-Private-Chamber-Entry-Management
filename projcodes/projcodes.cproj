@@ -120,13 +120,31 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="hc05.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="hc05.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="i2cmaster.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="keypad.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="lcd.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lcd_4bit.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd_i2cmaster.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="twimaster.c">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
