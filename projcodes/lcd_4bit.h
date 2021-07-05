@@ -1,6 +1,8 @@
 #ifndef LCD_4BIT_H_ADDED
 #define LCD_4BIT_H_ADDED
 
+#include "all.h"
+
 //LCD Functions Developed by electroSome
 #define eS_PORTA0 0
 #define eS_PORTA1 1
@@ -44,6 +46,7 @@
 #endif
 
 #include<util/delay.h>
+#include <avr/io.h>
 
 void pinChange(int a, int b);
 
@@ -57,7 +60,7 @@ void Lcd4_Clear();
 void Lcd4_Set_Cursor(char a, char b);
 void Lcd4_Init();
 void Lcd4_Write_Char(char a);
-void Lcd4_Write_String(char *a);
+void Lcd4_Write_String(const char *a);
 void Lcd4_Shift_Right();
 void Lcd4_Shift_Left();
 //End LCD 4 Bit Interfacing Functions

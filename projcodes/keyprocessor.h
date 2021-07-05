@@ -1,6 +1,6 @@
 #ifndef KEY_PROCESSOR_H_ADDED
 #define KEY_PROCESSOR_H_ADDED
-#include "avr/io.h"
+#include "all.h"
 /*
 key-> [0,32)  0 1 .. 7
 		      8 9 .. 15

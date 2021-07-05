@@ -12,6 +12,8 @@ keypad8.c
 
 keyprocessor.c
 
+lcdgeneric.c
+
 lcd_4bit.c
 
 lcd_i2cmaster.c

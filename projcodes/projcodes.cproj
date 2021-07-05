@@ -159,6 +159,12 @@
     <Compile Include="lcd.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lcdgeneric.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcdgeneric.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="lcd_4bit.c">
       <SubType>compile</SubType>
     </Compile>

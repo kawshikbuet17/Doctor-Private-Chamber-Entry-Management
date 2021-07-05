@@ -1,4 +1,4 @@
-#include "all.h"
+#include "lcd_4bit.h"
 
 void pinChange(int a, int b)
 {
@@ -179,7 +179,7 @@ void Lcd4_Clear()
 void Lcd4_Set_Cursor(char a, char b)
 {
 	char temp,z,y;
-	if(a == 1)
+	if(a == 0)
 	{
 		temp = 0x80 + b;
 		z = temp>>4;
@@ -187,7 +187,7 @@ void Lcd4_Set_Cursor(char a, char b)
 		Lcd4_Cmd(z);
 		Lcd4_Cmd(y);
 	}
-	else if(a == 2)
+	else if(a == 1)
 	{
 		temp = 0xC0 + b;
 		z = temp>>4;
@@ -237,7 +237,7 @@ void Lcd4_Write_Char(char a)
 	_delay_ms(1);
 }
 
-void Lcd4_Write_String(char *a)
+void Lcd4_Write_String(const char *a)
 {
 	int i;
 	for(i=0;a[i]!='\0';i++)

@@ -42,6 +42,7 @@ C_SRCS +=  \
 ../idle.c \
 ../keypad8.c \
 ../keyprocessor.c \
+../lcdgeneric.c \
 ../lcd_4bit.c \
 ../lcd_i2cmaster.c \
 ../main.c \
@@ -61,6 +62,7 @@ hc05.o \
 idle.o \
 keypad8.o \
 keyprocessor.o \
+lcdgeneric.o \
 lcd_4bit.o \
 lcd_i2cmaster.o \
 main.o \
@@ -73,6 +75,7 @@ hc05.o \
 idle.o \
 keypad8.o \
 keyprocessor.o \
+lcdgeneric.o \
 lcd_4bit.o \
 lcd_i2cmaster.o \
 main.o \
@@ -85,6 +88,7 @@ hc05.d \
 idle.d \
 keypad8.d \
 keyprocessor.d \
+lcdgeneric.d \
 lcd_4bit.d \
 lcd_i2cmaster.d \
 main.d \
@@ -97,6 +101,7 @@ hc05.d \
 idle.d \
 keypad8.d \
 keyprocessor.d \
+lcdgeneric.d \
 lcd_4bit.d \
 lcd_i2cmaster.d \
 main.d \
@@ -146,6 +151,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./keyprocessor.o: .././keyprocessor.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./lcdgeneric.o: .././lcdgeneric.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
