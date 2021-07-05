@@ -1,5 +1,9 @@
 #include "../all.h"
 
+volatile char keyBuffer[17];
+volatile bool isNumber = 0;
+volatile bool isUpperCase = 0;
+volatile int position =0;
 
 void Keypad_Init()
 {
@@ -10,6 +14,15 @@ void Keypad_Init()
 	DDRB = 0xFF;
 	// PORTA = 0x00;       /** you may use 0b 0000 00XX if ADC has any operations after that. However, we are not reading that data for getting rows */
 	PORTB = 0xFF;
+}
+
+const char * Keypad_GetMode()
+{
+	if(isNumber)
+		return "123";
+	else if(isUpperCase)
+		return "ABC";
+	else return "abc";
 }
 
 int_fast8_t Keypad_KeyPressed()
@@ -26,6 +39,7 @@ int_fast8_t Keypad_GetRow()
 			return i;
 	}
 	// report error
+	Error_Error("KeypadGetRow:");
 	return -1;
 }
 
@@ -38,75 +52,99 @@ int_fast8_t Keypad_GetCol()
 		{
 			return i;
 		}
-	}	
+	}
+	Error_Error("KeypadGetCol:");
 	// report error
 	return -1;
 }
-/*
-char KeyPad_getKey()
-{
-	int row = getRow();
-   	_delay_ms(2);
-	int col = getCol();
-	unsigned char c = '';
 
-	if(numLocked) {
+void addChar(const char c)
+{
+	keyBuffer[position] = c;
+	if(position < 16)
+		position = position +1;
+	keyBuffer[position] = 0;
+	//HC05_SendString("keybuff:");
+	//HC05_SendString(keyBuffer);
+	//HC05_SendString(":\r\n");
+	//char temp[10];
+	//sprintf(temp , "pos:%d:\n",position);
+	//HC05_SendString(temp);
+}
+
+void Keypad_AddKey(int_fast8_t key)
+{
+	if(key >= 30)
+		Error_Error("KeyPad_AddKey: 31|30");
+	if(key == 29) 
+	{
+		// backspace = delete char
+		keyBuffer[position] = 0;
+		if(position)
+			position--;
+	}
+	else if(key == 28)
+	{
+		// space
+		addChar(' ');
+	}
+	else if(key == 27)
+	{
+		// toggle num/abc
+		isNumber = ! isNumber;
+	}
+	else if(isNumber) 
+	{
+		char row = key >> 3;
+		char col = key & 0b00000111;
+		char c;
+		
+		if(col >= 3) return;
+		
 		if(row < 3) {
 			c = '1' + row * 3 + col;
 		}
-		else {
-			if(col == 0) {
-				c = '*';
-			}
-			else if(col == 1) {
-				c = '0';
-			}
-			else if(col == 2) {
-				c = '#';
-			}
+		else if(col == 0) {
+			c = '*';
 		}
+		else if(col == 1) {
+			c = '0';
+		}
+		else  {
+			c = '#';
+		}
+		addChar(c);
+		
 	}
-
-	else {
+	else if(key == 26)
+	{
+		// capslock
+		isUpperCase = !isUpperCase;
+	}
+	else
+	{
+		// char
+		char row = key >> 3;
+		char col = key & 0b00000111;
+		char c;
+		
 		if(row < 3) {
-			c = 'A' + (capsLocked ? 0 : 32) + row * 8 + col;
+			c = 'A' + (isUpperCase ? 0 : 32) + row * 8 + col;
 		}
 		else {
-			if(col == 0 || col == 1) {
-				c = 'Y' + (capsLocked ? 0 : 32) + col;
-			}
-			else if(col == 2) {
-				capsLocked = !capsLocked;
-				lcd_cursor_pos--;
-			}
-			else if(col == 3) {
-				numLocked = !numLocked;
-				lcd_cursor_pos--;
-			}
-			else if(col == 4) {
-				// whitespace
-				lcd_cursor_pos++;
-			}
-			else if(col == 5) {
-				// backspace
-				lcd_cursor_pos -= 2;
-			}
-			else if(col == 6) {
-				// codes for PREV 
-			}
-			else if(col == 7) {
-				// codes for NEXT
-			}
+			c = 'Y' + (isUpperCase ? 0 : 32) + col;
 		}
+		
+		addChar(c);
 	}
-
-	lcd_cursor_pos ++;
-	return c;
+	return ;
 }
-*/
+
 int_fast8_t Keypad_GetKey()
 {
 	int_fast8_t row = Keypad_GetRow();
 	int_fast8_t col = Keypad_GetCol();
+	Error_ErrorNum("row",row);
+	Error_ErrorNum("col",col);
 	return row * 8 + col;
 }

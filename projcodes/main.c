@@ -27,22 +27,12 @@ int main(void)
 	States_GotoState(IDLE);
 	Keypad_Init();
 	
-	for(int i=0;i<26;i++)
-	{
-		Lcd_Position(LCDNOTICE , i/16, i%16);
-		Lcd_Printc(LCDNOTICE , 'a' + i);
-		
-		Lcd_Position(LCDKEYPAD , i/16, i%16);
-		Lcd_Printc(LCDKEYPAD , 'a' + i);
-	}
-	
-	
-	
 	while (1)
 	{
 		if(Keypad_KeyPressed())
 		{
 			int_fast8_t x = Keypad_GetKey();
+			_delay_ms(200);
 			KeyProcessor_ProcessKey(x);
 			Keypad_Init();
 		}

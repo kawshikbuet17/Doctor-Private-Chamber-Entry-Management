@@ -1,6 +1,7 @@
 #include "../all.h"
 
-int_fast8_t currentState;
+volatile int_fast8_t currentState;
+
 void States_GotoState(int_fast8_t newState)
 {
 	switch(newState)
@@ -8,7 +9,11 @@ void States_GotoState(int_fast8_t newState)
 		case IDLE:
 			Idle_Init();
 			break;
+		case ENTERING_NAME:
+			EnteringName_Init();
+			break;
 		default:
 			Error_Error("GotoState: newState not defined");
 	}
+	currentState = newState;
 }

@@ -2,11 +2,13 @@
 #define KEYPAD8_H_ADDED
 
 #include "../all.h"
+extern volatile char keyBuffer[17];
 
 void Keypad_Init();
 int_fast8_t Keypad_KeyPressed();
 int_fast8_t Keypad_GetRow();
 int_fast8_t Keypad_GetCol();
 int_fast8_t Keypad_GetKey();
-
+const char * Keypad_GetMode();
+void Keypad_AddKey(int_fast8_t key);
 #endif

@@ -36,7 +36,9 @@ SUBDIRS :=  \
 ../hc05/ \
 ../keypad/ \
 ../lcd/ \
-../state/
+../state/ \
+../state/enteringname/ \
+../state/idle/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -49,7 +51,8 @@ C_SRCS +=  \
 ../lcd/lcd_4bit.c \
 ../lcd/lcd_i2cmaster.c \
 ../main.c \
-../state/idle.c \
+../state/enteringname/enteringname.c \
+../state/idle/idle.c \
 ../state/states.c \
 ../twimaster.c
 
@@ -69,7 +72,8 @@ lcd/lcdgeneric.o \
 lcd/lcd_4bit.o \
 lcd/lcd_i2cmaster.o \
 main.o \
-state/idle.o \
+state/enteringname/enteringname.o \
+state/idle/idle.o \
 state/states.o \
 twimaster.o
 
@@ -82,7 +86,8 @@ lcd/lcdgeneric.o \
 lcd/lcd_4bit.o \
 lcd/lcd_i2cmaster.o \
 main.o \
-state/idle.o \
+state/enteringname/enteringname.o \
+state/idle/idle.o \
 state/states.o \
 twimaster.o
 
@@ -95,7 +100,8 @@ lcd/lcdgeneric.d \
 lcd/lcd_4bit.d \
 lcd/lcd_i2cmaster.d \
 main.d \
-state/idle.d \
+state/enteringname/enteringname.d \
+state/idle/idle.d \
 state/states.d \
 twimaster.d
 
@@ -108,7 +114,8 @@ lcd/lcdgeneric.d \
 lcd/lcd_4bit.d \
 lcd/lcd_i2cmaster.d \
 main.d \
-state/idle.d \
+state/enteringname/enteringname.d \
+state/idle/idle.d \
 state/states.d \
 twimaster.d
 
@@ -182,7 +189,14 @@ lcd/lcd_i2cmaster.o: ../lcd/lcd_i2cmaster.c
 	@echo Finished building: $<
 	
 
-state/idle.o: ../state/idle.c
+state/enteringname/enteringname.o: ../state/enteringname/enteringname.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+state/idle/idle.o: ../state/idle/idle.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

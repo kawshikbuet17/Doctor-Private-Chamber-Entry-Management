@@ -171,10 +171,16 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="state\idle.c">
+    <Compile Include="state\enteringname\enteringname.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="state\idle.h">
+    <Compile Include="state\enteringname\enteringname.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\idle\idle.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\idle\idle.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="state\states.c">
@@ -192,6 +198,8 @@
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />
     <Folder Include="state\" />
+    <Folder Include="state\enteringname\" />
+    <Folder Include="state\idle\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

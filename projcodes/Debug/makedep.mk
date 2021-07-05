@@ -18,7 +18,9 @@ lcd\lcd_i2cmaster.c
 
 main.c
 
-state\idle.c
+state\enteringname\enteringname.c
+
+state\idle\idle.c
 
 state\states.c
 

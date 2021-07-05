@@ -8,6 +8,9 @@ void KeyProcessor_ProcessKey(int_fast8_t key)
 		case IDLE:
 			Idle_ProcessKey(key);
 			break;
+		case ENTERING_NAME :
+			EnteringName_ProcessKey(key);
+			break;
 		default:
 			Error_Error("ProcessKey: Undefined Current State");
 	}

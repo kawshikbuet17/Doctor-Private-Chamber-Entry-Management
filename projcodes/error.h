@@ -4,4 +4,5 @@
 #include "all.h"
 
 void Error_Error(const char *);
+void Error_ErrorNum(const char *,int);
 #endif

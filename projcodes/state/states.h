@@ -10,7 +10,7 @@
 #define ENTERING_PHONE 3
 
 #include <avr/io.h>
-#include "idle.h"
+#include "idle/idle.h"
 void States_GotoState(int_fast8_t);
 
 #endif

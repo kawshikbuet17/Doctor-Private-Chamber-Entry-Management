@@ -3,8 +3,8 @@
 
 #include "../all.h"
 
-#define LCDKEYPAD 0
-#define LCDNOTICE 1
+#define LCDKEYPAD 0 // LcdType
+#define LCDNOTICE 1 // LcdType
 
 
 #define D4 eS_PORTD5
