@@ -13,24 +13,24 @@ void UpdateKeyMode()
 	Lcd_Position(LCDKEYPAD,0,16-strlen(s));
 	Lcd_Prints(LCDKEYPAD,s);
 }
-void EnteringName_Init()
+void EnteringPhone_Init()
 {
     Lcd_ClearScreen(LCDKEYPAD);
     Lcd_Position(LCDKEYPAD,0,0);
-    Lcd_Prints(LCDKEYPAD,"Enter Name:");
+    Lcd_Prints(LCDKEYPAD,"Enter Phone no:");
 	UpdateKeyMode();
 }
 
-void EnteringName_ProcessKey(int_fast8_t key)
+void EnteringPhone_ProcessKey(int_fast8_t key)
 {
 	if(key == 31)
 	{
-		records[serial].name = keyBuffer;
-		States_GotoState(ENTERING_AGE);
+		records[serial].phone = keyBuffer;
+		States_GotoState(GENERATE_SERIAL);
 	}
 	else if(key == 30)
 	{
-		States_GotoState(IDLE);
+		States_GotoState(ENTERING_AGE);
 	}
 	else 
 	{
