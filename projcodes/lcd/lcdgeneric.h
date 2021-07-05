@@ -1,7 +1,7 @@
 #ifndef LCDGENERIC_H_ADDED
 #define LCDGENERIC_H_ADDED
 
-#include "all.h"
+#include "../all.h"
 
 #define LCDKEYPAD 0
 #define LCDNOTICE 1

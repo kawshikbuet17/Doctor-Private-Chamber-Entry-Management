@@ -1,7 +1,7 @@
 #ifndef LCD_4BIT_H_ADDED
 #define LCD_4BIT_H_ADDED
 
-#include "all.h"
+#include "../all.h"
 
 //LCD Functions Developed by electroSome
 #define eS_PORTA0 0

@@ -1,7 +1,7 @@
 #ifndef KEYPAD8_H_ADDED
 #define KEYPAD8_H_ADDED
 
-#include "all.h"
+#include "../all.h"
 
 void Keypad_Init();
 int_fast8_t Keypad_KeyPressed();

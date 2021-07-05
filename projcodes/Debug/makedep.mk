@@ -4,23 +4,23 @@
 
 error.c
 
-hc05.c
+hc05\hc05.c
 
-idle.c
-
-keypad8.c
+keypad\keypad8.c
 
 keyprocessor.c
 
-lcdgeneric.c
+lcd\lcdgeneric.c
 
-lcd_4bit.c
+lcd\lcd_4bit.c
 
-lcd_i2cmaster.c
+lcd\lcd_i2cmaster.c
 
 main.c
 
-states.c
+state\idle.c
+
+state\states.c
 
 twimaster.c
 

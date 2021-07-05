@@ -17,10 +17,12 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- .././all.h .././error.h .././states.h .././idle.h .././lcdgeneric.h \
- .././lcd_4bit.h .././lcd.h \
+ .././all.h .././error.h .././state/states.h .././state/idle.h \
+ .././state/../all.h .././state/idle.h .././lcd/lcdgeneric.h \
+ .././lcd/../all.h .././lcd/lcd_4bit.h .././lcd/lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- .././hc05.h .././keypad8.h .././keyprocessor.h
+ .././hc05/hc05.h .././keypad/keypad8.h .././keypad/../all.h \
+ .././keyprocessor.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -62,20 +64,28 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 .././error.h:
 
-.././states.h:
+.././state/states.h:
 
-.././idle.h:
+.././state/idle.h:
 
-.././lcdgeneric.h:
+.././state/../all.h:
 
-.././lcd_4bit.h:
+.././state/idle.h:
 
-.././lcd.h:
+.././lcd/lcdgeneric.h:
+
+.././lcd/../all.h:
+
+.././lcd/lcd_4bit.h:
+
+.././lcd/lcd.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
 
-.././hc05.h:
+.././hc05/hc05.h:
 
-.././keypad8.h:
+.././keypad/keypad8.h:
+
+.././keypad/../all.h:
 
 .././keyprocessor.h:

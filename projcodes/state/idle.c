@@ -1,4 +1,4 @@
-#include "all.h"
+#include "../all.h"
 
 void Idle_ProcessKey(int_fast8_t key)
 {

@@ -3,17 +3,17 @@ Archive member included to satisfy reference by file (symbol)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              idle.o (__do_copy_data)
+                              keyprocessor.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                              lcd_i2cmaster.o (__do_clear_bss)
+                              lcd/lcd_i2cmaster.o (__do_clear_bss)
 
 Allocating common symbols
 Common symbol       size              file
 
-_lcd_maxx           0x1               lcd_i2cmaster.o
-currentState        0x1               states.o
-_lcd_x              0x1               lcd_i2cmaster.o
-_lcd_y              0x1               lcd_i2cmaster.o
+_lcd_maxx           0x1               lcd/lcd_i2cmaster.o
+currentState        0x1               state/states.o
+_lcd_x              0x1               lcd/lcd_i2cmaster.o
+_lcd_y              0x1               lcd/lcd_i2cmaster.o
 
 Discarded input sections
 
@@ -22,51 +22,51 @@ Discarded input sections
  .text          0x00000000        0x0 error.o
  .data          0x00000000        0x0 error.o
  .bss           0x00000000        0x0 error.o
- .text          0x00000000        0x0 hc05.o
- .data          0x00000000        0x0 hc05.o
- .bss           0x00000000        0x0 hc05.o
+ .text          0x00000000        0x0 hc05/hc05.o
+ .data          0x00000000        0x0 hc05/hc05.o
+ .bss           0x00000000        0x0 hc05/hc05.o
  .text.HC05_ReceiveChar
-                0x00000000        0x8 hc05.o
+                0x00000000        0x8 hc05/hc05.o
  .text.HC05_SendChar
-                0x00000000        0x8 hc05.o
+                0x00000000        0x8 hc05/hc05.o
  .text.HC05_SendString
-                0x00000000       0x1e hc05.o
- .text          0x00000000        0x0 idle.o
- .data          0x00000000        0x0 idle.o
- .bss           0x00000000        0x0 idle.o
- .text          0x00000000        0x0 keypad8.o
- .data          0x00000000        0x0 keypad8.o
- .bss           0x00000000        0x0 keypad8.o
+                0x00000000       0x1e hc05/hc05.o
+ .text          0x00000000        0x0 keypad/keypad8.o
+ .data          0x00000000        0x0 keypad/keypad8.o
+ .bss           0x00000000        0x0 keypad/keypad8.o
  .text          0x00000000        0x0 keyprocessor.o
  .data          0x00000000        0x0 keyprocessor.o
  .bss           0x00000000        0x0 keyprocessor.o
- .text          0x00000000        0x0 lcdgeneric.o
- .data          0x00000000        0x0 lcdgeneric.o
- .bss           0x00000000        0x0 lcdgeneric.o
- .text          0x00000000        0x0 lcd_4bit.o
- .data          0x00000000        0x0 lcd_4bit.o
- .bss           0x00000000        0x0 lcd_4bit.o
+ .text          0x00000000        0x0 lcd/lcdgeneric.o
+ .data          0x00000000        0x0 lcd/lcdgeneric.o
+ .bss           0x00000000        0x0 lcd/lcdgeneric.o
+ .text          0x00000000        0x0 lcd/lcd_4bit.o
+ .data          0x00000000        0x0 lcd/lcd_4bit.o
+ .bss           0x00000000        0x0 lcd/lcd_4bit.o
  .text.Lcd4_Shift_Right
-                0x00000000        0xe lcd_4bit.o
+                0x00000000        0xe lcd/lcd_4bit.o
  .text.Lcd4_Shift_Left
-                0x00000000        0xe lcd_4bit.o
- .text          0x00000000        0x0 lcd_i2cmaster.o
- .data          0x00000000        0x0 lcd_i2cmaster.o
- .bss           0x00000000        0x0 lcd_i2cmaster.o
+                0x00000000        0xe lcd/lcd_4bit.o
+ .text          0x00000000        0x0 lcd/lcd_i2cmaster.o
+ .data          0x00000000        0x0 lcd/lcd_i2cmaster.o
+ .bss           0x00000000        0x0 lcd/lcd_i2cmaster.o
  .text.lcd_home
-                0x00000000       0x12 lcd_i2cmaster.o
+                0x00000000       0x12 lcd/lcd_i2cmaster.o
  .text.lcd_puts_p
-                0x00000000       0x24 lcd_i2cmaster.o
+                0x00000000       0x24 lcd/lcd_i2cmaster.o
  .text.lcd_command
-                0x00000000        0x8 lcd_i2cmaster.o
+                0x00000000        0x8 lcd/lcd_i2cmaster.o
  .text.lcd_data
-                0x00000000        0x8 lcd_i2cmaster.o
+                0x00000000        0x8 lcd/lcd_i2cmaster.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 states.o
- .data          0x00000000        0x0 states.o
- .bss           0x00000000        0x0 states.o
+ .text          0x00000000        0x0 state/idle.o
+ .data          0x00000000        0x0 state/idle.o
+ .bss           0x00000000        0x0 state/idle.o
+ .text          0x00000000        0x0 state/states.o
+ .data          0x00000000        0x0 state/states.o
+ .bss           0x00000000        0x0 state/states.o
  .text          0x00000000        0x0 twimaster.o
  .data          0x00000000        0x0 twimaster.o
  .bss           0x00000000        0x0 twimaster.o
@@ -143,15 +143,15 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
 LOAD error.o
-LOAD hc05.o
-LOAD idle.o
-LOAD keypad8.o
+LOAD hc05/hc05.o
+LOAD keypad/keypad8.o
 LOAD keyprocessor.o
-LOAD lcdgeneric.o
-LOAD lcd_4bit.o
-LOAD lcd_i2cmaster.o
+LOAD lcd/lcdgeneric.o
+LOAD lcd/lcd_4bit.o
+LOAD lcd/lcd_i2cmaster.o
 LOAD main.o
-LOAD states.o
+LOAD state/idle.o
+LOAD state/states.o
 LOAD twimaster.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
@@ -348,98 +348,98 @@ END GROUP
                 0x00000092        0x2 error.o
                 0x00000092                Error_Error
  .text.HC05_Init_Data_Mode
-                0x00000094       0x14 hc05.o
+                0x00000094       0x14 hc05/hc05.o
                 0x00000094                HC05_Init_Data_Mode
- .text.Idle_ProcessKey
-                0x000000a8        0x8 idle.o
-                0x000000a8                Idle_ProcessKey
- .text.Idle_Init
-                0x000000b0       0x12 idle.o
-                0x000000b0                Idle_Init
  .text.Keypad_Init
-                0x000000c2        0xe keypad8.o
-                0x000000c2                Keypad_Init
+                0x000000a8        0xe keypad/keypad8.o
+                0x000000a8                Keypad_Init
  .text.Keypad_KeyPressed
-                0x000000d0        0x8 keypad8.o
-                0x000000d0                Keypad_KeyPressed
+                0x000000b6        0x8 keypad/keypad8.o
+                0x000000b6                Keypad_KeyPressed
  .text.Keypad_GetRow
-                0x000000d8       0x38 keypad8.o
-                0x000000d8                Keypad_GetRow
+                0x000000be       0x38 keypad/keypad8.o
+                0x000000be                Keypad_GetRow
  .text.Keypad_GetCol
-                0x00000110       0x48 keypad8.o
-                0x00000110                Keypad_GetCol
+                0x000000f6       0x48 keypad/keypad8.o
+                0x000000f6                Keypad_GetCol
  .text.Keypad_GetKey
-                0x00000158       0x18 keypad8.o
-                0x00000158                Keypad_GetKey
+                0x0000013e       0x18 keypad/keypad8.o
+                0x0000013e                Keypad_GetKey
  .text.KeyProcessor_ProcessKey
-                0x00000170       0x18 keyprocessor.o
-                0x00000170                KeyProcessor_ProcessKey
+                0x00000156       0x18 keyprocessor.o
+                0x00000156                KeyProcessor_ProcessKey
  .text.Lcd_Init
-                0x00000188       0x5c lcdgeneric.o
-                0x00000188                Lcd_Init
+                0x0000016e       0x5c lcd/lcdgeneric.o
+                0x0000016e                Lcd_Init
  .text.Lcd_ClearScreen
-                0x000001e4       0x20 lcdgeneric.o
-                0x000001e4                Lcd_ClearScreen
+                0x000001ca       0x20 lcd/lcdgeneric.o
+                0x000001ca                Lcd_ClearScreen
  .text.Lcd_Prints
-                0x00000204       0x24 lcdgeneric.o
-                0x00000204                Lcd_Prints
+                0x000001ea       0x24 lcd/lcdgeneric.o
+                0x000001ea                Lcd_Prints
  .text.Lcd_Position
-                0x00000228       0x28 lcdgeneric.o
-                0x00000228                Lcd_Position
+                0x0000020e       0x28 lcd/lcdgeneric.o
+                0x0000020e                Lcd_Position
  .text.Lcd_Printc
-                0x00000250       0x22 lcdgeneric.o
-                0x00000250                Lcd_Printc
+                0x00000236       0x22 lcd/lcdgeneric.o
+                0x00000236                Lcd_Printc
  .text.pinChange
-                0x00000272      0x280 lcd_4bit.o
-                0x00000272                pinChange
+                0x00000258      0x280 lcd/lcd_4bit.o
+                0x00000258                pinChange
  .text.Lcd4_Port
-                0x000004f2       0x80 lcd_4bit.o
-                0x000004f2                Lcd4_Port
+                0x000004d8       0x80 lcd/lcd_4bit.o
+                0x000004d8                Lcd4_Port
  .text.Lcd4_Cmd
-                0x00000572       0x4a lcd_4bit.o
-                0x00000572                Lcd4_Cmd
+                0x00000558       0x4a lcd/lcd_4bit.o
+                0x00000558                Lcd4_Cmd
  .text.Lcd4_Clear
-                0x000005bc        0xe lcd_4bit.o
-                0x000005bc                Lcd4_Clear
+                0x000005a2        0xe lcd/lcd_4bit.o
+                0x000005a2                Lcd4_Clear
  .text.Lcd4_Set_Cursor
-                0x000005ca       0x3a lcd_4bit.o
-                0x000005ca                Lcd4_Set_Cursor
+                0x000005b0       0x3a lcd/lcd_4bit.o
+                0x000005b0                Lcd4_Set_Cursor
  .text.Lcd4_Init
-                0x00000604       0x6c lcd_4bit.o
-                0x00000604                Lcd4_Init
+                0x000005ea       0x6c lcd/lcd_4bit.o
+                0x000005ea                Lcd4_Init
  .text.Lcd4_Write_Char
-                0x00000670       0x86 lcd_4bit.o
-                0x00000670                Lcd4_Write_Char
+                0x00000656       0x86 lcd/lcd_4bit.o
+                0x00000656                Lcd4_Write_Char
  .text.Lcd4_Write_String
-                0x000006f6       0x1e lcd_4bit.o
-                0x000006f6                Lcd4_Write_String
+                0x000006dc       0x1e lcd/lcd_4bit.o
+                0x000006dc                Lcd4_Write_String
  .text.I2C_WRITESEQ
-                0x00000714       0x58 lcd_i2cmaster.o
-                0x00000714                I2C_WRITESEQ
+                0x000006fa       0x58 lcd/lcd_i2cmaster.o
+                0x000006fa                I2C_WRITESEQ
  .text.wr_lcd_mode
-                0x0000076c       0x94 lcd_i2cmaster.o
+                0x00000752       0x94 lcd/lcd_i2cmaster.o
  .text.lcd_gotoxy
-                0x00000800       0x2c lcd_i2cmaster.o
-                0x00000800                lcd_gotoxy
+                0x000007e6       0x2c lcd/lcd_i2cmaster.o
+                0x000007e6                lcd_gotoxy
  .text.lcd_clrscr
-                0x0000082c       0x12 lcd_i2cmaster.o
-                0x0000082c                lcd_clrscr
+                0x00000812       0x12 lcd/lcd_i2cmaster.o
+                0x00000812                lcd_clrscr
  .text.lcd_putc
-                0x0000083e       0x52 lcd_i2cmaster.o
-                0x0000083e                lcd_putc
+                0x00000824       0x52 lcd/lcd_i2cmaster.o
+                0x00000824                lcd_putc
  .text.lcd_puts
-                0x00000890       0x1e lcd_i2cmaster.o
-                0x00000890                lcd_puts
+                0x00000876       0x1e lcd/lcd_i2cmaster.o
+                0x00000876                lcd_puts
  .text.lcd_init
-                0x000008ae       0xe2 lcd_i2cmaster.o
-                0x000008ae                lcd_init
+                0x00000894       0xe2 lcd/lcd_i2cmaster.o
+                0x00000894                lcd_init
  .text.lcd_backlight
-                0x00000990        0x8 lcd_i2cmaster.o
-                0x00000990                lcd_backlight
- .text.main     0x00000998       0x96 main.o
-                0x00000998                main
+                0x00000976        0x8 lcd/lcd_i2cmaster.o
+                0x00000976                lcd_backlight
+ .text.main     0x0000097e       0x96 main.o
+                0x0000097e                main
+ .text.Idle_ProcessKey
+                0x00000a14        0x8 state/idle.o
+                0x00000a14                Idle_ProcessKey
+ .text.Idle_Init
+                0x00000a1c       0x12 state/idle.o
+                0x00000a1c                Idle_Init
  .text.States_GotoState
-                0x00000a2e       0x14 states.o
+                0x00000a2e       0x14 state/states.o
                 0x00000a2e                States_GotoState
  .text.i2c_init
                 0x00000a42        0x8 twimaster.o
@@ -485,19 +485,19 @@ END GROUP
  *(.data)
  *(.data*)
  .data.backlight.1943
-                0x00800060        0x1 lcd_i2cmaster.o
- .data._base_y  0x00800061        0x4 lcd_i2cmaster.o
+                0x00800060        0x1 lcd/lcd_i2cmaster.o
+ .data._base_y  0x00800061        0x4 lcd/lcd_i2cmaster.o
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800065        0xf idle.o
+                0x00800065       0x24 keyprocessor.o
  .rodata.str1.1
-                0x00800074       0x24 keyprocessor.o
+                0x00800089       0x6a lcd/lcdgeneric.o
  .rodata.str1.1
-                0x00800098       0x6a lcdgeneric.o
+                0x008000f3        0xf state/idle.o
  .rodata.str1.1
-                0x00800102       0x20 states.o
+                0x00800102       0x20 state/states.o
  *(.gnu.linkonce.r*)
                 0x00800122                . = ALIGN (0x2)
                 0x00800122                _edata = .
@@ -508,11 +508,11 @@ END GROUP
  *(.bss)
  *(.bss*)
  *(COMMON)
- COMMON         0x00800122        0x3 lcd_i2cmaster.o
+ COMMON         0x00800122        0x3 lcd/lcd_i2cmaster.o
                 0x00800122                _lcd_maxx
                 0x00800123                _lcd_x
                 0x00800124                _lcd_y
- COMMON         0x00800125        0x1 states.o
+ COMMON         0x00800125        0x1 state/states.o
                 0x00800125                currentState
                 0x00800126                PROVIDE (__bss_end, .)
                 0x00000ab0                __data_load_start = LOADADDR (.data)
@@ -566,15 +566,15 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 error.o
                                  0x31 (size before relaxing)
- .comment       0x00000030       0x31 hc05.o
- .comment       0x00000030       0x31 idle.o
- .comment       0x00000030       0x31 keypad8.o
+ .comment       0x00000030       0x31 hc05/hc05.o
+ .comment       0x00000030       0x31 keypad/keypad8.o
  .comment       0x00000030       0x31 keyprocessor.o
- .comment       0x00000030       0x31 lcdgeneric.o
- .comment       0x00000030       0x31 lcd_4bit.o
- .comment       0x00000030       0x31 lcd_i2cmaster.o
+ .comment       0x00000030       0x31 lcd/lcdgeneric.o
+ .comment       0x00000030       0x31 lcd/lcd_4bit.o
+ .comment       0x00000030       0x31 lcd/lcd_i2cmaster.o
  .comment       0x00000030       0x31 main.o
- .comment       0x00000030       0x31 states.o
+ .comment       0x00000030       0x31 state/idle.o
+ .comment       0x00000030       0x31 state/states.o
  .comment       0x00000030       0x31 twimaster.o
 
 .note.gnu.avr.deviceinfo
@@ -602,23 +602,23 @@ END GROUP
  .debug_aranges
                 0x00000000       0x20 error.o
  .debug_aranges
-                0x00000020       0x38 hc05.o
+                0x00000020       0x38 hc05/hc05.o
  .debug_aranges
-                0x00000058       0x28 idle.o
+                0x00000058       0x40 keypad/keypad8.o
  .debug_aranges
-                0x00000080       0x40 keypad8.o
+                0x00000098       0x20 keyprocessor.o
  .debug_aranges
-                0x000000c0       0x20 keyprocessor.o
+                0x000000b8       0x40 lcd/lcdgeneric.o
  .debug_aranges
-                0x000000e0       0x40 lcdgeneric.o
+                0x000000f8       0x68 lcd/lcd_4bit.o
  .debug_aranges
-                0x00000120       0x68 lcd_4bit.o
+                0x00000160       0x78 lcd/lcd_i2cmaster.o
  .debug_aranges
-                0x00000188       0x78 lcd_i2cmaster.o
+                0x000001d8       0x20 main.o
  .debug_aranges
-                0x00000200       0x20 main.o
+                0x000001f8       0x28 state/idle.o
  .debug_aranges
-                0x00000220       0x20 states.o
+                0x00000220       0x20 state/states.o
  .debug_aranges
                 0x00000240       0x58 twimaster.o
 
@@ -629,98 +629,98 @@ END GROUP
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_info    0x000004e6       0xa1 error.o
- .debug_info    0x00000587      0x101 hc05.o
- .debug_info    0x00000688      0x122 idle.o
- .debug_info    0x000007aa      0x18c keypad8.o
- .debug_info    0x00000936       0xf6 keyprocessor.o
- .debug_info    0x00000a2c      0x41c lcdgeneric.o
- .debug_info    0x00000e48      0x8c9 lcd_4bit.o
- .debug_info    0x00001711      0x743 lcd_i2cmaster.o
- .debug_info    0x00001e54      0x223 main.o
- .debug_info    0x00002077       0xef states.o
+ .debug_info    0x00000587      0x101 hc05/hc05.o
+ .debug_info    0x00000688      0x18c keypad/keypad8.o
+ .debug_info    0x00000814       0xf6 keyprocessor.o
+ .debug_info    0x0000090a      0x41c lcd/lcdgeneric.o
+ .debug_info    0x00000d26      0x8c9 lcd/lcd_4bit.o
+ .debug_info    0x000015ef      0x743 lcd/lcd_i2cmaster.o
+ .debug_info    0x00001d32      0x223 main.o
+ .debug_info    0x00001f55      0x122 state/idle.o
+ .debug_info    0x00002077       0xef state/states.o
  .debug_info    0x00002166      0x1bd twimaster.o
 
 .debug_abbrev   0x00000000      0xf15
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_abbrev  0x000004a3       0x65 error.o
- .debug_abbrev  0x00000508       0xcd hc05.o
- .debug_abbrev  0x000005d5       0xb0 idle.o
- .debug_abbrev  0x00000685       0xe3 keypad8.o
- .debug_abbrev  0x00000768       0xa9 keyprocessor.o
- .debug_abbrev  0x00000811      0x165 lcdgeneric.o
- .debug_abbrev  0x00000976      0x17e lcd_4bit.o
- .debug_abbrev  0x00000af4      0x1e2 lcd_i2cmaster.o
- .debug_abbrev  0x00000cd6       0xb3 main.o
- .debug_abbrev  0x00000d89       0xa7 states.o
+ .debug_abbrev  0x00000508       0xcd hc05/hc05.o
+ .debug_abbrev  0x000005d5       0xe3 keypad/keypad8.o
+ .debug_abbrev  0x000006b8       0xa9 keyprocessor.o
+ .debug_abbrev  0x00000761      0x165 lcd/lcdgeneric.o
+ .debug_abbrev  0x000008c6      0x17e lcd/lcd_4bit.o
+ .debug_abbrev  0x00000a44      0x1e2 lcd/lcd_i2cmaster.o
+ .debug_abbrev  0x00000c26       0xb3 main.o
+ .debug_abbrev  0x00000cd9       0xb0 state/idle.o
+ .debug_abbrev  0x00000d89       0xa7 state/states.o
  .debug_abbrev  0x00000e30       0xe5 twimaster.o
 
-.debug_line     0x00000000     0x1692
+.debug_line     0x00000000     0x1727
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_line    0x00000115       0x38 error.o
- .debug_line    0x0000014d      0x12d hc05.o
- .debug_line    0x0000027a       0xd5 idle.o
- .debug_line    0x0000034f      0x187 keypad8.o
- .debug_line    0x000004d6       0xce keyprocessor.o
- .debug_line    0x000005a4      0x24a lcdgeneric.o
- .debug_line    0x000007ee      0x64e lcd_4bit.o
- .debug_line    0x00000e3c      0x3c2 lcd_i2cmaster.o
- .debug_line    0x000011fe      0x14e main.o
- .debug_line    0x0000134c       0xc8 states.o
- .debug_line    0x00001414      0x27e twimaster.o
+ .debug_line    0x0000014d      0x130 hc05/hc05.o
+ .debug_line    0x0000027d      0x18c keypad/keypad8.o
+ .debug_line    0x00000409       0xd9 keyprocessor.o
+ .debug_line    0x000004e2      0x256 lcd/lcdgeneric.o
+ .debug_line    0x00000738      0x650 lcd/lcd_4bit.o
+ .debug_line    0x00000d88      0x3c4 lcd/lcd_i2cmaster.o
+ .debug_line    0x0000114c      0x178 main.o
+ .debug_line    0x000012c4       0xfb state/idle.o
+ .debug_line    0x000013bf       0xea state/states.o
+ .debug_line    0x000014a9      0x27e twimaster.o
 
 .debug_frame    0x00000000      0x4d0
  *(.debug_frame)
  .debug_frame   0x00000000       0x24 error.o
- .debug_frame   0x00000024       0x60 hc05.o
- .debug_frame   0x00000084       0x34 idle.o
- .debug_frame   0x000000b8       0x6c keypad8.o
- .debug_frame   0x00000124       0x24 keyprocessor.o
- .debug_frame   0x00000148       0x74 lcdgeneric.o
- .debug_frame   0x000001bc       0xe0 lcd_4bit.o
- .debug_frame   0x0000029c      0x158 lcd_i2cmaster.o
- .debug_frame   0x000003f4       0x24 main.o
- .debug_frame   0x00000418       0x24 states.o
+ .debug_frame   0x00000024       0x60 hc05/hc05.o
+ .debug_frame   0x00000084       0x6c keypad/keypad8.o
+ .debug_frame   0x000000f0       0x24 keyprocessor.o
+ .debug_frame   0x00000114       0x74 lcd/lcdgeneric.o
+ .debug_frame   0x00000188       0xe0 lcd/lcd_4bit.o
+ .debug_frame   0x00000268      0x158 lcd/lcd_i2cmaster.o
+ .debug_frame   0x000003c0       0x24 main.o
+ .debug_frame   0x000003e4       0x34 state/idle.o
+ .debug_frame   0x00000418       0x24 state/states.o
  .debug_frame   0x0000043c       0x94 twimaster.o
 
-.debug_str      0x00000000      0x6ec
+.debug_str      0x00000000      0x702
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_str     0x00000196      0x14e error.o
                                 0x187 (size before relaxing)
- .debug_str     0x000002e4       0x57 hc05.o
-                                0x1c5 (size before relaxing)
- .debug_str     0x0000033b       0x5e idle.o
-                                0x1c9 (size before relaxing)
- .debug_str     0x00000399       0x57 keypad8.o
-                                0x1d6 (size before relaxing)
- .debug_str     0x000003f0       0x39 keyprocessor.o
+ .debug_str     0x000002e4       0x5a hc05/hc05.o
+                                0x1c8 (size before relaxing)
+ .debug_str     0x0000033e       0x68 keypad/keypad8.o
+                                0x1db (size before relaxing)
+ .debug_str     0x000003a6       0x49 keyprocessor.o
                                 0x1cc (size before relaxing)
- .debug_str     0x00000429       0xfc lcdgeneric.o
-                                0x2a7 (size before relaxing)
- .debug_str     0x00000525       0x63 lcd_4bit.o
-                                0x256 (size before relaxing)
- .debug_str     0x00000588       0xe9 lcd_i2cmaster.o
-                                0x300 (size before relaxing)
- .debug_str     0x00000671       0x11 main.o
+ .debug_str     0x000003ef      0x119 lcd/lcdgeneric.o
+                                0x2a9 (size before relaxing)
+ .debug_str     0x00000508       0x65 lcd/lcd_4bit.o
+                                0x258 (size before relaxing)
+ .debug_str     0x0000056d       0xeb lcd/lcd_i2cmaster.o
+                                0x302 (size before relaxing)
+ .debug_str     0x00000658       0x22 main.o
                                 0x217 (size before relaxing)
- .debug_str     0x00000682       0x17 states.o
-                                0x1c2 (size before relaxing)
- .debug_str     0x00000699       0x53 twimaster.o
+ .debug_str     0x0000067a       0x1a state/idle.o
+                                0x1cd (size before relaxing)
+ .debug_str     0x00000694       0x1b state/states.o
+                                0x1c6 (size before relaxing)
+ .debug_str     0x000006af       0x53 twimaster.o
                                 0x1ea (size before relaxing)
 
 .debug_loc      0x00000000     0x13a4
  *(.debug_loc)
- .debug_loc     0x00000000       0x64 hc05.o
- .debug_loc     0x00000064       0x21 idle.o
- .debug_loc     0x00000085       0xd3 keypad8.o
- .debug_loc     0x00000158       0x3a keyprocessor.o
- .debug_loc     0x00000192      0x398 lcdgeneric.o
- .debug_loc     0x0000052a      0x65e lcd_4bit.o
- .debug_loc     0x00000b88      0x698 lcd_i2cmaster.o
- .debug_loc     0x00001220       0x57 main.o
- .debug_loc     0x00001277       0x3a states.o
+ .debug_loc     0x00000000       0x64 hc05/hc05.o
+ .debug_loc     0x00000064       0xd3 keypad/keypad8.o
+ .debug_loc     0x00000137       0x3a keyprocessor.o
+ .debug_loc     0x00000171      0x398 lcd/lcdgeneric.o
+ .debug_loc     0x00000509      0x65e lcd/lcd_4bit.o
+ .debug_loc     0x00000b67      0x698 lcd/lcd_i2cmaster.o
+ .debug_loc     0x000011ff       0x57 main.o
+ .debug_loc     0x00001256       0x21 state/idle.o
+ .debug_loc     0x00001277       0x3a state/states.o
  .debug_loc     0x000012b1       0xf3 twimaster.o
 
 .debug_macinfo
@@ -744,15 +744,15 @@ END GROUP
 .debug_ranges   0x00000000      0x230
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x10 error.o
- .debug_ranges  0x00000010       0x28 hc05.o
- .debug_ranges  0x00000038       0x18 idle.o
- .debug_ranges  0x00000050       0x48 keypad8.o
- .debug_ranges  0x00000098       0x10 keyprocessor.o
- .debug_ranges  0x000000a8       0x30 lcdgeneric.o
- .debug_ranges  0x000000d8       0x58 lcd_4bit.o
- .debug_ranges  0x00000130       0x98 lcd_i2cmaster.o
- .debug_ranges  0x000001c8       0x10 main.o
- .debug_ranges  0x000001d8       0x10 states.o
+ .debug_ranges  0x00000010       0x28 hc05/hc05.o
+ .debug_ranges  0x00000038       0x48 keypad/keypad8.o
+ .debug_ranges  0x00000080       0x10 keyprocessor.o
+ .debug_ranges  0x00000090       0x30 lcd/lcdgeneric.o
+ .debug_ranges  0x000000c0       0x58 lcd/lcd_4bit.o
+ .debug_ranges  0x00000118       0x98 lcd/lcd_i2cmaster.o
+ .debug_ranges  0x000001b0       0x10 main.o
+ .debug_ranges  0x000001c0       0x18 state/idle.o
+ .debug_ranges  0x000001d8       0x10 state/states.o
  .debug_ranges  0x000001e8       0x48 twimaster.o
 
 .debug_macro

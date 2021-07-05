@@ -129,25 +129,16 @@
     <Compile Include="error.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hc05.c">
+    <Compile Include="hc05\hc05.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hc05.h">
+    <Compile Include="hc05\hc05.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="i2cmaster.h">
+    <Compile Include="keypad\keypad8.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="idle.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="idle.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="keypad8.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="keypad8.h">
+    <Compile Include="keypad\keypad8.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="keyprocessor.c">
@@ -156,36 +147,51 @@
     <Compile Include="keyprocessor.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcd.h">
+    <Compile Include="lcd\i2cmaster.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcdgeneric.c">
+    <Compile Include="lcd\lcd.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcdgeneric.h">
+    <Compile Include="lcd\lcdgeneric.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcd_4bit.c">
+    <Compile Include="lcd\lcdgeneric.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcd_4bit.h">
+    <Compile Include="lcd\lcd_4bit.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="lcd_i2cmaster.c">
+    <Compile Include="lcd\lcd_4bit.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lcd\lcd_i2cmaster.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="states.c">
+    <Compile Include="state\idle.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="states.h">
+    <Compile Include="state\idle.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\states.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\states.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="twimaster.c">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="hc05\" />
+    <Folder Include="keypad\" />
+    <Folder Include="lcd\" />
+    <Folder Include="state\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

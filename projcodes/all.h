@@ -3,13 +3,13 @@
 
 #include "avr/io.h"
 #include "error.h"
-#include "states.h"
-#include "idle.h"
+#include "state/states.h"
+#include "state/idle.h"
 
-#include "lcdgeneric.h"
+#include "lcd/lcdgeneric.h"
 
-#include "hc05.h"
-#include "keypad8.h"
+#include "hc05/hc05.h"
+#include "keypad/keypad8.h"
 #include "keyprocessor.h"
 
 #endif

@@ -1,4 +1,4 @@
-#include "all.h"
+#include "../all.h"
 
 
 void Keypad_Init()

@@ -32,21 +32,25 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../hc05/ \
+../keypad/ \
+../lcd/ \
+../state/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../error.c \
-../hc05.c \
-../idle.c \
-../keypad8.c \
+../hc05/hc05.c \
+../keypad/keypad8.c \
 ../keyprocessor.c \
-../lcdgeneric.c \
-../lcd_4bit.c \
-../lcd_i2cmaster.c \
+../lcd/lcdgeneric.c \
+../lcd/lcd_4bit.c \
+../lcd/lcd_i2cmaster.c \
 ../main.c \
-../states.c \
+../state/idle.c \
+../state/states.c \
 ../twimaster.c
 
 
@@ -58,54 +62,54 @@ ASM_SRCS +=
 
 OBJS +=  \
 error.o \
-hc05.o \
-idle.o \
-keypad8.o \
+hc05/hc05.o \
+keypad/keypad8.o \
 keyprocessor.o \
-lcdgeneric.o \
-lcd_4bit.o \
-lcd_i2cmaster.o \
+lcd/lcdgeneric.o \
+lcd/lcd_4bit.o \
+lcd/lcd_i2cmaster.o \
 main.o \
-states.o \
+state/idle.o \
+state/states.o \
 twimaster.o
 
 OBJS_AS_ARGS +=  \
 error.o \
-hc05.o \
-idle.o \
-keypad8.o \
+hc05/hc05.o \
+keypad/keypad8.o \
 keyprocessor.o \
-lcdgeneric.o \
-lcd_4bit.o \
-lcd_i2cmaster.o \
+lcd/lcdgeneric.o \
+lcd/lcd_4bit.o \
+lcd/lcd_i2cmaster.o \
 main.o \
-states.o \
+state/idle.o \
+state/states.o \
 twimaster.o
 
 C_DEPS +=  \
 error.d \
-hc05.d \
-idle.d \
-keypad8.d \
+hc05/hc05.d \
+keypad/keypad8.d \
 keyprocessor.d \
-lcdgeneric.d \
-lcd_4bit.d \
-lcd_i2cmaster.d \
+lcd/lcdgeneric.d \
+lcd/lcd_4bit.d \
+lcd/lcd_i2cmaster.d \
 main.d \
-states.d \
+state/idle.d \
+state/states.d \
 twimaster.d
 
 C_DEPS_AS_ARGS +=  \
 error.d \
-hc05.d \
-idle.d \
-keypad8.d \
+hc05/hc05.d \
+keypad/keypad8.d \
 keyprocessor.d \
-lcdgeneric.d \
-lcd_4bit.d \
-lcd_i2cmaster.d \
+lcd/lcdgeneric.d \
+lcd/lcd_4bit.d \
+lcd/lcd_i2cmaster.d \
 main.d \
-states.d \
+state/idle.d \
+state/states.d \
 twimaster.d
 
 OUTPUT_FILE_PATH +=projcodes.elf
@@ -129,21 +133,14 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
-./hc05.o: .././hc05.c
+hc05/hc05.o: ../hc05/hc05.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./idle.o: .././idle.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-./keypad8.o: .././keypad8.c
+keypad/keypad8.o: ../keypad/keypad8.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -157,21 +154,21 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
-./lcdgeneric.o: .././lcdgeneric.c
+lcd/lcdgeneric.o: ../lcd/lcdgeneric.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./lcd_4bit.o: .././lcd_4bit.c
+lcd/lcd_4bit.o: ../lcd/lcd_4bit.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./lcd_i2cmaster.o: .././lcd_i2cmaster.c
+lcd/lcd_i2cmaster.o: ../lcd/lcd_i2cmaster.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -185,7 +182,14 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
-./states.o: .././states.c
+state/idle.o: ../state/idle.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+state/states.o: ../state/states.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
