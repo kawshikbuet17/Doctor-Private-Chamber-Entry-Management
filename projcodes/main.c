@@ -18,6 +18,9 @@ int main(void)
 {
 		
 	HC05_Init_Data_Mode();
+	
+	HC05_SendString("hello there");
+	
 	Lcd_Init(LCDKEYPAD);
 	Lcd_Init(LCDNOTICE);
 	
