@@ -4,33 +4,39 @@
 
 #include "../../all.h"
 
-extern struct storeRecords records[100];
-extern unsigned int serial;
+struct storeRecords {
+	char * name;
+	unsigned int age;
+	char * phone;
+}records[100];
+
+unsigned int serial = 0;
 
 void UpdateKeyMode()
 {
-	const char * s = Keypad_GetMode();
+	const char * s;
+	dtostrf((float)(serial+1), 3, 0, s);
 	Lcd_Position(LCDKEYPAD,0,16-strlen(s));
 	Lcd_Prints(LCDKEYPAD,s);
+	serial++;
 }
-void EnteringName_Init()
+void Store_Init()
 {
     Lcd_ClearScreen(LCDKEYPAD);
     Lcd_Position(LCDKEYPAD,0,0);
-    Lcd_Prints(LCDKEYPAD,"Enter Name:");
+    Lcd_Prints(LCDKEYPAD,"Your serial: ");
 	UpdateKeyMode();
 }
 
-void EnteringName_ProcessKey(int_fast8_t key)
+void EnteringAge_ProcessKey(int_fast8_t key)
 {
 	if(key == 31)
 	{
-		records[serial].name = keyBuffer;
-		States_GotoState(ENTERING_AGE);
+		States_GotoState(ENTERING_PHONE);
 	}
 	else if(key == 30)
 	{
-		States_GotoState(IDLE);
+		States_GotoState(ENTERING_NAME);
 	}
 	else 
 	{
