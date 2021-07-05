@@ -8,6 +8,8 @@
 #define ENTERING_NAME 1
 #define ENTERING_AGE 2
 #define ENTERING_PHONE 3
+#define GENERATE_SERIAL 4
+#define STORE_RECORD 5
 
 #include <avr/io.h>
 #include "idle/idle.h"
