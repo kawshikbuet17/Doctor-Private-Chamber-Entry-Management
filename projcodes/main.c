@@ -14,18 +14,8 @@ extern void lcd_backlight(char on);   //not in lcd.h
 #include <stdlib.h>       //for itoa()
 #include <stdio.h> // sprintf
 
-#define D4 eS_PORTD5
-#define D5 eS_PORTD4
-#define D6 eS_PORTD3
-#define D7 eS_PORTD2
-#define RS eS_PORTD7
-#define EN eS_PORTD6
 
-#include "lcd_4bit.h"
-
-#include "hc05.h"
-#include "keypad8.h"
-#include "keyprocessor.h"
+#include "all.h"
 
 int main(void)
 {
@@ -54,7 +44,8 @@ int main(void)
 	lcd_gotoxy(0, 0);
 	lcd_puts("ho re vai");
 	//////////////////////////////////////////////////////////////////////////
-
+	
+	States_GotoState(IDLE);
 	Keypad_Init();
 	
 	while (1)
