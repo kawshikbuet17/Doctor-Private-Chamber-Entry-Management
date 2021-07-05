@@ -33,6 +33,7 @@ int_fast8_t Keypad_KeyPressed()
 int_fast8_t Keypad_GetRow()
 {
 	int pin = PINA >> 4;
+	Error_ErrorBin("PIN_row:",pin);
 	for(int i=0;i<4;i++)
 	{
 		if(pin&(1<<i))
@@ -45,13 +46,16 @@ int_fast8_t Keypad_GetRow()
 
 int_fast8_t Keypad_GetCol()
 {
-	for(int i=0;i<8;i++)
+	int i = 7;
+	while(i >=0)
 	{
-		PORTB = PORTB ^ (1<<i);
-		if(!(Keypad_KeyPressed()))
+		PORTB = PORTB ^(1<<i);
+		Error_ErrorBin("PINB:",PINB);
+		if(!Keypad_KeyPressed())
 		{
 			return i;
 		}
+		i--;
 	}
 	Error_Error("KeypadGetCol:");
 	// report error

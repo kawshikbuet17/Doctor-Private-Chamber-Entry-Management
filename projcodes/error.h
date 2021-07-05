@@ -5,4 +5,5 @@
 
 void Error_Error(const char *);
 void Error_ErrorNum(const char *,int);
+void Error_ErrorBin(const char *,int);
 #endif
