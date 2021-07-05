@@ -129,7 +129,13 @@
     <Compile Include="i2cmaster.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="keypad.h">
+    <Compile Include="keypad8.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keyprocessor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="keyprocessor.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="lcd.h">
@@ -142,6 +148,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="states.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="twimaster.c">

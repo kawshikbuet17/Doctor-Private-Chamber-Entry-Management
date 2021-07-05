@@ -25,6 +25,8 @@ extern void lcd_backlight(char on);   //not in lcd.h
 
 #include "hc05.h"
 #include "keypad8.h"
+#include "keyprocessor.h"
+
 int main(void)
 {
 	
@@ -60,11 +62,7 @@ int main(void)
 		if(Keypad_KeyPressed())
 		{
 			int_fast8_t x = Keypad_GetKey();
-			char temp[10];
-			sprintf(temp , "key: %d ",x);
-			Lcd4_Clear();
-			Lcd4_Set_Cursor(0,0);
-			Lcd4_Write_String(temp);
+			KeyProcessor_ProcessKey(x);
 			Keypad_Init();
 		}
 	}

@@ -4,6 +4,8 @@
 
 hc05.c
 
+keyprocessor.c
+
 lcd_i2cmaster.c
 
 main.c
