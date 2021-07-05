@@ -79,9 +79,9 @@ void Keypad_AddKey(int_fast8_t key)
 	if(key == 29) 
 	{
 		// backspace = delete char
-		keyBuffer[position] = 0;
 		if(position)
 			position--;
+		keyBuffer[position] = 0;
 	}
 	else if(key == 28)
 	{
