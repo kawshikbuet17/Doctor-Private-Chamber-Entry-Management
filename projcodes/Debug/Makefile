@@ -37,8 +37,14 @@ SUBDIRS :=  \
 ../keypad/ \
 ../lcd/ \
 ../state/ \
+../state/enteringage/ \
 ../state/enteringname/ \
-../state/idle/
+../state/enteringphone/ \
+../state/enteringphone/ \
+../state/enteringphone/ \
+../state/generateserial/ \
+../state/idle/ \
+../store/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -51,9 +57,13 @@ C_SRCS +=  \
 ../lcd/lcd_4bit.c \
 ../lcd/lcd_i2cmaster.c \
 ../main.c \
+../state/enteringage/enteringage.c \
 ../state/enteringname/enteringname.c \
+../state/enteringphone/enteringphone.c \
+../state/generateserial/generateserial.c \
 ../state/idle/idle.c \
 ../state/states.c \
+../store/store.c \
 ../twimaster.c
 
 
@@ -72,9 +82,13 @@ lcd/lcdgeneric.o \
 lcd/lcd_4bit.o \
 lcd/lcd_i2cmaster.o \
 main.o \
+state/enteringage/enteringage.o \
 state/enteringname/enteringname.o \
+state/enteringphone/enteringphone.o \
+state/generateserial/generateserial.o \
 state/idle/idle.o \
 state/states.o \
+store/store.o \
 twimaster.o
 
 OBJS_AS_ARGS +=  \
@@ -86,9 +100,13 @@ lcd/lcdgeneric.o \
 lcd/lcd_4bit.o \
 lcd/lcd_i2cmaster.o \
 main.o \
+state/enteringage/enteringage.o \
 state/enteringname/enteringname.o \
+state/enteringphone/enteringphone.o \
+state/generateserial/generateserial.o \
 state/idle/idle.o \
 state/states.o \
+store/store.o \
 twimaster.o
 
 C_DEPS +=  \
@@ -100,9 +118,13 @@ lcd/lcdgeneric.d \
 lcd/lcd_4bit.d \
 lcd/lcd_i2cmaster.d \
 main.d \
+state/enteringage/enteringage.d \
 state/enteringname/enteringname.d \
+state/enteringphone/enteringphone.d \
+state/generateserial/generateserial.d \
 state/idle/idle.d \
 state/states.d \
+store/store.d \
 twimaster.d
 
 C_DEPS_AS_ARGS +=  \
@@ -114,9 +136,13 @@ lcd/lcdgeneric.d \
 lcd/lcd_4bit.d \
 lcd/lcd_i2cmaster.d \
 main.d \
+state/enteringage/enteringage.d \
 state/enteringname/enteringname.d \
+state/enteringphone/enteringphone.d \
+state/generateserial/generateserial.d \
 state/idle/idle.d \
 state/states.d \
+store/store.d \
 twimaster.d
 
 OUTPUT_FILE_PATH +=projcodes.elf
@@ -189,7 +215,28 @@ lcd/lcd_i2cmaster.o: ../lcd/lcd_i2cmaster.c
 	@echo Finished building: $<
 	
 
+state/enteringage/enteringage.o: ../state/enteringage/enteringage.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 state/enteringname/enteringname.o: ../state/enteringname/enteringname.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+state/enteringphone/enteringphone.o: ../state/enteringphone/enteringphone.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+state/generateserial/generateserial.o: ../state/generateserial/generateserial.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -204,6 +251,13 @@ state/idle/idle.o: ../state/idle/idle.c
 	
 
 state/states.o: ../state/states.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+store/store.o: ../store/store.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

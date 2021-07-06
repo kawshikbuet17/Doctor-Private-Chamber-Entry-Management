@@ -18,11 +18,19 @@ lcd\lcd_i2cmaster.c
 
 main.c
 
+state\enteringage\enteringage.c
+
 state\enteringname\enteringname.c
+
+state\enteringphone\enteringphone.c
+
+state\generateserial\generateserial.c
 
 state\idle\idle.c
 
 state\states.c
+
+store\store.c
 
 twimaster.c
 

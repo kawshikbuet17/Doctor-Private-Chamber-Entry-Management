@@ -7,12 +7,7 @@
 extern struct storeRecords records[100];
 extern unsigned int serial;
 
-void UpdateKeyMode()
-{
-	const char * s = Keypad_GetMode();
-	Lcd_Position(LCDKEYPAD,0,16-strlen(s));
-	Lcd_Prints(LCDKEYPAD,s);
-}
+
 void EnteringPhone_Init()
 {
     Lcd_ClearScreen(LCDKEYPAD);

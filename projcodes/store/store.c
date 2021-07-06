@@ -2,13 +2,9 @@
 // Created by mahdi on 7/5/2021.
 //
 
-#include "../../all.h"
+#include "../all.h"
 
-struct storeRecords {
-	char * name;
-	unsigned int age;
-	char * phone;
-}records[100];
+struct storeRecords records[100];
 
 unsigned int serial = 0;
 
