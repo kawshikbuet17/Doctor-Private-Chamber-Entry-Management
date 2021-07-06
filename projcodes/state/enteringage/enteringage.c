@@ -7,29 +7,31 @@
 //extern struct storeRecords records[100];
 //extern unsigned int serial;
 
-void EnteringName_Init()
+void EnteringAge_Init()
 {
     Lcd_ClearScreen(LCDKEYPAD);
     Lcd_Position(LCDKEYPAD,0,0);
-    Lcd_Prints(LCDKEYPAD,"Enter Name:");
+    Lcd_Prints(LCDKEYPAD,"Enter Age:");
+	Keypad_InitNumpad();
 	Keypad_UpdateKeyMode();
 }
 
-void EnteringName_ProcessKey(int_fast8_t key)
+void EnteringAge_ProcessKey(int_fast8_t key)
 {
 	if(key == 31)
 	{
 		// nxt
-		// save name and procced
-		//records[serial].name = keyBuffer;
+		//records[serial].age = atoi(keyBuffer);
+		// save age
 		Keypad_ResetBuffer();
-		States_GotoState(ENTERING_AGE);
+		States_GotoState(ENTERING_PHONE);
 	}
 	else if(key == 30)
 	{
-		//prev
+		// prev
+		
 		Keypad_ResetBuffer();
-		States_GotoState(IDLE);
+		States_GotoState(ENTERING_NAME);
 	}
 	else 
 	{

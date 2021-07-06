@@ -12,6 +12,18 @@ void States_GotoState(int_fast8_t newState)
 		case ENTERING_NAME:
 			EnteringName_Init();
 			break;
+		case ENTERING_AGE:
+			EnteringAge_Init();
+			break;
+		case ENTERING_PHONE:
+			EnteringPhone_Init();
+			break;
+		//case GENERATE_SERIAL:
+			//GenerateSerial_Init();
+			//break;
+		//case STORE_RECORD:
+			//Store_Init();
+			//break;
 		default:
 			Error_Error("GotoState: newState not defined");
 	}

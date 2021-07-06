@@ -18,7 +18,11 @@ lcd\lcd_i2cmaster.c
 
 main.c
 
+state\enteringage\enteringage.c
+
 state\enteringname\enteringname.c
+
+state\enteringphone\enteringphone.c
 
 state\idle\idle.c
 

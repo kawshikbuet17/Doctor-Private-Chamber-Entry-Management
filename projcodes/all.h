@@ -2,12 +2,16 @@
 #define ALL_H_ADDED
 
 #include "stdbool.h"
+#include "stdlib.h"
 #include "string.h"
+#include "stdio.h"
 #include "avr/io.h"
 #include "error.h"
 #include "state/states.h"
 #include "state/idle/idle.h"
 #include "state/enteringname/enteringname.h"
+#include "state/enteringage/enteringage.h"
+#include "state/enteringphone/enteringphone.h"
 
 #include "lcd/lcdgeneric.h"
 
