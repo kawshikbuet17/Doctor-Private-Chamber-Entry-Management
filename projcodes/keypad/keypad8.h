@@ -11,4 +11,7 @@ int_fast8_t Keypad_GetCol();
 int_fast8_t Keypad_GetKey();
 const char * Keypad_GetMode();
 void Keypad_AddKey(int_fast8_t key);
+void Keypad_UpdateKeyMode();
+void Keypad_ResetBuffer();
+void Keypad_InitNumpad();
 #endif

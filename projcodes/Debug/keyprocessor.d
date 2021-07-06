@@ -22,11 +22,8 @@ keyprocessor.d keyprocessor.o: .././keyprocessor.c .././all.h \
  .././state/enteringname/../../all.h .././state/enteringage/enteringage.h \
  .././state/enteringage/../../all.h \
  .././state/enteringphone/enteringphone.h \
- .././state/enteringphone/../../all.h \
- .././state/generateserial/generateserial.h \
- .././state/generateserial/../../all.h .././store/store.h \
- .././store/../all.h .././lcd/lcdgeneric.h .././lcd/../all.h \
- .././lcd/lcd_4bit.h \
+ .././state/enteringphone/../../all.h .././lcd/lcdgeneric.h \
+ .././lcd/../all.h .././lcd/lcd_4bit.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
@@ -92,14 +89,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././state/enteringphone/enteringphone.h:
 
 .././state/enteringphone/../../all.h:
-
-.././state/generateserial/generateserial.h:
-
-.././state/generateserial/../../all.h:
-
-.././store/store.h:
-
-.././store/../all.h:
 
 .././lcd/lcdgeneric.h:
 

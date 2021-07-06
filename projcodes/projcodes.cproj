@@ -217,12 +217,6 @@
     <Compile Include="state\enteringphone\enteringphone.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="state\generateserial\generateserial.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="state\generateserial\generateserial.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="state\idle\idle.c">
       <SubType>compile</SubType>
     </Compile>
@@ -233,12 +227,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="state\states.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="store\store.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="store\store.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="twimaster.c">
@@ -255,9 +243,7 @@
     <Folder Include="state\enteringphone\" />
     <Folder Include="state\enteringphone\" />
     <Folder Include="state\enteringphone\" />
-    <Folder Include="state\generateserial\" />
     <Folder Include="state\idle\" />
-    <Folder Include="store\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

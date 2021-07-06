@@ -42,9 +42,7 @@ SUBDIRS :=  \
 ../state/enteringphone/ \
 ../state/enteringphone/ \
 ../state/enteringphone/ \
-../state/generateserial/ \
-../state/idle/ \
-../store/
+../state/idle/
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
@@ -60,10 +58,8 @@ C_SRCS +=  \
 ../state/enteringage/enteringage.c \
 ../state/enteringname/enteringname.c \
 ../state/enteringphone/enteringphone.c \
-../state/generateserial/generateserial.c \
 ../state/idle/idle.c \
 ../state/states.c \
-../store/store.c \
 ../twimaster.c
 
 
@@ -85,10 +81,8 @@ main.o \
 state/enteringage/enteringage.o \
 state/enteringname/enteringname.o \
 state/enteringphone/enteringphone.o \
-state/generateserial/generateserial.o \
 state/idle/idle.o \
 state/states.o \
-store/store.o \
 twimaster.o
 
 OBJS_AS_ARGS +=  \
@@ -103,10 +97,8 @@ main.o \
 state/enteringage/enteringage.o \
 state/enteringname/enteringname.o \
 state/enteringphone/enteringphone.o \
-state/generateserial/generateserial.o \
 state/idle/idle.o \
 state/states.o \
-store/store.o \
 twimaster.o
 
 C_DEPS +=  \
@@ -121,10 +113,8 @@ main.d \
 state/enteringage/enteringage.d \
 state/enteringname/enteringname.d \
 state/enteringphone/enteringphone.d \
-state/generateserial/generateserial.d \
 state/idle/idle.d \
 state/states.d \
-store/store.d \
 twimaster.d
 
 C_DEPS_AS_ARGS +=  \
@@ -139,10 +129,8 @@ main.d \
 state/enteringage/enteringage.d \
 state/enteringname/enteringname.d \
 state/enteringphone/enteringphone.d \
-state/generateserial/generateserial.d \
 state/idle/idle.d \
 state/states.d \
-store/store.d \
 twimaster.d
 
 OUTPUT_FILE_PATH +=projcodes.elf
@@ -236,13 +224,6 @@ state/enteringphone/enteringphone.o: ../state/enteringphone/enteringphone.c
 	@echo Finished building: $<
 	
 
-state/generateserial/generateserial.o: ../state/generateserial/generateserial.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
 state/idle/idle.o: ../state/idle/idle.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -251,13 +232,6 @@ state/idle/idle.o: ../state/idle/idle.c
 	
 
 state/states.o: ../state/states.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-store/store.o: ../store/store.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
