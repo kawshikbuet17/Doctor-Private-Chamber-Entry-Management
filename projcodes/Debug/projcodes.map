@@ -622,7 +622,7 @@ END GROUP
  *(.fini0)
                 0x000015bc                _etext = .
 
-.data           0x00800060      0x15c load address 0x000015bc
+.data           0x00800060      0x156 load address 0x000015bc
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -649,44 +649,44 @@ END GROUP
  .rodata.str1.1
                 0x00800174        0xa state/enteringphone/enteringphone.o
  .rodata.str1.1
-                0x0080017e       0x1d state/idle/idle.o
+                0x0080017e       0x17 state/idle/idle.o
  .rodata.str1.1
-                0x0080019b       0x20 state/states.o
+                0x00800195       0x20 state/states.o
  *(.gnu.linkonce.r*)
-                0x008001bc                . = ALIGN (0x2)
- *fill*         0x008001bb        0x1 
-                0x008001bc                _edata = .
-                0x008001bc                PROVIDE (__data_end, .)
+                0x008001b6                . = ALIGN (0x2)
+ *fill*         0x008001b5        0x1 
+                0x008001b6                _edata = .
+                0x008001b6                PROVIDE (__data_end, .)
 
-.bss            0x008001bc       0x19
-                0x008001bc                PROVIDE (__bss_start, .)
+.bss            0x008001b6       0x19
+                0x008001b6                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.position  0x008001bc        0x2 keypad/keypad8.o
-                0x008001bc                position
+ .bss.position  0x008001b6        0x2 keypad/keypad8.o
+                0x008001b6                position
  .bss.isUpperCase
-                0x008001be        0x1 keypad/keypad8.o
-                0x008001be                isUpperCase
- .bss.isNumber  0x008001bf        0x1 keypad/keypad8.o
-                0x008001bf                isNumber
+                0x008001b8        0x1 keypad/keypad8.o
+                0x008001b8                isUpperCase
+ .bss.isNumber  0x008001b9        0x1 keypad/keypad8.o
+                0x008001b9                isNumber
  *(COMMON)
- COMMON         0x008001c0       0x11 keypad/keypad8.o
-                0x008001c0                keyBuffer
- COMMON         0x008001d1        0x3 lcd/lcd_i2cmaster.o
-                0x008001d1                _lcd_maxx
-                0x008001d2                _lcd_x
-                0x008001d3                _lcd_y
- COMMON         0x008001d4        0x1 state/states.o
-                0x008001d4                currentState
-                0x008001d5                PROVIDE (__bss_end, .)
+ COMMON         0x008001ba       0x11 keypad/keypad8.o
+                0x008001ba                keyBuffer
+ COMMON         0x008001cb        0x3 lcd/lcd_i2cmaster.o
+                0x008001cb                _lcd_maxx
+                0x008001cc                _lcd_x
+                0x008001cd                _lcd_y
+ COMMON         0x008001ce        0x1 state/states.o
+                0x008001ce                currentState
+                0x008001cf                PROVIDE (__bss_end, .)
                 0x000015bc                __data_load_start = LOADADDR (.data)
-                0x00001718                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001712                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008001d5        0x0
+.noinit         0x008001cf        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008001d5                _end = .
+                0x008001cf                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0

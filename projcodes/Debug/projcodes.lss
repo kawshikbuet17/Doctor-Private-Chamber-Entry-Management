@@ -5,29 +5,29 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         000015bc  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000015c  00800060  000015bc  00001650  2**0
+  1 .data         00000156  00800060  000015bc  00001650  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000019  008001bc  008001bc  000017ac  2**0
+  2 .bss          00000019  008001b6  008001b6  000017a6  2**0
                   ALLOC
-  3 .comment      0000005c  00000000  00000000  000017ac  2**0
+  3 .comment      0000005c  00000000  00000000  000017a6  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001808  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00001804  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000350  00000000  00000000  00001844  2**0
+  5 .debug_aranges 00000350  00000000  00000000  00001840  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   000030f8  00000000  00000000  00001b94  2**0
+  6 .debug_info   000030f8  00000000  00000000  00001b90  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000013e9  00000000  00000000  00004c8c  2**0
+  7 .debug_abbrev 000013e9  00000000  00000000  00004c88  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000021d2  00000000  00000000  00006075  2**0
+  8 .debug_line   000021d2  00000000  00000000  00006071  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000006a4  00000000  00000000  00008248  2**2
+  9 .debug_frame  000006a4  00000000  00000000  00008244  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000008a7  00000000  00000000  000088ec  2**0
+ 10 .debug_str    000008a7  00000000  00000000  000088e8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001b64  00000000  00000000  00009193  2**0
+ 11 .debug_loc    00001b64  00000000  00000000  0000918f  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000002a0  00000000  00000000  0000acf7  2**0
+ 12 .debug_ranges 000002a0  00000000  00000000  0000acf3  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -72,13 +72,13 @@ Disassembly of section .text:
       6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
       6c:	05 90       	lpm	r0, Z+
       6e:	0d 92       	st	X+, r0
-      70:	ac 3b       	cpi	r26, 0xBC	; 188
+      70:	a6 3b       	cpi	r26, 0xB6	; 182
       72:	b1 07       	cpc	r27, r17
       74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
 
 00000076 <__do_clear_bss>:
       76:	21 e0       	ldi	r18, 0x01	; 1
-      78:	ac eb       	ldi	r26, 0xBC	; 188
+      78:	a6 eb       	ldi	r26, 0xB6	; 182
       7a:	b1 e0       	ldi	r27, 0x01	; 1
       7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
 
@@ -86,7 +86,7 @@ Disassembly of section .text:
       7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-      80:	a5 3d       	cpi	r26, 0xD5	; 213
+      80:	af 3c       	cpi	r26, 0xCF	; 207
       82:	b2 07       	cpc	r27, r18
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
       86:	0e 94 51 06 	call	0xca2	; 0xca2 <main>
@@ -312,16 +312,16 @@ void Keypad_Init()
 void Keypad_ResetBuffer()
 {
 	isNumber = false;
-     1b6:	10 92 bf 01 	sts	0x01BF, r1	; 0x8001bf <isNumber>
+     1b6:	10 92 b9 01 	sts	0x01B9, r1	; 0x8001b9 <isNumber>
 	isUpperCase = false;
-     1ba:	10 92 be 01 	sts	0x01BE, r1	; 0x8001be <isUpperCase>
+     1ba:	10 92 b8 01 	sts	0x01B8, r1	; 0x8001b8 <isUpperCase>
 	position = 0;
-     1be:	10 92 bd 01 	sts	0x01BD, r1	; 0x8001bd <__data_end+0x1>
-     1c2:	10 92 bc 01 	sts	0x01BC, r1	; 0x8001bc <__data_end>
+     1be:	10 92 b7 01 	sts	0x01B7, r1	; 0x8001b7 <__data_end+0x1>
+     1c2:	10 92 b6 01 	sts	0x01B6, r1	; 0x8001b6 <__data_end>
 	keyBuffer[position] = 0;
-     1c6:	e0 91 bc 01 	lds	r30, 0x01BC	; 0x8001bc <__data_end>
-     1ca:	f0 91 bd 01 	lds	r31, 0x01BD	; 0x8001bd <__data_end+0x1>
-     1ce:	e0 54       	subi	r30, 0x40	; 64
+     1c6:	e0 91 b6 01 	lds	r30, 0x01B6	; 0x8001b6 <__data_end>
+     1ca:	f0 91 b7 01 	lds	r31, 0x01B7	; 0x8001b7 <__data_end+0x1>
+     1ce:	e6 54       	subi	r30, 0x46	; 70
      1d0:	fe 4f       	sbci	r31, 0xFE	; 254
      1d2:	10 82       	st	Z, r1
      1d4:	08 95       	ret
@@ -332,7 +332,7 @@ void Keypad_InitNumpad()
 {
 	isNumber = true;
      1d6:	81 e0       	ldi	r24, 0x01	; 1
-     1d8:	80 93 bf 01 	sts	0x01BF, r24	; 0x8001bf <isNumber>
+     1d8:	80 93 b9 01 	sts	0x01B9, r24	; 0x8001b9 <isNumber>
      1dc:	08 95       	ret
 
 000001de <Keypad_GetMode>:
@@ -341,12 +341,12 @@ void Keypad_InitNumpad()
 const char * Keypad_GetMode()
 {
 	if(isNumber)
-     1de:	80 91 bf 01 	lds	r24, 0x01BF	; 0x8001bf <isNumber>
+     1de:	80 91 b9 01 	lds	r24, 0x01B9	; 0x8001b9 <isNumber>
      1e2:	81 11       	cpse	r24, r1
      1e4:	07 c0       	rjmp	.+14     	; 0x1f4 <Keypad_GetMode+0x16>
 		return "123";
 	else if(isUpperCase)
-     1e6:	80 91 be 01 	lds	r24, 0x01BE	; 0x8001be <isUpperCase>
+     1e6:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <isUpperCase>
      1ea:	81 11       	cpse	r24, r1
      1ec:	06 c0       	rjmp	.+12     	; 0x1fa <Keypad_GetMode+0x1c>
 		return "ABC";
@@ -564,26 +564,26 @@ int_fast8_t Keypad_KeyPressed()
 void addChar(const char c)
 {
 	keyBuffer[position] = c;
-     2e6:	e0 91 bc 01 	lds	r30, 0x01BC	; 0x8001bc <__data_end>
-     2ea:	f0 91 bd 01 	lds	r31, 0x01BD	; 0x8001bd <__data_end+0x1>
-     2ee:	e0 54       	subi	r30, 0x40	; 64
+     2e6:	e0 91 b6 01 	lds	r30, 0x01B6	; 0x8001b6 <__data_end>
+     2ea:	f0 91 b7 01 	lds	r31, 0x01B7	; 0x8001b7 <__data_end+0x1>
+     2ee:	e6 54       	subi	r30, 0x46	; 70
      2f0:	fe 4f       	sbci	r31, 0xFE	; 254
      2f2:	80 83       	st	Z, r24
 	if(position < 16)
-     2f4:	80 91 bc 01 	lds	r24, 0x01BC	; 0x8001bc <__data_end>
-     2f8:	90 91 bd 01 	lds	r25, 0x01BD	; 0x8001bd <__data_end+0x1>
+     2f4:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <__data_end>
+     2f8:	90 91 b7 01 	lds	r25, 0x01B7	; 0x8001b7 <__data_end+0x1>
      2fc:	40 97       	sbiw	r24, 0x10	; 16
      2fe:	4c f4       	brge	.+18     	; 0x312 <addChar+0x2c>
 		position = position +1;
-     300:	80 91 bc 01 	lds	r24, 0x01BC	; 0x8001bc <__data_end>
-     304:	90 91 bd 01 	lds	r25, 0x01BD	; 0x8001bd <__data_end+0x1>
+     300:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <__data_end>
+     304:	90 91 b7 01 	lds	r25, 0x01B7	; 0x8001b7 <__data_end+0x1>
      308:	01 96       	adiw	r24, 0x01	; 1
-     30a:	90 93 bd 01 	sts	0x01BD, r25	; 0x8001bd <__data_end+0x1>
-     30e:	80 93 bc 01 	sts	0x01BC, r24	; 0x8001bc <__data_end>
+     30a:	90 93 b7 01 	sts	0x01B7, r25	; 0x8001b7 <__data_end+0x1>
+     30e:	80 93 b6 01 	sts	0x01B6, r24	; 0x8001b6 <__data_end>
 	keyBuffer[position] = 0;
-     312:	e0 91 bc 01 	lds	r30, 0x01BC	; 0x8001bc <__data_end>
-     316:	f0 91 bd 01 	lds	r31, 0x01BD	; 0x8001bd <__data_end+0x1>
-     31a:	e0 54       	subi	r30, 0x40	; 64
+     312:	e0 91 b6 01 	lds	r30, 0x01B6	; 0x8001b6 <__data_end>
+     316:	f0 91 b7 01 	lds	r31, 0x01B7	; 0x8001b7 <__data_end+0x1>
+     31a:	e6 54       	subi	r30, 0x46	; 70
      31c:	fe 4f       	sbci	r31, 0xFE	; 254
      31e:	10 82       	st	Z, r1
      320:	08 95       	ret
@@ -610,20 +610,20 @@ void Keypad_AddKey(int_fast8_t key)
 	{
 		// backspace = delete char
 		if(position)
-     336:	80 91 bc 01 	lds	r24, 0x01BC	; 0x8001bc <__data_end>
-     33a:	90 91 bd 01 	lds	r25, 0x01BD	; 0x8001bd <__data_end+0x1>
+     336:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <__data_end>
+     33a:	90 91 b7 01 	lds	r25, 0x01B7	; 0x8001b7 <__data_end+0x1>
      33e:	89 2b       	or	r24, r25
      340:	49 f0       	breq	.+18     	; 0x354 <Keypad_AddKey+0x32>
 			position--;
-     342:	80 91 bc 01 	lds	r24, 0x01BC	; 0x8001bc <__data_end>
-     346:	90 91 bd 01 	lds	r25, 0x01BD	; 0x8001bd <__data_end+0x1>
+     342:	80 91 b6 01 	lds	r24, 0x01B6	; 0x8001b6 <__data_end>
+     346:	90 91 b7 01 	lds	r25, 0x01B7	; 0x8001b7 <__data_end+0x1>
      34a:	01 97       	sbiw	r24, 0x01	; 1
-     34c:	90 93 bd 01 	sts	0x01BD, r25	; 0x8001bd <__data_end+0x1>
-     350:	80 93 bc 01 	sts	0x01BC, r24	; 0x8001bc <__data_end>
+     34c:	90 93 b7 01 	sts	0x01B7, r25	; 0x8001b7 <__data_end+0x1>
+     350:	80 93 b6 01 	sts	0x01B6, r24	; 0x8001b6 <__data_end>
 		keyBuffer[position] = 0;
-     354:	e0 91 bc 01 	lds	r30, 0x01BC	; 0x8001bc <__data_end>
-     358:	f0 91 bd 01 	lds	r31, 0x01BD	; 0x8001bd <__data_end+0x1>
-     35c:	e0 54       	subi	r30, 0x40	; 64
+     354:	e0 91 b6 01 	lds	r30, 0x01B6	; 0x8001b6 <__data_end>
+     358:	f0 91 b7 01 	lds	r31, 0x01B7	; 0x8001b7 <__data_end+0x1>
+     35c:	e6 54       	subi	r30, 0x46	; 70
      35e:	fe 4f       	sbci	r31, 0xFE	; 254
      360:	10 82       	st	Z, r1
      362:	57 c0       	rjmp	.+174    	; 0x412 <__EEPROM_REGION_LENGTH__+0x12>
@@ -644,14 +644,14 @@ void Keypad_AddKey(int_fast8_t key)
 	{
 		// toggle num/abc
 		isNumber = ! isNumber;
-     374:	90 91 bf 01 	lds	r25, 0x01BF	; 0x8001bf <isNumber>
+     374:	90 91 b9 01 	lds	r25, 0x01B9	; 0x8001b9 <isNumber>
      378:	81 e0       	ldi	r24, 0x01	; 1
      37a:	89 27       	eor	r24, r25
-     37c:	80 93 bf 01 	sts	0x01BF, r24	; 0x8001bf <isNumber>
+     37c:	80 93 b9 01 	sts	0x01B9, r24	; 0x8001b9 <isNumber>
      380:	48 c0       	rjmp	.+144    	; 0x412 <__EEPROM_REGION_LENGTH__+0x12>
 	}
 	else if(isNumber) 
-     382:	80 91 bf 01 	lds	r24, 0x01BF	; 0x8001bf <isNumber>
+     382:	80 91 b9 01 	lds	r24, 0x01B9	; 0x8001b9 <isNumber>
      386:	88 23       	and	r24, r24
      388:	e9 f0       	breq	.+58     	; 0x3c4 <Keypad_AddKey+0xa2>
 	{
@@ -732,10 +732,10 @@ void Keypad_AddKey(int_fast8_t key)
 	{
 		// capslock
 		isUpperCase = !isUpperCase;
-     3c8:	90 91 be 01 	lds	r25, 0x01BE	; 0x8001be <isUpperCase>
+     3c8:	90 91 b8 01 	lds	r25, 0x01B8	; 0x8001b8 <isUpperCase>
      3cc:	81 e0       	ldi	r24, 0x01	; 1
      3ce:	89 27       	eor	r24, r25
-     3d0:	80 93 be 01 	sts	0x01BE, r24	; 0x8001be <isUpperCase>
+     3d0:	80 93 b8 01 	sts	0x01B8, r24	; 0x8001b8 <isUpperCase>
      3d4:	1e c0       	rjmp	.+60     	; 0x412 <__EEPROM_REGION_LENGTH__+0x12>
 	}
 	else
@@ -754,7 +754,7 @@ void Keypad_AddKey(int_fast8_t key)
      3e0:	93 30       	cpi	r25, 0x03	; 3
      3e2:	68 f4       	brcc	.+26     	; 0x3fe <Keypad_AddKey+0xdc>
 			c = 'A' + (isUpperCase ? 0 : 32) + row * 8 + col;
-     3e4:	80 91 be 01 	lds	r24, 0x01BE	; 0x8001be <isUpperCase>
+     3e4:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <isUpperCase>
      3e8:	81 11       	cpse	r24, r1
      3ea:	02 c0       	rjmp	.+4      	; 0x3f0 <Keypad_AddKey+0xce>
      3ec:	81 e6       	ldi	r24, 0x61	; 97
@@ -769,7 +769,7 @@ void Keypad_AddKey(int_fast8_t key)
 		}
 		else {
 			c = 'Y' + (isUpperCase ? 0 : 32) + col;
-     3fe:	80 91 be 01 	lds	r24, 0x01BE	; 0x8001be <isUpperCase>
+     3fe:	80 91 b8 01 	lds	r24, 0x01B8	; 0x8001b8 <isUpperCase>
      402:	81 11       	cpse	r24, r1
      404:	02 c0       	rjmp	.+4      	; 0x40a <__EEPROM_REGION_LENGTH__+0xa>
      406:	89 e7       	ldi	r24, 0x79	; 121
@@ -831,7 +831,7 @@ extern int_fast8_t currentState;
 void KeyProcessor_ProcessKey(int_fast8_t key)
 {
 	switch(currentState)
-     456:	90 91 d4 01 	lds	r25, 0x01D4	; 0x8001d4 <currentState>
+     456:	90 91 ce 01 	lds	r25, 0x01CE	; 0x8001ce <currentState>
      45a:	91 30       	cpi	r25, 0x01	; 1
      45c:	61 f0       	breq	.+24     	; 0x476 <KeyProcessor_ProcessKey+0x20>
      45e:	1c f4       	brge	.+6      	; 0x466 <KeyProcessor_ProcessKey+0x10>
@@ -2022,8 +2022,8 @@ void lcd_data(unsigned char data)
      b20:	60 e0       	ldi	r22, 0x00	; 0
      b22:	89 2b       	or	r24, r25
      b24:	0e 94 3b 05 	call	0xa76	; 0xa76 <wr_lcd_mode>
-     b28:	d0 93 d2 01 	sts	0x01D2, r29	; 0x8001d2 <_lcd_x>
-     b2c:	c0 93 d3 01 	sts	0x01D3, r28	; 0x8001d3 <_lcd_y>
+     b28:	d0 93 cc 01 	sts	0x01CC, r29	; 0x8001cc <_lcd_x>
+     b2c:	c0 93 cd 01 	sts	0x01CD, r28	; 0x8001cd <_lcd_y>
      b30:	df 91       	pop	r29
      b32:	cf 91       	pop	r28
      b34:	08 95       	ret
@@ -2032,37 +2032,37 @@ void lcd_data(unsigned char data)
      b36:	60 e0       	ldi	r22, 0x00	; 0
      b38:	81 e0       	ldi	r24, 0x01	; 1
      b3a:	0e 94 3b 05 	call	0xa76	; 0xa76 <wr_lcd_mode>
-     b3e:	10 92 d3 01 	sts	0x01D3, r1	; 0x8001d3 <_lcd_y>
-     b42:	10 92 d2 01 	sts	0x01D2, r1	; 0x8001d2 <_lcd_x>
+     b3e:	10 92 cd 01 	sts	0x01CD, r1	; 0x8001cd <_lcd_y>
+     b42:	10 92 cc 01 	sts	0x01CC, r1	; 0x8001cc <_lcd_x>
      b46:	08 95       	ret
 
 00000b48 <lcd_putc>:
      b48:	cf 93       	push	r28
      b4a:	c8 2f       	mov	r28, r24
-     b4c:	90 91 d2 01 	lds	r25, 0x01D2	; 0x8001d2 <_lcd_x>
-     b50:	80 91 d1 01 	lds	r24, 0x01D1	; 0x8001d1 <_lcd_maxx>
+     b4c:	90 91 cc 01 	lds	r25, 0x01CC	; 0x8001cc <_lcd_x>
+     b50:	80 91 cb 01 	lds	r24, 0x01CB	; 0x8001cb <_lcd_maxx>
      b54:	98 17       	cp	r25, r24
      b56:	18 f4       	brcc	.+6      	; 0xb5e <lcd_putc+0x16>
      b58:	ca 30       	cpi	r28, 0x0A	; 10
      b5a:	59 f4       	brne	.+22     	; 0xb72 <lcd_putc+0x2a>
      b5c:	14 c0       	rjmp	.+40     	; 0xb86 <lcd_putc+0x3e>
-     b5e:	60 91 d3 01 	lds	r22, 0x01D3	; 0x8001d3 <_lcd_y>
+     b5e:	60 91 cd 01 	lds	r22, 0x01CD	; 0x8001cd <_lcd_y>
      b62:	6f 5f       	subi	r22, 0xFF	; 255
-     b64:	60 93 d3 01 	sts	0x01D3, r22	; 0x8001d3 <_lcd_y>
+     b64:	60 93 cd 01 	sts	0x01CD, r22	; 0x8001cd <_lcd_y>
      b68:	80 e0       	ldi	r24, 0x00	; 0
      b6a:	0e 94 85 05 	call	0xb0a	; 0xb0a <lcd_gotoxy>
      b6e:	ca 30       	cpi	r28, 0x0A	; 10
      b70:	91 f0       	breq	.+36     	; 0xb96 <lcd_putc+0x4e>
-     b72:	80 91 d2 01 	lds	r24, 0x01D2	; 0x8001d2 <_lcd_x>
+     b72:	80 91 cc 01 	lds	r24, 0x01CC	; 0x8001cc <_lcd_x>
      b76:	8f 5f       	subi	r24, 0xFF	; 255
-     b78:	80 93 d2 01 	sts	0x01D2, r24	; 0x8001d2 <_lcd_x>
+     b78:	80 93 cc 01 	sts	0x01CC, r24	; 0x8001cc <_lcd_x>
      b7c:	61 e0       	ldi	r22, 0x01	; 1
      b7e:	8c 2f       	mov	r24, r28
      b80:	0e 94 3b 05 	call	0xa76	; 0xa76 <wr_lcd_mode>
      b84:	08 c0       	rjmp	.+16     	; 0xb96 <lcd_putc+0x4e>
-     b86:	60 91 d3 01 	lds	r22, 0x01D3	; 0x8001d3 <_lcd_y>
+     b86:	60 91 cd 01 	lds	r22, 0x01CD	; 0x8001cd <_lcd_y>
      b8a:	6f 5f       	subi	r22, 0xFF	; 255
-     b8c:	60 93 d3 01 	sts	0x01D3, r22	; 0x8001d3 <_lcd_y>
+     b8c:	60 93 cd 01 	sts	0x01CD, r22	; 0x8001cd <_lcd_y>
      b90:	80 e0       	ldi	r24, 0x00	; 0
      b92:	0e 94 85 05 	call	0xb0a	; 0xb0a <lcd_gotoxy>
      b96:	cf 91       	pop	r28
@@ -2114,7 +2114,7 @@ void lcd_init(unsigned char command)
 	uint8_t ret = 0;
     _lcd_maxx = LCD_DISP_LENGTH;
      be0:	80 e1       	ldi	r24, 0x10	; 16
-     be2:	80 93 d1 01 	sts	0x01D1, r24	; 0x8001d1 <_lcd_maxx>
+     be2:	80 93 cb 01 	sts	0x01CB, r24	; 0x8001cb <_lcd_maxx>
     _base_y[2] = _base_y[0] + _lcd_maxx;
      be6:	e1 e6       	ldi	r30, 0x61	; 97
      be8:	f0 e0       	ldi	r31, 0x00	; 0
@@ -2358,17 +2358,17 @@ void EnteringAge_ProcessKey(int_fast8_t key)
      d56:	80 e0       	ldi	r24, 0x00	; 0
      d58:	0e 94 99 02 	call	0x532	; 0x532 <Lcd_Position>
 		int sz = strlen(keyBuffer);
-     d5c:	e0 ec       	ldi	r30, 0xC0	; 192
+     d5c:	ea eb       	ldi	r30, 0xBA	; 186
      d5e:	f1 e0       	ldi	r31, 0x01	; 1
      d60:	01 90       	ld	r0, Z+
      d62:	00 20       	and	r0, r0
      d64:	e9 f7       	brne	.-6      	; 0xd60 <EnteringAge_ProcessKey+0x3e>
      d66:	31 97       	sbiw	r30, 0x01	; 1
      d68:	8f 01       	movw	r16, r30
-     d6a:	00 5c       	subi	r16, 0xC0	; 192
+     d6a:	0a 5b       	subi	r16, 0xBA	; 186
      d6c:	11 40       	sbci	r17, 0x01	; 1
 		Lcd_Prints(LCDKEYPAD , keyBuffer);
-     d6e:	60 ec       	ldi	r22, 0xC0	; 192
+     d6e:	6a eb       	ldi	r22, 0xBA	; 186
      d70:	71 e0       	ldi	r23, 0x01	; 1
      d72:	80 e0       	ldi	r24, 0x00	; 0
      d74:	0e 94 87 02 	call	0x50e	; 0x50e <Lcd_Prints>
@@ -2395,7 +2395,7 @@ void EnteringAge_ProcessKey(int_fast8_t key)
      d90:	d0 f7       	brcc	.-12     	; 0xd86 <EnteringAge_ProcessKey+0x64>
 			Lcd_Printc(LCDKEYPAD,' ');
 		HC05_SendString(keyBuffer);
-     d92:	80 ec       	ldi	r24, 0xC0	; 192
+     d92:	8a eb       	ldi	r24, 0xBA	; 186
      d94:	91 e0       	ldi	r25, 0x01	; 1
      d96:	0e 94 c5 00 	call	0x18a	; 0x18a <HC05_SendString>
 		
@@ -2480,17 +2480,17 @@ void EnteringName_ProcessKey(int_fast8_t key)
      e00:	80 e0       	ldi	r24, 0x00	; 0
      e02:	0e 94 99 02 	call	0x532	; 0x532 <Lcd_Position>
 		int sz = strlen(keyBuffer);
-     e06:	e0 ec       	ldi	r30, 0xC0	; 192
+     e06:	ea eb       	ldi	r30, 0xBA	; 186
      e08:	f1 e0       	ldi	r31, 0x01	; 1
      e0a:	01 90       	ld	r0, Z+
      e0c:	00 20       	and	r0, r0
      e0e:	e9 f7       	brne	.-6      	; 0xe0a <EnteringName_ProcessKey+0x3e>
      e10:	31 97       	sbiw	r30, 0x01	; 1
      e12:	8f 01       	movw	r16, r30
-     e14:	00 5c       	subi	r16, 0xC0	; 192
+     e14:	0a 5b       	subi	r16, 0xBA	; 186
      e16:	11 40       	sbci	r17, 0x01	; 1
 		Lcd_Prints(LCDKEYPAD , keyBuffer);
-     e18:	60 ec       	ldi	r22, 0xC0	; 192
+     e18:	6a eb       	ldi	r22, 0xBA	; 186
      e1a:	71 e0       	ldi	r23, 0x01	; 1
      e1c:	80 e0       	ldi	r24, 0x00	; 0
      e1e:	0e 94 87 02 	call	0x50e	; 0x50e <Lcd_Prints>
@@ -2517,7 +2517,7 @@ void EnteringName_ProcessKey(int_fast8_t key)
      e3a:	d0 f7       	brcc	.-12     	; 0xe30 <EnteringName_ProcessKey+0x64>
 			Lcd_Printc(LCDKEYPAD,' ');
 		HC05_SendString(keyBuffer);
-     e3c:	80 ec       	ldi	r24, 0xC0	; 192
+     e3c:	8a eb       	ldi	r24, 0xBA	; 186
      e3e:	91 e0       	ldi	r25, 0x01	; 1
      e40:	0e 94 c5 00 	call	0x18a	; 0x18a <HC05_SendString>
 		
@@ -2598,17 +2598,17 @@ void EnteringPhone_ProcessKey(int_fast8_t key)
      ea2:	80 e0       	ldi	r24, 0x00	; 0
      ea4:	0e 94 99 02 	call	0x532	; 0x532 <Lcd_Position>
 		int sz = strlen(keyBuffer);
-     ea8:	e0 ec       	ldi	r30, 0xC0	; 192
+     ea8:	ea eb       	ldi	r30, 0xBA	; 186
      eaa:	f1 e0       	ldi	r31, 0x01	; 1
      eac:	01 90       	ld	r0, Z+
      eae:	00 20       	and	r0, r0
      eb0:	e9 f7       	brne	.-6      	; 0xeac <EnteringPhone_ProcessKey+0x32>
      eb2:	31 97       	sbiw	r30, 0x01	; 1
      eb4:	8f 01       	movw	r16, r30
-     eb6:	00 5c       	subi	r16, 0xC0	; 192
+     eb6:	0a 5b       	subi	r16, 0xBA	; 186
      eb8:	11 40       	sbci	r17, 0x01	; 1
 		Lcd_Prints(LCDKEYPAD , keyBuffer);
-     eba:	60 ec       	ldi	r22, 0xC0	; 192
+     eba:	6a eb       	ldi	r22, 0xBA	; 186
      ebc:	71 e0       	ldi	r23, 0x01	; 1
      ebe:	80 e0       	ldi	r24, 0x00	; 0
      ec0:	0e 94 87 02 	call	0x50e	; 0x50e <Lcd_Prints>
@@ -2635,7 +2635,7 @@ void EnteringPhone_ProcessKey(int_fast8_t key)
      edc:	d0 f7       	brcc	.-12     	; 0xed2 <EnteringPhone_ProcessKey+0x58>
 			Lcd_Printc(LCDKEYPAD,' ');
 		HC05_SendString(keyBuffer);
-     ede:	80 ec       	ldi	r24, 0xC0	; 192
+     ede:	8a eb       	ldi	r24, 0xBA	; 186
      ee0:	91 e0       	ldi	r25, 0x01	; 1
      ee2:	0e 94 c5 00 	call	0x18a	; 0x18a <HC05_SendString>
 		
@@ -2674,7 +2674,7 @@ void Idle_Init()
      f0c:	70 e0       	ldi	r23, 0x00	; 0
      f0e:	80 e0       	ldi	r24, 0x00	; 0
      f10:	0e 94 99 02 	call	0x532	; 0x532 <Lcd_Position>
-	Lcd_Prints(LCDKEYPAD , "Welcome to xyz");
+	Lcd_Prints(LCDKEYPAD , "Welcome!");
      f14:	6e e7       	ldi	r22, 0x7E	; 126
      f16:	71 e0       	ldi	r23, 0x01	; 1
      f18:	80 e0       	ldi	r24, 0x00	; 0
@@ -2687,7 +2687,7 @@ void Idle_Init()
      f26:	80 e0       	ldi	r24, 0x00	; 0
      f28:	0e 94 99 02 	call	0x532	; 0x532 <Lcd_Position>
 	Lcd_Prints(LCDKEYPAD , "1. New Serial");
-     f2c:	6d e8       	ldi	r22, 0x8D	; 141
+     f2c:	67 e8       	ldi	r22, 0x87	; 135
      f2e:	71 e0       	ldi	r23, 0x01	; 1
      f30:	80 e0       	ldi	r24, 0x00	; 0
      f32:	0e 94 87 02 	call	0x50e	; 0x50e <Lcd_Prints>
@@ -2741,12 +2741,12 @@ void States_GotoState(int_fast8_t newState)
 			//break;
 		default:
 			Error_Error("GotoState: newState not defined");
-     f6a:	8b e9       	ldi	r24, 0x9B	; 155
+     f6a:	85 e9       	ldi	r24, 0x95	; 149
      f6c:	91 e0       	ldi	r25, 0x01	; 1
      f6e:	0e 94 49 00 	call	0x92	; 0x92 <Error_Error>
 	}
 	currentState = newState;
-     f72:	c0 93 d4 01 	sts	0x01D4, r28	; 0x8001d4 <currentState>
+     f72:	c0 93 ce 01 	sts	0x01CE, r28	; 0x8001ce <currentState>
      f76:	cf 91       	pop	r28
      f78:	08 95       	ret
 
