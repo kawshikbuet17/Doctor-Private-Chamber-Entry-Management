@@ -17,12 +17,12 @@ void KeyProcessor_ProcessKey(int_fast8_t key)
 		case ENTERING_PHONE :
 			EnteringPhone_ProcessKey(key);
 			break;
-		case GENERATE_SERIAL :
-			GenerateSerial_ProcessKey(key);
-			break;
-		case STORE_RECORD :
-			Store_ProcessKey(key);
-			break;
+		//case GENERATE_SERIAL :
+			//GenerateSerial_ProcessKey(key);
+			//break;
+		//case STORE_RECORD :
+			//Store_ProcessKey(key);
+			//break;
 		default:
 			Error_Error("ProcessKey: Undefined Current State");
 	}

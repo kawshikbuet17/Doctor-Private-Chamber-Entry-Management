@@ -15,6 +15,17 @@ void Keypad_Init()
 	// PORTA = 0x00;       /** you may use 0b 0000 00XX if ADC has any operations after that. However, we are not reading that data for getting rows */
 	PORTB = 0xFF;
 }
+void Keypad_ResetBuffer()
+{
+	isNumber = false;
+	isUpperCase = false;
+	position = 0;
+	keyBuffer[position] = 0;
+}
+void Keypad_InitNumpad()
+{
+	isNumber = true;
+}
 
 const char * Keypad_GetMode()
 {
@@ -23,6 +34,13 @@ const char * Keypad_GetMode()
 	else if(isUpperCase)
 		return "ABC";
 	else return "abc";
+}
+
+void Keypad_UpdateKeyMode()
+{
+	const char * s = Keypad_GetMode();
+	Lcd_Position(LCDKEYPAD,0,16-strlen(s));
+	Lcd_Prints(LCDKEYPAD,s);
 }
 
 int_fast8_t Keypad_KeyPressed()

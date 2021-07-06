@@ -26,11 +26,8 @@ main.d main.o: .././main.c \
  .././state/enteringname/../../all.h .././state/enteringage/enteringage.h \
  .././state/enteringage/../../all.h \
  .././state/enteringphone/enteringphone.h \
- .././state/enteringphone/../../all.h \
- .././state/generateserial/generateserial.h \
- .././state/generateserial/../../all.h .././store/store.h \
- .././store/../all.h .././lcd/lcdgeneric.h .././lcd/../all.h \
- .././lcd/lcd_4bit.h .././lcd/lcd.h \
+ .././state/enteringphone/../../all.h .././lcd/lcdgeneric.h \
+ .././lcd/../all.h .././lcd/lcd_4bit.h .././lcd/lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  .././hc05/hc05.h .././keypad/keypad8.h .././keypad/../all.h \
  .././keyprocessor.h
@@ -98,14 +95,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././state/enteringphone/enteringphone.h:
 
 .././state/enteringphone/../../all.h:
-
-.././state/generateserial/generateserial.h:
-
-.././state/generateserial/../../all.h:
-
-.././store/store.h:
-
-.././store/../all.h:
 
 .././lcd/lcdgeneric.h:
 

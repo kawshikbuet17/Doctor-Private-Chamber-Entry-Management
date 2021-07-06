@@ -24,7 +24,7 @@ void Store_Init()
 	UpdateKeyMode();
 }
 
-void EnteringAge_ProcessKey(int_fast8_t key)
+void Store_ProcessKey(int_fast8_t key)
 {
 	if(key == 31)
 	{
