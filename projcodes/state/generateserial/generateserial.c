@@ -4,12 +4,7 @@
 
 #include "../../all.h"
 
-void UpdateKeyMode()
-{
-	const char * s = Keypad_GetMode();
-	Lcd_Position(LCDKEYPAD,0,16-strlen(s));
-	Lcd_Prints(LCDKEYPAD,s);
-}
+
 void GenerateSerial_Init()
 {
     Lcd_ClearScreen(LCDKEYPAD);

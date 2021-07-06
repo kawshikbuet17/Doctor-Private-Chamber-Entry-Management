@@ -4,6 +4,7 @@
 #include "stdbool.h"
 #include "stdlib.h"
 #include "string.h"
+#include "stdio.h"
 #include "avr/io.h"
 #include "error.h"
 #include "state/states.h"

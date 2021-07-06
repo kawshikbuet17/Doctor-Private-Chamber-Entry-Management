@@ -31,10 +31,15 @@ int main(void)
 	{
 		if(Keypad_KeyPressed())
 		{
-			int_fast8_t x = Keypad_GetKey();
-			_delay_ms(200);
-			KeyProcessor_ProcessKey(x);
-			Keypad_Init();
+			_delay_ms(20);
+			if(Keypad_KeyPressed())
+			{
+				int_fast8_t x = Keypad_GetKey();
+				_delay_ms(20);
+				KeyProcessor_ProcessKey(x);
+				Keypad_Init();
+			}
+			
 		}
 	}
 }

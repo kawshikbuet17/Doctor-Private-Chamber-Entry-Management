@@ -23,8 +23,14 @@ main.d main.o: .././main.c \
  .././error.h .././state/states.h .././state/idle/idle.h \
  .././state/idle/../../all.h .././state/idle/idle.h \
  .././state/enteringname/enteringname.h \
- .././state/enteringname/../../all.h .././lcd/lcdgeneric.h \
- .././lcd/../all.h .././lcd/lcd_4bit.h .././lcd/lcd.h \
+ .././state/enteringname/../../all.h .././state/enteringage/enteringage.h \
+ .././state/enteringage/../../all.h \
+ .././state/enteringphone/enteringphone.h \
+ .././state/enteringphone/../../all.h \
+ .././state/generateserial/generateserial.h \
+ .././state/generateserial/../../all.h .././store/store.h \
+ .././store/../all.h .././lcd/lcdgeneric.h .././lcd/../all.h \
+ .././lcd/lcd_4bit.h .././lcd/lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
  .././hc05/hc05.h .././keypad/keypad8.h .././keypad/../all.h \
  .././keyprocessor.h
@@ -84,6 +90,22 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././state/enteringname/enteringname.h:
 
 .././state/enteringname/../../all.h:
+
+.././state/enteringage/enteringage.h:
+
+.././state/enteringage/../../all.h:
+
+.././state/enteringphone/enteringphone.h:
+
+.././state/enteringphone/../../all.h:
+
+.././state/generateserial/generateserial.h:
+
+.././state/generateserial/../../all.h:
+
+.././store/store.h:
+
+.././store/../all.h:
 
 .././lcd/lcdgeneric.h:
 
