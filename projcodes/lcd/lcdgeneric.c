@@ -70,3 +70,14 @@ void Lcd_Printc(int_fast8_t lcdType ,const char c)
 	char s[] = {c,0};
 	Lcd_Prints(lcdType , s);
 }
+void Lcd_PrintLine(int_fast8_t lcdType , int row , char * str)
+{
+	Lcd_Position(lcdType , row , 0);
+	int i =0;
+	while (str[i])
+	{
+		Lcd_Printc(lcdType , str[i++]);
+	}
+	while(i<16)
+		Lcd_Printc(lcdType , ' '),i++;
+}

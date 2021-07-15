@@ -13,6 +13,9 @@ void EnteringName_Init()
     Lcd_Position(LCDKEYPAD,0,0);
     Lcd_Prints(LCDKEYPAD,"Enter Name:");
 	Keypad_UpdateKeyMode();
+	
+	Keypad_WriteToBuffer(currentPatient.name);
+	Lcd_PrintLine(LCDKEYPAD , 1 , keyBuffer);
 }
 
 void EnteringName_ProcessKey(int_fast8_t key)
@@ -21,25 +24,23 @@ void EnteringName_ProcessKey(int_fast8_t key)
 	{
 		// nxt
 		// save name and procced
-		//records[serial].name = keyBuffer;
+		Patient_UpdateName(&currentPatient , keyBuffer);
 		Keypad_ResetBuffer();
 		States_GotoState(ENTERING_AGE);
 	}
 	else if(key == 30)
 	{
 		//prev
+		// save name and procced
+		Patient_UpdateName(&currentPatient , keyBuffer);
 		Keypad_ResetBuffer();
 		States_GotoState(IDLE);
 	}
 	else 
 	{
 		Keypad_AddKey(key);
-		Lcd_Position(LCDKEYPAD,1,0);
-		int sz = strlen(keyBuffer);
-		Lcd_Prints(LCDKEYPAD , keyBuffer);
-		sz  = 16-sz;
-		while(sz--)
-			Lcd_Printc(LCDKEYPAD,' ');
+		// print input in lower line
+		Lcd_PrintLine(LCDKEYPAD , 1 , keyBuffer);
 		HC05_SendString(keyBuffer);
 		
 		Keypad_UpdateKeyMode();

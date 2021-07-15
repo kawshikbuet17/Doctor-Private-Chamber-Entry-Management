@@ -1,9 +1,9 @@
 #include "../all.h"
 
-volatile char keyBuffer[17];
-volatile bool isNumber = 0;
-volatile bool isUpperCase = 0;
-volatile int position =0;
+char keyBuffer[17];
+bool isNumber = 0;
+bool isUpperCase = 0;
+int position =0;
 
 void Keypad_Init()
 {
@@ -22,6 +22,24 @@ void Keypad_ResetBuffer()
 	position = 0;
 	keyBuffer[position] = 0;
 }
+
+void Keypad_WriteToBuffer(char * newData)
+{
+	if(newData == NULL)
+	{
+		Error_Error("newData is Null");
+		position = 0;
+		keyBuffer[position]=0;
+	}
+	else 
+	{
+		int sz = min(strlen(newData),16);
+		for(position=0;position<sz;position++)
+			keyBuffer[position] = newData[position];
+		keyBuffer[position] = 0;
+	}
+}
+
 void Keypad_InitNumpad()
 {
 	isNumber = true;
@@ -43,7 +61,7 @@ void Keypad_UpdateKeyMode()
 	Lcd_Prints(LCDKEYPAD,s);
 }
 
-int_fast8_t Keypad_KeyPressed()
+inline int_fast8_t Keypad_KeyPressed()
 {
 	return (PINA >> 4);
 }

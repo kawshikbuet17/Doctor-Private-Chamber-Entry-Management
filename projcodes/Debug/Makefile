@@ -36,6 +36,7 @@ SUBDIRS :=  \
 ../hc05/ \
 ../keypad/ \
 ../lcd/ \
+../patient/ \
 ../state/ \
 ../state/enteringage/ \
 ../state/enteringname/ \
@@ -55,6 +56,7 @@ C_SRCS +=  \
 ../lcd/lcd_4bit.c \
 ../lcd/lcd_i2cmaster.c \
 ../main.c \
+../patient/patient.c \
 ../state/enteringage/enteringage.c \
 ../state/enteringname/enteringname.c \
 ../state/enteringphone/enteringphone.c \
@@ -78,6 +80,7 @@ lcd/lcdgeneric.o \
 lcd/lcd_4bit.o \
 lcd/lcd_i2cmaster.o \
 main.o \
+patient/patient.o \
 state/enteringage/enteringage.o \
 state/enteringname/enteringname.o \
 state/enteringphone/enteringphone.o \
@@ -94,6 +97,7 @@ lcd/lcdgeneric.o \
 lcd/lcd_4bit.o \
 lcd/lcd_i2cmaster.o \
 main.o \
+patient/patient.o \
 state/enteringage/enteringage.o \
 state/enteringname/enteringname.o \
 state/enteringphone/enteringphone.o \
@@ -110,6 +114,7 @@ lcd/lcdgeneric.d \
 lcd/lcd_4bit.d \
 lcd/lcd_i2cmaster.d \
 main.d \
+patient/patient.d \
 state/enteringage/enteringage.d \
 state/enteringname/enteringname.d \
 state/enteringphone/enteringphone.d \
@@ -126,6 +131,7 @@ lcd/lcdgeneric.d \
 lcd/lcd_4bit.d \
 lcd/lcd_i2cmaster.d \
 main.d \
+patient/patient.d \
 state/enteringage/enteringage.d \
 state/enteringname/enteringname.d \
 state/enteringphone/enteringphone.d \
@@ -197,6 +203,13 @@ lcd/lcd_i2cmaster.o: ../lcd/lcd_i2cmaster.c
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+patient/patient.o: ../patient/patient.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

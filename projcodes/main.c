@@ -5,13 +5,6 @@
  * Author : mahdi
  */ 
 
-#define F_CPU 1000000
-#include <util/delay.h>
-#include <avr/io.h>
-
-#include <stdlib.h>       //for itoa()
-#include <stdio.h> // sprintf
-
 #include "all.h"
 
 int main(void)

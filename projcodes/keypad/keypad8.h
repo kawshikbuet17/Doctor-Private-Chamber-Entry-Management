@@ -2,7 +2,7 @@
 #define KEYPAD8_H_ADDED
 
 #include "../all.h"
-extern volatile char keyBuffer[17];
+extern char keyBuffer[17];
 
 void Keypad_Init();
 int_fast8_t Keypad_KeyPressed();
@@ -14,4 +14,6 @@ void Keypad_AddKey(int_fast8_t key);
 void Keypad_UpdateKeyMode();
 void Keypad_ResetBuffer();
 void Keypad_InitNumpad();
+void Keypad_WriteToBuffer(char * newData);
+
 #endif

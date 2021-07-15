@@ -199,6 +199,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="patient\patient.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="patient\patient.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="state\enteringage\enteringage.c">
       <SubType>compile</SubType>
     </Compile>
@@ -237,6 +243,7 @@
     <Folder Include="hc05\" />
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />
+    <Folder Include="patient\" />
     <Folder Include="state\" />
     <Folder Include="state\enteringage\" />
     <Folder Include="state\enteringname\" />

@@ -23,5 +23,5 @@ void Lcd_ClearScreen(int_fast8_t lcdType);
 void Lcd_Prints(int_fast8_t lcdType ,const char * s);
 void Lcd_Position(int_fast8_t lcdType,int x,int y);
 void Lcd_Printc(int_fast8_t lcdType ,const char c);
-
+void Lcd_PrintLine(int_fast8_t lcdType , int row , char * str);
 #endif

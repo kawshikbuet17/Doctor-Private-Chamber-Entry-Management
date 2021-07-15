@@ -18,10 +18,12 @@ Total 6 pin
 
 [Interfacing with atmega32](https://electrosome.com/interfacing-lcd-atmega32-microcontroller-atmel-studio/)
 
-### HC-05 Bluetooth Module
+### HC-05 FC-114 Bluetooth Module
 [Module Pinout](https://www.electronicwings.com/sensors-modules/bluetooth-module-hc-05-)
 
 [Interfacting with Atmega16/32](https://www.electronicwings.com/avr-atmega/hc-05-bluetooth-module-interfacing-with-atmega1632)
+
+[Our device HC-05 FC-114](https://forum.arduino.cc/t/bluetooth-module-hc-05-with-a-button-and-en-pin-help/321715)
 
 ## Connection
 1 ~ 8 - B0 ~ B7 = Keypad8 Columns \

@@ -9,11 +9,16 @@
 
 void EnteringAge_Init()
 {
-    Lcd_ClearScreen(LCDKEYPAD);
-    Lcd_Position(LCDKEYPAD,0,0);
-    Lcd_Prints(LCDKEYPAD,"Enter Age:");
+	// clear screen of keypad display , 
+	// since both row is used and printed ' ' 
+	// so no clear screen func is required
+    Lcd_PrintLine(LCDKEYPAD,0,"Enter Age:");
 	Keypad_InitNumpad();
 	Keypad_UpdateKeyMode();
+	
+	// restore old age
+	Keypad_WriteToBuffer(currentPatient.age);
+	Lcd_PrintLine(LCDKEYPAD , 1 , keyBuffer);
 }
 
 void EnteringAge_ProcessKey(int_fast8_t key)
@@ -21,8 +26,10 @@ void EnteringAge_ProcessKey(int_fast8_t key)
 	if(key == 31)
 	{
 		// nxt
-		//records[serial].age = atoi(keyBuffer);
+		
 		// save age
+		Patient_UpdateAge(&currentPatient , keyBuffer);
+		
 		Keypad_ResetBuffer();
 		States_GotoState(ENTERING_PHONE);
 	}
@@ -30,18 +37,17 @@ void EnteringAge_ProcessKey(int_fast8_t key)
 	{
 		// prev
 		
+		// save age
+		Patient_UpdateAge(&currentPatient , keyBuffer);
+		
 		Keypad_ResetBuffer();
 		States_GotoState(ENTERING_NAME);
 	}
 	else 
 	{
 		Keypad_AddKey(key);
-		Lcd_Position(LCDKEYPAD,1,0);
-		int sz = strlen(keyBuffer);
-		Lcd_Prints(LCDKEYPAD , keyBuffer);
-		sz  = 16-sz;
-		while(sz--)
-			Lcd_Printc(LCDKEYPAD,' ');
+		
+		Lcd_PrintLine(LCDKEYPAD , 1 , keyBuffer);
 		HC05_SendString(keyBuffer);
 		
 		Keypad_UpdateKeyMode();

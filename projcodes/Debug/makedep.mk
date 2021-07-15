@@ -18,6 +18,8 @@ lcd\lcd_i2cmaster.c
 
 main.c
 
+patient\patient.c
+
 state\enteringage\enteringage.c
 
 state\enteringname\enteringname.c
