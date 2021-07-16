@@ -4,13 +4,15 @@
 
 #include "../all.h"
 
-struct Patient currentPatient ;
+/*struct Patient currentPatient ;*/
 
 
+/*
 void Patient_UpdateName(struct Patient * p, char *newName)
 {
 	strcpy(p->name , newName);
-}
+}*/
+/*
 void Patient_UpdateAge(struct Patient *p, char *newAge)
 {
 	strcpy(p->age , newAge);
@@ -18,4 +20,4 @@ void Patient_UpdateAge(struct Patient *p, char *newAge)
 void Patient_UpdatePhone(struct Patient *p, char *newPhone)
 {
 	strcpy(p->phone , newPhone);
-}
+}*/

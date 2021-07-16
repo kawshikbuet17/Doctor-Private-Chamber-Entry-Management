@@ -7,25 +7,25 @@ void States_GotoState(int_fast8_t newState)
 	switch(newState)
 	{
 		case IDLE:
-			Idle_Init();
-			break;
+		Idle_Init();
+		break;
 		case ENTERING_NAME:
-			EnteringName_Init();
-			break;
+		EnteringName_Init();
+		break;
 		case ENTERING_AGE:
-			EnteringAge_Init();
-			break;
+		EnteringAge_Init();
+		break;
 		case ENTERING_PHONE:
-			EnteringPhone_Init();
-			break;
-		//case GENERATE_SERIAL:
-			//GenerateSerial_Init();
-			//break;
+		EnteringPhone_Init();
+		break;
+		case GENERATE_SERIAL:
+		GenerateSerial_Init();
+		break;
 		//case STORE_RECORD:
-			//Store_Init();
-			//break;
+		//Store_Init();
+		//break;
 		default:
-			Error_Error("GotoState: newState not defined");
+		Error_Error("GotoState: newState not defined");
 	}
 	currentState = newState;
 }
