@@ -223,6 +223,12 @@
     <Compile Include="state\enteringphone\enteringphone.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="state\generateserial\generateserial.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\generateserial\generateserial.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="state\idle\idle.c">
       <SubType>compile</SubType>
     </Compile>
@@ -235,6 +241,12 @@
     <Compile Include="state\states.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="store\store.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="store\store.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="twimaster.c">
       <SubType>compile</SubType>
     </Compile>
@@ -243,6 +255,8 @@
     <Folder Include="hc05\" />
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />
+    <Folder Include="state\generateserial" />
+    <Folder Include="store" />
     <Folder Include="patient\" />
     <Folder Include="state\" />
     <Folder Include="state\enteringage\" />

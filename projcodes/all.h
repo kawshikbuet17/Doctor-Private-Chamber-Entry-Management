@@ -15,6 +15,8 @@
 #include "state/enteringname/enteringname.h"
 #include "state/enteringage/enteringage.h"
 #include "state/enteringphone/enteringphone.h"
+#include "state/generateserial/generateserial.h"
+#include "store/store.h"
 
 #include "lcd/lcdgeneric.h"
 
