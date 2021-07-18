@@ -5,7 +5,8 @@
 #include "../all.h"
 
 struct Patient currentPatient ;
-
+struct PatientsList patientsList;
+int patientsCount = 0;
 
 void Patient_UpdateName(struct Patient * p, char *newName)
 {
@@ -18,4 +19,8 @@ void Patient_UpdateAge(struct Patient *p, char *newAge)
 void Patient_UpdatePhone(struct Patient *p, char *newPhone)
 {
 	strcpy(p->phone , newPhone);
+}
+void Patient_UpdateSerial(struct Patient *p, int newSerial)
+{
+	p->serial = newSerial;
 }
