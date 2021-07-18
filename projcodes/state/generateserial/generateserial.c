@@ -23,6 +23,8 @@ void GenerateSerial_ProcessKey(int_fast8_t key)
 		Lcd_Position(LCDKEYPAD,0,3);
 		Lcd_Prints(LCDKEYPAD,"Thank You");
 		_delay_ms(2000);
+
+		/* Here, can first prompt for providing temperature through lm and then go to the idle state for next entry */
 		States_GotoState(IDLE);
 	}
 	else if(key == 30)

@@ -17,6 +17,8 @@
 #include "state/enteringphone/enteringphone.h"
 #include "state/generateserial/generateserial.h"
 #include "store/store.h"
+#include "lm35/lm35.h"
+#include "pir/pir.h"
 
 #include "lcd/lcdgeneric.h"
 
