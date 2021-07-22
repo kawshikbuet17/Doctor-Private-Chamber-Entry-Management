@@ -6,18 +6,18 @@
 #define INFORMATION_H_ADDED
 
 #include "../all.h"
-
+struct Patient ;
 
 struct Patient {
 	char name [17];
 	char age [17];
 	char phone [17];
 	int serial ;
-	Patient* nextPatient;
+	struct Patient* nextPatient;
 };
 
 struct PatientsList {
-	Patient* root;
+	struct Patient* root;
 };
 
 void Patient_UpdateName(struct Patient *p, char *newName);

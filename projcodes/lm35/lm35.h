@@ -5,4 +5,6 @@
 
 void Lm35_Init();
 void Lm35_PrintTemp();
+float Lm35_GetTemp();
+
 #endif

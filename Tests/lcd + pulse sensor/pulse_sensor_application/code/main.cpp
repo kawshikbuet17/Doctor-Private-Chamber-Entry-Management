@@ -6,7 +6,7 @@
  */ 
 
 #ifndef F_CPU
-#define F_CPU 16000000UL // 16 MHz clock speed
+#define F_CPU 1000000UL // 16 MHz clock speed
 #endif
 
 #define D4 eS_PORTD5
@@ -16,7 +16,6 @@
 #define RS eS_PORTD7
 #define EN eS_PORTD6
 
-#include "lcd_4bit.h"
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -28,7 +27,7 @@ char disp[16]="00000000000001";
 char result[8] = "000001"; 
 
 
-void lcd_disp(char data_points[],int r,int c,char w[]){ 
+void lcd_disp(char data_points[],int r,int c, char w[]){ 
 
 	if(w=="clear")Lcd4_Clear();
 	Lcd4_Set_Cursor(r,c);

@@ -16,9 +16,13 @@ lcd\lcd_4bit.c
 
 lcd\lcd_i2cmaster.c
 
+lm35\lm35.c
+
 main.c
 
 patient\patient.c
+
+pir\pir.c
 
 state\enteringage\enteringage.c
 
