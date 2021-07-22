@@ -21,11 +21,14 @@ void GenerateSerial_ProcessKey(int_fast8_t key)
 	{
 		Lcd_ClearScreen(LCDKEYPAD);
 		Lcd_Position(LCDKEYPAD,0,3);
+		patientsCount++;
 		Lcd_Prints(LCDKEYPAD,"Thank You");
 		_delay_ms(2000);
 
 		/* Here, can first prompt for providing temperature through lm and then go to the idle state for next entry */
+		
 		States_GotoState(IDLE);
+		Clear_CurrentPatient_Data();
 	}
 	else if(key == 30)
 	{
@@ -39,8 +42,8 @@ void GenerateSerial_ProcessKey(int_fast8_t key)
 
 void Update_Serial()
 {
-	const char * s;
-	dtostrf((float)(++patientsCount), 3, 0, s);
+	char s[100];
+	dtostrf((float)(patientsCount+1), 3, 0, s);
 	Lcd_Position(LCDKEYPAD,0,13);
 	Lcd_Prints(LCDKEYPAD,s);
 	Patient_UpdateSerial(&currentPatient, patientsCount);
@@ -65,4 +68,11 @@ void Update_PatientsList()
 		}
 		p->nextPatient = cp;
 	}
+	
+}
+
+void Clear_CurrentPatient_Data(){
+	strcpy(currentPatient.name, "");
+	strcpy(currentPatient.age, "");
+	strcpy(currentPatient.phone, "");
 }

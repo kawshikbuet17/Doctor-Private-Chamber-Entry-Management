@@ -8,5 +8,7 @@
 #include "../../all.h"
 void GenerateSerial_Init();
 void GenerateSerial_ProcessKey(int_fast8_t key);
+void Update_Serial();
+void Update_PatientsList();
 
 #endif //PROJCODES_GENERATINGSERIAL_H
