@@ -6,7 +6,7 @@
 #define INFORMATION_H_ADDED
 
 #include "../all.h"
-
+struct Patient ;
 
 struct Patient {
 	char name [17];

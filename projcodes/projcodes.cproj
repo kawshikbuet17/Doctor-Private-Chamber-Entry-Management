@@ -196,6 +196,12 @@
     <Compile Include="lcd\lcd_i2cmaster.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="lm35\lm35.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="lm35\lm35.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
@@ -203,6 +209,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="patient\patient.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pir\pir.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pir\pir.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="state\enteringage\enteringage.c">
@@ -255,6 +267,8 @@
     <Folder Include="hc05\" />
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />
+    <Folder Include="lm35\" />
+    <Folder Include="pir\" />
     <Folder Include="state\generateserial" />
     <Folder Include="store" />
     <Folder Include="patient\" />
