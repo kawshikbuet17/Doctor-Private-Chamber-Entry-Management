@@ -2,8 +2,9 @@
 
 void Lm35_Init()
 {
-	ADCSRA = 0x81; 		//enable ADC with div factor 2
-	ADMUX = 0xC0; 		//internal voltage 2.56V, right-justified, input ADC0
+	ADMUX = 0b11000000; 		//internal voltage 2.56V, right-justified, input ADC0
+	ADCSRA =0b10000000; 		//enable = true ,start conversion = false , auto trigger = false , 
+							//interrupt flag = false  ,interrupt enable = false ,  prescaler factor 2
 	DDRA &= ~1;
 }
 
