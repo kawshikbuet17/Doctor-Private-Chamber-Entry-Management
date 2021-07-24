@@ -58,6 +58,8 @@ void Update_PatientsList()
 	strcpy(cp->phone, currentPatient.phone);
 	cp->serial = currentPatient.serial;
 	cp->nextPatient = NULL;
+	strcpy(cp->temperature, currentPatient.temperature);
+	strcpy(cp->bp, currentPatient.bp);
 	if(!patientsList.root) {
 		patientsList.root = cp;
 	}
@@ -75,4 +77,6 @@ void Clear_CurrentPatient_Data(){
 	strcpy(currentPatient.name, "");
 	strcpy(currentPatient.age, "");
 	strcpy(currentPatient.phone, "");
+	strcpy(currentPatient.temperature, "");
+	strcpy(currentPatient.bp, "");
 }

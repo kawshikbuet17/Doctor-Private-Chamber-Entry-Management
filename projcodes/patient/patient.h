@@ -12,6 +12,8 @@ struct Patient {
 	char name [17];
 	char age [17];
 	char phone [17];
+	char temperature[10];
+	char bp[10];
 	int serial ;
 	struct Patient* nextPatient;
 };

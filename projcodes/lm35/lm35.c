@@ -2,23 +2,18 @@
 
 void Lm35_Init()
 {
-	ADCSRA = 0x85; 		//enable ADC with div factor 32
+	ADCSRA = 0x81; 		//enable ADC with div factor 2
 	ADMUX = 0xC0; 		//internal voltage 2.56V, right-justified, input ADC0
+	DDRA &= ~1;
 }
 
 void Lm35_PrintTemp()
 {
 	float tempF = Lm35_GetTemp();
-	char label[50];
 	char tempF_txt[20];
-	strcpy(label, "Temperature: ");	
-	Lcd_ClearScreen(LCDKEYPAD);
-	Lcd_Position(LCDKEYPAD, 0, 0);
-	Lcd_Prints(LCDKEYPAD, label);
-	
-	Lcd_Position(LCDKEYPAD, 0, strlen(label)+1);
 	dtostrf(tempF, 5, 2, tempF_txt);
-	Lcd_Prints(LCDKEYPAD, tempF_txt);
+	Lcd_PrintLine(LCDKEYPAD, 1, tempF_txt);
+	strcpy(keyBuffer, tempF_txt);
 	_delay_ms(10);
 }
 
@@ -27,7 +22,7 @@ float Lm35_GetTemp()
 	float tempC, tempF, vref = 2.56;
 
 	ADCSRA |= (1<<ADSC);
-	while((ADCSRA & (1<<ADSC))==0);
+	while(ADCSRA & (1<<ADSC));
 
 	unsigned int i = ADC;
 	tempC = (i * vref * 1000.0) / (10.0 * 1024);

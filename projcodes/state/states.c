@@ -18,6 +18,12 @@ void States_GotoState(int_fast8_t newState)
 		case ENTERING_PHONE:
 			EnteringPhone_Init();
 			break;
+		case ENTERING_TEMP:
+			EnteringTemp_Init();
+			break;
+		case ENTERING_BP:
+			EnteringBp_Init();
+			break;
 		case GENERATE_SERIAL:
 			GenerateSerial_Init();
 			break;

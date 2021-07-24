@@ -30,7 +30,7 @@ void EnteringPhone_ProcessKey(int_fast8_t key)
 		// save phone patient
 		Patient_UpdatePhone(&currentPatient , keyBuffer);
 		Keypad_ResetBuffer();
-		States_GotoState(GENERATE_SERIAL);
+		States_GotoState(ENTERING_TEMP);
 		// print serial
 	}
 	else if(key == 30)

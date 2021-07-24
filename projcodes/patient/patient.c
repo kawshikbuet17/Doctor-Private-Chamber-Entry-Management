@@ -24,3 +24,11 @@ void Patient_UpdateSerial(struct Patient *p, int newSerial)
 {
 	p->serial = newSerial;
 }
+void Patient_UpdateTemperature(struct Patient *p, char *newTemp)
+{
+	strcpy(p->temperature , newTemp);
+}
+void Patient_UpdateBp(struct Patient *p, char *newBp)
+{
+	strcpy(p->bp, newBp);
+}

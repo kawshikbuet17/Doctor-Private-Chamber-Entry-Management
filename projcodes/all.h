@@ -15,10 +15,13 @@
 #include "state/enteringname/enteringname.h"
 #include "state/enteringage/enteringage.h"
 #include "state/enteringphone/enteringphone.h"
+#include "state/enteringtemp/enteringtemp.h"
+#include "state/enteringbp/enteringbp.h"
 #include "state/generateserial/generateserial.h"
 #include "store/store.h"
 #include "lm35/lm35.h"
 #include "pir/pir.h"
+#include "bp/bp.h"
 
 #include "lcd/lcdgeneric.h"
 
