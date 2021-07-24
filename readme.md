@@ -25,6 +25,11 @@ Total 6 pin
 
 [Our device HC-05 FC-114](https://forum.arduino.cc/t/bluetooth-module-hc-05-with-a-button-and-en-pin-help/321715)
 
+Note: Connect En with Vcc\
+red led blinks every second means it is searching for connection\
+red led blinks vary fast means it is in at mode\
+state goes high when a device is connected
+
 ## Connection
 1 ~ 8 - B0 ~ B7 = Keypad8 Columns \
 9 - Reset\
