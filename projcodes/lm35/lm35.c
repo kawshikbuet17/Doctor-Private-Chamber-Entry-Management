@@ -2,8 +2,9 @@
 
 void Lm35_Init()
 {
-	ADCSRA = 0x85; 		//enable ADC with div factor 32
-	ADMUX = 0xC0; 		//internal voltage 2.56V, right-justified, input ADC0
+	ADMUX = 0b11000000; 		//internal voltage 2.56V, right-justified, input ADC0
+	ADCSRA =0b10000000; 		//enable = true ,start conversion = false , auto trigger = false , 
+							//interrupt flag = false  ,interrupt enable = false ,  prescaler factor 2
 }
 
 void Lm35_PrintTemp()
@@ -27,7 +28,7 @@ float Lm35_GetTemp()
 	float tempC, tempF, vref = 2.56;
 
 	ADCSRA |= (1<<ADSC);
-	while((ADCSRA & (1<<ADSC))==0);
+	while((ADCSRA & (1<<ADSC)));
 
 	unsigned int i = ADC;
 	tempC = (i * vref * 1000.0) / (10.0 * 1024);
