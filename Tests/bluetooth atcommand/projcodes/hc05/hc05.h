@@ -8,5 +8,5 @@ void HC05_Init_ATCommand_Mode();
 char HC05_ReceiveChar(); // read char from 
 void HC05_SendChar(char); // 
 void HC05_SendString(char *);
-
+char HC05_ReceiveAvailable();
 #endif

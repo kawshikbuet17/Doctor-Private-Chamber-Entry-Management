@@ -48,6 +48,12 @@ char HC05_ReceiveChar()
 	while (!(UCSRA & (1 << RXC)));					/* Wait until new data receive */
 	return (UDR);
 }
+
+char HC05_ReceiveAvailable()
+{
+	return (UCSRA & (1 << RXC));
+}
+
 void HC05_SendChar(char data)
 {
 	UDR = data;										/* Write data to be transmitting in UDR */
