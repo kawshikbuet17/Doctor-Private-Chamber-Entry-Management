@@ -67,6 +67,27 @@ int main(void)
 					Lcd_ClearScreen(LCDKEYPAD);
 					Lcd_Prints(LCDKEYPAD , "AT+ROLE=1:");
 				}
+				else if(x==4)
+				{
+					// e , send AT+ RMAAD 
+					HC05_SendString("AT+RMAAD\r\n");
+					Lcd_ClearScreen(LCDKEYPAD);
+					Lcd_Prints(LCDKEYPAD , "AT+RMAAD:");
+				}
+				else if(x==5)
+				{
+					// f , send AT+ORGL
+					HC05_SendString("AT+ORGL\r\n");
+					Lcd_ClearScreen(LCDKEYPAD);
+					Lcd_Prints(LCDKEYPAD , "AT+ORGL:");
+				}
+				else if(x==6)
+				{
+					// g , send AT+STATE?
+					HC05_SendString("AT+STATE?\r\n");
+					Lcd_ClearScreen(LCDKEYPAD);
+					Lcd_Prints(LCDKEYPAD , "AT+STATE?:");
+				}
 				else 
 				{
 					Lcd_ClearScreen(LCDKEYPAD);
