@@ -13,21 +13,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000022d8  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000003d8  00000000  00000000  00002314  2**0
+  5 .debug_aranges 000003e0  00000000  00000000  00002314  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00003a67  00000000  00000000  000026ec  2**0
+  6 .debug_info   00003a7c  00000000  00000000  000026f4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001770  00000000  00000000  00006153  2**0
+  7 .debug_abbrev 00001770  00000000  00000000  00006170  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00002778  00000000  00000000  000078c3  2**0
+  8 .debug_line   000027a4  00000000  00000000  000078e0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000784  00000000  00000000  0000a03c  2**2
+  9 .debug_frame  00000794  00000000  00000000  0000a084  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000a35  00000000  00000000  0000a7c0  2**0
+ 10 .debug_str    00000a66  00000000  00000000  0000a818  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00001e32  00000000  00000000  0000b1f5  2**0
+ 11 .debug_loc    00001e32  00000000  00000000  0000b27e  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000320  00000000  00000000  0000d027  2**0
+ 12 .debug_ranges 00000328  00000000  00000000  0000d0b0  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -361,7 +361,7 @@ void Error_ErrorBin(const char * text,int val)
      266:	08 95       	ret
 
 00000268 <HC05_Init_Data_Mode>:
-}
+
 char HC05_ReceiveChar()
 {
 	while (!(UCSRA & (1 << RXC)));					/* Wait until new data receive */

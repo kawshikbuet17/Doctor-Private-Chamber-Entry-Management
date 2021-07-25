@@ -29,16 +29,16 @@ void HC05_Init_ATCommand_Mode()
 	
 	
 	
-	UCSRA = 1<<U2X; // no interrupt ,  double speed
+	UCSRA = 0; // no interrupt ,  single speed , stop bit 1 , asynchronous
 	
 	UCSRB = (1 << RXEN) | (1 << TXEN);				// Enable USART transmitter and receiver
 	
-	UCSRC  = (1<<URSEL) | (1<<UCSZ1) | (1<<UCSZ0); // data bit 8 , stop bit 1
+	UCSRC  = (1<<URSEL) | (1<<UCSZ1) | (1<<UCSZ0); // data bit 8 , stop bit 1 , no parity
 	
-	// double speed , UBRR = f_cpu / 8 / 38400 - 1
-	//const int UBRR = ((F_CPU)/8UL/38400UL - 1);
+	// single speed , UBRR = f_cpu / 16 / 38400 - 1
+	// const int UBRR = ((F_CPU)/8UL/38400UL - 1);
 	
-	UBRRL = 2;   // set ubrrl
+	UBRRL = 12;   // set ubrrl
 	UBRRH = 0; // set ubrrh
 	
 }
