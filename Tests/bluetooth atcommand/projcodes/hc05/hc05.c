@@ -8,7 +8,7 @@ void HC05_Init_Data_Mode()
 	
 	
 	
-	UCSRA = 1<<U2X; // no interrupt ,  double speed 
+	UCSRA = 0; // no interrupt ,  single speed 
 	
 	UCSRB = (1 << RXEN) | (1 << TXEN);				// Enable USART transmitter and receiver 
 	
@@ -17,7 +17,7 @@ void HC05_Init_Data_Mode()
 	// double speed , UBRR = f_cpu / 8 / 9600 - 1	
 	//const int UBRR =  ((F_CPU)/8UL/9600UL - 1);
 	
-	UBRRL = 12;   // set ubrrl
+	UBRRL = 51;   // set ubrrl
 	UBRRH = 0; // set ubrrh
 	
 }
