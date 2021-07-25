@@ -159,7 +159,7 @@ Discarded input sections
                 0x00000000       0x28 pir/pir.o
  .debug_ranges  0x00000000       0x18 pir/pir.o
  .debug_line    0x00000000      0x11c pir/pir.o
- .debug_str     0x00000000      0x1ee pir/pir.o
+ .debug_str     0x00000000      0x1d6 pir/pir.o
  .comment       0x00000000       0x31 pir/pir.o
  .debug_frame   0x00000000       0x50 pir/pir.o
  .text          0x00000000        0x0 state/enteringage/enteringage.o
@@ -198,7 +198,7 @@ Discarded input sections
                 0x00000000       0x20 store/store.o
  .debug_ranges  0x00000000       0x10 store/store.o
  .debug_line    0x00000000       0xf7 store/store.o
- .debug_str     0x00000000      0x1be store/store.o
+ .debug_str     0x00000000      0x1a6 store/store.o
  .comment       0x00000000       0x31 store/store.o
  .debug_frame   0x00000000       0x38 store/store.o
  .text          0x00000000        0x0 twimaster.o
@@ -1315,49 +1315,49 @@ END GROUP
  .debug_frame   0x0000095c       0x2c state/states.o
  .debug_frame   0x00000988       0x94 twimaster.o
 
-.debug_str      0x00000000      0xc8b
+.debug_str      0x00000000      0xc73
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196      0x283 bp/bp.o
-                                0x2d6 (size before relaxing)
- .debug_str     0x00000419       0x54 error.o
-                                0x1cb (size before relaxing)
- .debug_str     0x0000046d       0x5b hc05/hc05.o
-                                0x1e1 (size before relaxing)
- .debug_str     0x000004c8      0x12a keypad/keypad8.o
-                                0x2d5 (size before relaxing)
- .debug_str     0x000005f2       0xd9 keyprocessor.o
-                                0x26a (size before relaxing)
- .debug_str     0x000006cb       0x9d lcd/lcdgeneric.o
-                                0x2b7 (size before relaxing)
- .debug_str     0x00000768       0x60 lcd/lcd_4bit.o
-                                0x261 (size before relaxing)
- .debug_str     0x000007c8       0xeb lcd/lcd_i2cmaster.o
-                                0x302 (size before relaxing)
- .debug_str     0x000008b3       0x5f lm35/lm35.o
+ .debug_str     0x00000196      0x26b bp/bp.o
+                                0x2be (size before relaxing)
+ .debug_str     0x00000401       0x54 error.o
+                                0x1b3 (size before relaxing)
+ .debug_str     0x00000455       0x5b hc05/hc05.o
+                                0x1c9 (size before relaxing)
+ .debug_str     0x000004b0      0x12a keypad/keypad8.o
+                                0x2bd (size before relaxing)
+ .debug_str     0x000005da       0xd9 keyprocessor.o
+                                0x252 (size before relaxing)
+ .debug_str     0x000006b3       0x9d lcd/lcdgeneric.o
+                                0x29f (size before relaxing)
+ .debug_str     0x00000750       0x60 lcd/lcd_4bit.o
+                                0x249 (size before relaxing)
+ .debug_str     0x000007b0       0xeb lcd/lcd_i2cmaster.o
+                                0x2ea (size before relaxing)
+ .debug_str     0x0000089b       0x5f lm35/lm35.o
+                                0x233 (size before relaxing)
+ .debug_str     0x000008fa       0x22 main.o
                                 0x24b (size before relaxing)
- .debug_str     0x00000912       0x22 main.o
-                                0x263 (size before relaxing)
- .debug_str     0x00000934      0x117 patient/patient.o
-                                0x2a5 (size before relaxing)
- .debug_str     0x00000a4b       0x34 state/enteringage/enteringage.o
-                                0x2b9 (size before relaxing)
- .debug_str     0x00000a7f       0x42 state/enteringbp/enteringbp.o
-                                0x2f5 (size before relaxing)
- .debug_str     0x00000ac1       0x37 state/enteringname/enteringname.o
-                                0x2d4 (size before relaxing)
- .debug_str     0x00000af8       0x3a state/enteringphone/enteringphone.o
-                                0x2c3 (size before relaxing)
- .debug_str     0x00000b32       0x4c state/enteringtemp/enteringtemp.o
-                                0x310 (size before relaxing)
- .debug_str     0x00000b7e       0x80 state/generateserial/generateserial.o
-                                0x335 (size before relaxing)
- .debug_str     0x00000bfe       0x1f state/idle/idle.o
-                                0x1ed (size before relaxing)
- .debug_str     0x00000c1d       0x1b state/states.o
-                                0x240 (size before relaxing)
- .debug_str     0x00000c38       0x53 twimaster.o
-                                0x1ea (size before relaxing)
+ .debug_str     0x0000091c      0x117 patient/patient.o
+                                0x28d (size before relaxing)
+ .debug_str     0x00000a33       0x34 state/enteringage/enteringage.o
+                                0x2a1 (size before relaxing)
+ .debug_str     0x00000a67       0x42 state/enteringbp/enteringbp.o
+                                0x2dd (size before relaxing)
+ .debug_str     0x00000aa9       0x37 state/enteringname/enteringname.o
+                                0x2bc (size before relaxing)
+ .debug_str     0x00000ae0       0x3a state/enteringphone/enteringphone.o
+                                0x2ab (size before relaxing)
+ .debug_str     0x00000b1a       0x4c state/enteringtemp/enteringtemp.o
+                                0x2f8 (size before relaxing)
+ .debug_str     0x00000b66       0x80 state/generateserial/generateserial.o
+                                0x31d (size before relaxing)
+ .debug_str     0x00000be6       0x1f state/idle/idle.o
+                                0x1d5 (size before relaxing)
+ .debug_str     0x00000c05       0x1b state/states.o
+                                0x228 (size before relaxing)
+ .debug_str     0x00000c20       0x53 twimaster.o
+                                0x1d2 (size before relaxing)
 
 .debug_loc      0x00000000     0x2a48
  *(.debug_loc)
