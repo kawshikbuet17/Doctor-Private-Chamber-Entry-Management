@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+bp\bp.c
+
 error.c
 
 hc05\hc05.c
@@ -26,9 +28,13 @@ pir\pir.c
 
 state\enteringage\enteringage.c
 
+state\enteringbp\enteringbp.c
+
 state\enteringname\enteringname.c
 
 state\enteringphone\enteringphone.c
+
+state\enteringtemp\enteringtemp.c
 
 state\generateserial\generateserial.c
 

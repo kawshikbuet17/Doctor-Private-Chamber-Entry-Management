@@ -6,7 +6,7 @@
 #include "string.h"
 #include "stdio.h"
 
-#define F_CPU 1000000
+#define F_CPU 8000000UL
 #include <util/delay.h>
 #include "avr/io.h"
 #include "error.h"

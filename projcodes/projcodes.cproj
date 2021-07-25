@@ -151,6 +151,12 @@
     <Compile Include="all.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="bp\bp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="bp\bp.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="error.c">
       <SubType>compile</SubType>
     </Compile>
@@ -223,6 +229,12 @@
     <Compile Include="state\enteringage\enteringage.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="state\enteringbp\enteringbp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\enteringbp\enteringbp.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="state\enteringname\enteringname.c">
       <SubType>compile</SubType>
     </Compile>
@@ -233,6 +245,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="state\enteringphone\enteringphone.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\enteringtemp\enteringtemp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\enteringtemp\enteringtemp.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="state\generateserial\generateserial.c">
@@ -264,11 +282,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bp\" />
+    <Folder Include="bp\" />
     <Folder Include="hc05\" />
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />
     <Folder Include="lm35\" />
     <Folder Include="pir\" />
+    <Folder Include="state\enteringbp\" />
+    <Folder Include="state\enteringtemp\" />
     <Folder Include="state\generateserial" />
     <Folder Include="store" />
     <Folder Include="patient\" />
