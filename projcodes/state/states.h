@@ -15,5 +15,6 @@
 #include <avr/io.h>
 #include "idle/idle.h"
 void States_GotoState(int_fast8_t);
+void States_Refresh();
 
 #endif

@@ -32,3 +32,17 @@ void States_GotoState(int_fast8_t newState)
 	}
 	currentState = newState;
 }
+void States_Refresh()
+{
+	switch(currentState)
+	{
+		case ENTERING_TEMP:
+			EnteringTemp_Refresh();
+			break;
+		case ENTERING_BP:
+			EntetingBp_Refresh();
+			break;
+		default:
+		Error_Error("States_Refresh: currentstate not defined");
+	}
+}

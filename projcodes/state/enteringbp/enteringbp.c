@@ -2,25 +2,13 @@
 
 void EnteringBp_Init()
 {
-    Lcd_PrintLine(LCDKEYPAD,0,"Enter Bp: ");
-	
+    Lcd_PrintLine(LCDKEYPAD,0,"Finger onto pulsesensor");
 	Bp_Init();
-	EnteringBp_getBp();
 }
 
-void EnteringBp_getBp()
+void EntetingBp_Refresh()
 {
-	int_fast8_t x = 0;
-	while(1) {
-		Bp_PrintBp();
-		if(Keypad_KeyPressed()) {
-			x = Keypad_GetKey();
-			break;
-		}
-	}
-	_delay_ms(20);
-	EnteringBp_ProcessKey(x);
-	Keypad_Init();
+	Bp_PrintBp();
 }
 
 void EnteringBp_ProcessKey(int_fast8_t key)

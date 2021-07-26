@@ -8,15 +8,6 @@ void Lm35_Init()
 	DDRA &= ~1;
 }
 
-void Lm35_PrintTemp()
-{
-	float tempF = Lm35_GetTemp();
-	char tempF_txt[20];
-	dtostrf(tempF, 5, 2, tempF_txt);
-	Lcd_PrintLine(LCDKEYPAD, 1, tempF_txt);
-	strcpy(keyBuffer, tempF_txt);
-	_delay_ms(10);
-}
 
 float Lm35_GetTemp()
 {

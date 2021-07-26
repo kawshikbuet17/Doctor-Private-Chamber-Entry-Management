@@ -10,13 +10,19 @@
 int main(void)
 {
 		
-	//HC05_Init_Data_Mode();
-	HC05_Init_ATCommand_Mode();
+	HC05_Init_Data_Mode();
+	//HC05_Init_ATCommand_Mode();
 	
 	HC05_SendString("hello there");
 	
 	Lcd_Init(LCDKEYPAD);
 	Lcd_Init(LCDNOTICE);
+	
+	Lcd_Position(LCDNOTICE , 0,0);
+	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
+	Lcd_Position(LCDNOTICE , 0,0);
+	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
+	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
 	
 	States_GotoState(IDLE);
 	Keypad_Init();
@@ -33,7 +39,7 @@ int main(void)
 				KeyProcessor_ProcessKey(x);
 				Keypad_Init();
 			}
-			
 		}
+		States_Refresh();
 	}
 }

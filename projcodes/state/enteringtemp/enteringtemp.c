@@ -4,22 +4,15 @@ void EnteringTemp_Init()
 {
 	Lcd_PrintLine(LCDKEYPAD, 0, "Temperature:");
     Lm35_Init();
-	EnteringTemp_getTemp();
 }
 
-void EnteringTemp_getTemp()
+void EnteringTemp_Refresh()
 {
-	int_fast8_t x = 0;
-	while(1) {
-		Lm35_PrintTemp();
-		if(Keypad_KeyPressed()) {
-			x = Keypad_GetKey();
-			break;
-		}
-	}
-	_delay_ms(20);
-	EnteringTemp_ProcessKey(x);
-	Keypad_Init();
+	float tempF = Lm35_GetTemp();
+	char tempF_txt[20];
+	dtostrf(tempF, 5, 2, tempF_txt);
+	Lcd_PrintLine(LCDKEYPAD, 1, tempF_txt);
+	strcpy(keyBuffer, tempF_txt);
 }
 
 void EnteringTemp_ProcessKey(int_fast8_t key)

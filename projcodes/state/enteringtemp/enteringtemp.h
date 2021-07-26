@@ -4,5 +4,5 @@
 #include "../../all.h"
 void EnteringTemp_Init();
 void EnteringTemp_ProcessKey(int_fast8_t key);
-
+void EnteringTemp_Refresh();
 #endif
