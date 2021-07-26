@@ -10,7 +10,8 @@
 int main(void)
 {
 		
-	HC05_Init_Data_Mode();
+	//HC05_Init_Data_Mode();
+	HC05_Init_ATCommand_Mode();
 	
 	HC05_SendString("hello there");
 	

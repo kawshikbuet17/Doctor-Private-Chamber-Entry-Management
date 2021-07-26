@@ -23,11 +23,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  00000a1c  00000000  00000000  0000d124  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000c73  00000000  00000000  0000db40  2**0
+ 10 .debug_str    00000c8b  00000000  00000000  0000db40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00002a48  00000000  00000000  0000e7b3  2**0
+ 11 .debug_loc    00002a48  00000000  00000000  0000e7cb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000003e8  00000000  00000000  000111fb  2**0
+ 12 .debug_ranges 000003e8  00000000  00000000  00011213  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1047,7 +1047,7 @@ void Error_ErrorBin(const char * text,int val)
      6d8:	0f 91       	pop	r16
      6da:	08 95       	ret
 
-000006dc <HC05_Init_Data_Mode>:
+000006dc <HC05_Init_ATCommand_Mode>:
 
 char HC05_ReceiveChar()
 {
@@ -1059,7 +1059,7 @@ char HC05_ReceiveChar()
      6e0:	8a b9       	out	0x0a, r24	; 10
      6e2:	86 e8       	ldi	r24, 0x86	; 134
      6e4:	80 bd       	out	0x20, r24	; 32
-     6e6:	83 e3       	ldi	r24, 0x33	; 51
+     6e6:	8c e0       	ldi	r24, 0x0C	; 12
      6e8:	89 b9       	out	0x09, r24	; 9
      6ea:	10 bc       	out	0x20, r1	; 32
      6ec:	08 95       	ret
@@ -3349,13 +3349,13 @@ void Lm35_PrintTemp()
     13aa:	08 95       	ret
 
 000013ac <main>:
-#include "all.h"
 
 int main(void)
 {
 		
-	HC05_Init_Data_Mode();
-    13ac:	0e 94 6e 03 	call	0x6dc	; 0x6dc <HC05_Init_Data_Mode>
+	//HC05_Init_Data_Mode();
+	HC05_Init_ATCommand_Mode();
+    13ac:	0e 94 6e 03 	call	0x6dc	; 0x6dc <HC05_Init_ATCommand_Mode>
 	
 	HC05_SendString("hello there");
     13b0:	8c e6       	ldi	r24, 0x6C	; 108
