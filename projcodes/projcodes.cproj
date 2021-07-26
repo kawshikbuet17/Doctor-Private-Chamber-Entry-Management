@@ -284,6 +284,7 @@
   <ItemGroup>
     <Folder Include="bp\" />
     <Folder Include="bp\" />
+    <Folder Include="Debug\bp\information\" />
     <Folder Include="hc05\" />
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />

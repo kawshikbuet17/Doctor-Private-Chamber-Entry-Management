@@ -25,6 +25,8 @@ int main(void)
 	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
 	
 	States_GotoState(IDLE);
+	States_GotoState(ENTERING_BP);
+	
 	Keypad_Init();
 	
 	while (1)

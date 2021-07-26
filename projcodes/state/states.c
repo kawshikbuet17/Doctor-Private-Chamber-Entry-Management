@@ -36,6 +36,15 @@ void States_Refresh()
 {
 	switch(currentState)
 	{
+		case IDLE:
+				
+		case ENTERING_NAME:
+		
+		case ENTERING_AGE:
+		
+		case ENTERING_PHONE:
+		
+			break;
 		case ENTERING_TEMP:
 			EnteringTemp_Refresh();
 			break;

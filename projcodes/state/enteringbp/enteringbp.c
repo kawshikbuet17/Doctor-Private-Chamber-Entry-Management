@@ -2,12 +2,15 @@
 
 void EnteringBp_Init()
 {
-    Lcd_PrintLine(LCDKEYPAD,0,"Finger onto pulsesensor");
+	
+    Lcd_PrintLine(LCDKEYPAD,0,"Finger on green-");
+	Lcd_PrintLine(LCDKEYPAD , 1, "Light ");
 	Bp_Init();
 }
 
 void EntetingBp_Refresh()
 {
+	
 	Bp_PrintBp();
 }
 

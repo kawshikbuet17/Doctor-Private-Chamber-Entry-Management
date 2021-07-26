@@ -35,6 +35,7 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../bp/ \
 ../bp/ \
+../Debug/bp/information/ \
 ../hc05/ \
 ../keypad/ \
 ../lcd/ \
