@@ -110,7 +110,7 @@ int main(void)
 	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
 	
 	States_GotoState(IDLE);
-	States_GotoState(GENERATE_SERIAL);
+	//States_GotoState(GENERATE_SERIAL);
 	
 	Keypad_Init();
 	Button_Init();

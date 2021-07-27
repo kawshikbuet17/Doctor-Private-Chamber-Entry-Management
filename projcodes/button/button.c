@@ -6,5 +6,5 @@ void Button_Init()
 }
 bool Button_ButtonPressed()
 {
-	return (PINA>>2)&1 == 0;
+	return (((PINA>>2)&1) == 0);
 }
