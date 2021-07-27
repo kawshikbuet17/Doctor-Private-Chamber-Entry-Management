@@ -122,14 +122,9 @@ int main(void)
 	{
 		if(Keypad_KeyPressed())
 		{
-			_delay_ms(20);
-			if(Keypad_KeyPressed())
-			{
-				int_fast8_t x = Keypad_GetKey();
-				KeyProcessor_ProcessKey(x);
-				_delay_ms(20);
-				Keypad_Init();
-			}
+			int_fast8_t x = Keypad_GetKey();
+			KeyProcessor_ProcessKey(x);
+			Keypad_Init();
 		}
 		States_Refresh();
 		if(Button_ButtonPressed())
@@ -176,7 +171,7 @@ int main(void)
 					dequeue(&q);// ager ta falailam
 				}
 			}
-			_delay_ms(500);
 		}
+		_delay_ms(100);
 	}
 }

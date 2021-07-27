@@ -44,7 +44,7 @@ void Update_Serial()
 	dtostrf((float)(patientsCount+1), 3, 0, s);
 	Lcd_Position(LCDKEYPAD,0,13);
 	Lcd_Prints(LCDKEYPAD,s);
-	Patient_UpdateSerial(&currentPatient, patientsCount);
+	Patient_UpdateSerial(&currentPatient, patientsCount+1);
 	
 }
 
