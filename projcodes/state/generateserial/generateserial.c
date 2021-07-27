@@ -57,7 +57,7 @@ void Update_PatientsList()
 	cp->serial = currentPatient.serial;
 	strcpy(cp->temperature, currentPatient.temperature);
 	strcpy(cp->bp, currentPatient.bp);
-	q.enqueue(cp);	
+	enqueue(cp);	
 }
 
 void Clear_CurrentPatient_Data(){

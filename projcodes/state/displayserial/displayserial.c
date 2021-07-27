@@ -14,14 +14,14 @@ void DisplaySerial()
 
 void Current_Serial()
 {
-	dtostrf((float) q.currentPatientSerial(), 4, 0, curr);
+	dtostrf((float) currentPatientSerial(), 4, 0, curr);
 	Lcd_Position(LCDNOTICE, 0, 9);
 	Lcd_Prints(LCDNOTICE, curr);
 }
 
 void Next_Serial()
 {
-	dtostrf((float) q.nextPatientSerial(), 4, 0, curr);
+	dtostrf((float) nextPatientSerial(), 4, 0, curr);
 	Lcd_Position(LCDNOTICE, 1, 6);
 	Lcd_Prints(LCDNOTICE, curr);
 }
