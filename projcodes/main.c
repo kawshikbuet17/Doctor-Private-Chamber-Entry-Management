@@ -138,7 +138,7 @@ int main(void)
 			
 			if(doctorSeeing)
 			{
-				dequeue(&q);// ager ta falailam
+				
 				if(empty(&q))
 				{
 					Lcd_PrintLine(LCDNOTICE , 0,"No Patient in ");
@@ -153,14 +153,15 @@ int main(void)
 					Lcd_PrintLine(LCDNOTICE , 0,s);
 					sprintf(s,"%6sF%3sBPM%2sY",now->temperature,now->bp,now->age);
 					Lcd_PrintLine(LCDNOTICE , 1,s);
-					
+					dequeue(&q);// ager ta falailam
 				}
+				
 			}
 			else
 			{
 				if(empty(&q))
 				{
-					
+					;
 				}
 				else 
 				{
@@ -172,9 +173,10 @@ int main(void)
 					Lcd_PrintLine(LCDNOTICE , 0,s);
 					sprintf(s,"%6sF%3sBPM%2sY",now->temperature,now->bp,now->age);
 					Lcd_PrintLine(LCDNOTICE , 1,s);
+					dequeue(&q);// ager ta falailam
 				}
 			}
-			
+			_delay_ms(500);
 		}
 	}
 }
