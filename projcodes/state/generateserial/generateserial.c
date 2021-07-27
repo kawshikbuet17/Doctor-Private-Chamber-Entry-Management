@@ -24,15 +24,13 @@ void GenerateSerial_ProcessKey(int_fast8_t key)
 		patientsCount++;
 		Lcd_Prints(LCDKEYPAD,"Thank You");
 		_delay_ms(2000);
-
-		/* Here, can first prompt for providing temperature through lm and then go to the idle state for next entry */
 		
 		States_GotoState(IDLE);
 		Clear_CurrentPatient_Data();
 	}
 	else if(key == 30)
 	{
-		States_GotoState(ENTERING_PHONE);	// if re-editing is permitted
+		States_GotoState(ENTERING_PHONE);
 	}
 	else 
 	{
@@ -52,25 +50,14 @@ void Update_Serial()
 
 void Update_PatientsList()
 {
-	struct Patient *cp = (struct Patient*) malloc(sizeof(struct Patient));	//didn't wanna change your code, so created a new pointer
+	struct Patient *cp = (struct Patient*) malloc(sizeof(struct Patient));
 	strcpy(cp->name, currentPatient.name);
 	strcpy(cp->age, currentPatient.age);
 	strcpy(cp->phone, currentPatient.phone);
 	cp->serial = currentPatient.serial;
-	cp->nextPatient = NULL;
 	strcpy(cp->temperature, currentPatient.temperature);
 	strcpy(cp->bp, currentPatient.bp);
-	if(!patientsList.root) {
-		patientsList.root = cp;
-	}
-	else {
-		struct Patient* p = patientsList.root;
-		while(p->nextPatient) {
-			p = p->nextPatient;
-		}
-		p->nextPatient = cp;
-	}
-	
+	q.enqueue(cp);	
 }
 
 void Clear_CurrentPatient_Data(){

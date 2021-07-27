@@ -5,7 +5,6 @@
 #include "../all.h"
 
 struct Patient currentPatient ;
-struct PatientsList patientsList;
 int patientsCount = 0;
 
 void Patient_UpdateName(struct Patient * p, char *newName)

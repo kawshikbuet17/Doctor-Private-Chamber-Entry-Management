@@ -43,5 +43,6 @@ int main(void)
 			}
 		}
 		States_Refresh();
+		DisplaySerial();
 	}
 }

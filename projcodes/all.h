@@ -22,6 +22,7 @@
 #include "lm35/lm35.h"
 #include "pir/pir.h"
 #include "bp/bp.h"
+#include "queue/queue.h"
 
 #include "lcd/lcdgeneric.h"
 
