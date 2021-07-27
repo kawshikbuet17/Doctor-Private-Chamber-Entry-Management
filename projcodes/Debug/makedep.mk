@@ -26,6 +26,8 @@ patient\patient.c
 
 pir\pir.c
 
+state\displayserial\displayserial.c
+
 state\enteringage\enteringage.c
 
 state\enteringbp\enteringbp.c

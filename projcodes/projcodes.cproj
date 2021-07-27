@@ -223,6 +223,15 @@
     <Compile Include="pir\pir.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="queue\queue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\displayserial\displayserial.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="state\displayserial\displayserial.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="state\enteringage\enteringage.c">
       <SubType>compile</SubType>
     </Compile>
@@ -284,12 +293,16 @@
   <ItemGroup>
     <Folder Include="bp\" />
     <Folder Include="bp\" />
+    <Folder Include="Debug\" />
+    <Folder Include="Debug\bp\" />
     <Folder Include="Debug\bp\information\" />
     <Folder Include="hc05\" />
     <Folder Include="keypad\" />
     <Folder Include="lcd\" />
     <Folder Include="lm35\" />
     <Folder Include="pir\" />
+    <Folder Include="queue\" />
+    <Folder Include="state\displayserial\" />
     <Folder Include="state\enteringbp\" />
     <Folder Include="state\enteringtemp\" />
     <Folder Include="state\generateserial" />
