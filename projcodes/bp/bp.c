@@ -53,8 +53,8 @@ void Bp_PrintBp()
 	
 	/*  timing data */
     const double sampling_rate = 0.100 ;	   	// actually this is the _delay_ms val
-    const int time_limit = 30 ;  				 //in seconds
-    const int size=time_limit/(sampling_rate*2);
+    const int time_limit = 15 ;  				 //in seconds
+    const int size=time_limit/(sampling_rate);
     int data_points[size+1];
 
 	data_points[0]=0;
@@ -67,7 +67,7 @@ void Bp_PrintBp()
 	{
 		data_points[i+1]=Bp_Read();
 		
-		sprintf(val , "%2d",size-i);
+		sprintf(val , "%2ds",(size -i +9)/10);
 		Lcd_Position(LCDKEYPAD , 1, 6 );
 		Lcd_Prints(LCDKEYPAD , val);
 		

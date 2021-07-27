@@ -16,6 +16,8 @@ struct Queue
 	int toq;
 };
 
+struct Queue q;
+
 void Queue_Init(struct Queue *qptr)
 {
 	//toq=0;
@@ -26,9 +28,9 @@ void Queue_Init(struct Queue *qptr)
 bool empty(struct Queue *qptr)
 {
 	if(qptr->front_num > qptr->rear_num)
-	return true;
+		return true;
 	else
-	return false;
+		return false;
 }
 
 int size(struct Queue *qptr)
@@ -38,8 +40,14 @@ int size(struct Queue *qptr)
 
 void enqueue(struct Queue *qptr, struct Patient x)
 {
+	if(empty(&q))
+	{
+		
+		Lcd_PrintLine(LCDNOTICE , 0 , "Patients are Wai");
+		Lcd_PrintLine(LCDNOTICE , 1 , "ting use button");
+		
+	}
 	qptr->queue[++qptr->rear_num] = x;
-
 }
 
 struct Patient* dequeue(struct Queue *qptr)
@@ -81,7 +89,7 @@ int nextPatientSerial(struct Queue *qptr)
 	return qptr->queue[qptr->front_num + 1].serial;
 }
 
-struct Queue q;
+bool doctorSeeing = 0;
 
 int main(void)
 {
@@ -102,9 +110,13 @@ int main(void)
 	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
 	
 	States_GotoState(IDLE);
-	//States_GotoState(ENTERING_BP);
+	States_GotoState(GENERATE_SERIAL);
 	
 	Keypad_Init();
+	Button_Init();
+	
+	Lcd_PrintLine(LCDNOTICE , 0,"No Patient in ");
+	Lcd_PrintLine(LCDNOTICE , 1,"the queue");
 	
 	while (1)
 	{
@@ -114,12 +126,55 @@ int main(void)
 			if(Keypad_KeyPressed())
 			{
 				int_fast8_t x = Keypad_GetKey();
-				_delay_ms(20);
 				KeyProcessor_ProcessKey(x);
+				_delay_ms(20);
 				Keypad_Init();
 			}
 		}
 		States_Refresh();
-		DisplaySerial();
+		if(Button_ButtonPressed())
+		{
+			// buzzer
+			
+			if(doctorSeeing)
+			{
+				dequeue(&q);// ager ta falailam
+				if(empty(&q))
+				{
+					Lcd_PrintLine(LCDNOTICE , 0,"No Patient in ");
+					Lcd_PrintLine(LCDNOTICE , 1,"the queue");
+					doctorSeeing = 0;
+				}
+				else 
+				{
+					struct Patient* now =  front(&q);
+					char s[17];
+					sprintf(s,"%2d-%13s",now->serial , now->name);
+					Lcd_PrintLine(LCDNOTICE , 0,s);
+					sprintf(s,"%6sF%3sBPM%2sY",now->temperature,now->bp,now->age);
+					Lcd_PrintLine(LCDNOTICE , 1,s);
+					
+				}
+			}
+			else
+			{
+				if(empty(&q))
+				{
+					
+				}
+				else 
+				{
+					doctorSeeing = 1;
+					
+					struct Patient* now =  front(&q);
+					char s[17];
+					sprintf(s,"%2d-%13s",now->serial , now->name);
+					Lcd_PrintLine(LCDNOTICE , 0,s);
+					sprintf(s,"%6sF%3sBPM%2sY",now->temperature,now->bp,now->age);
+					Lcd_PrintLine(LCDNOTICE , 1,s);
+				}
+			}
+			
+		}
 	}
 }

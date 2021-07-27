@@ -157,6 +157,12 @@
     <Compile Include="bp\bp.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="button\button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="button\button.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="error.c">
       <SubType>compile</SubType>
     </Compile>
@@ -280,12 +286,6 @@
     <Compile Include="state\states.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="store\store.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="store\store.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="twimaster.c">
       <SubType>compile</SubType>
     </Compile>
@@ -293,6 +293,7 @@
   <ItemGroup>
     <Folder Include="bp\" />
     <Folder Include="bp\" />
+    <Folder Include="button\" />
     <Folder Include="Debug\" />
     <Folder Include="Debug\bp\" />
     <Folder Include="Debug\bp\information\" />
@@ -306,7 +307,6 @@
     <Folder Include="state\enteringbp\" />
     <Folder Include="state\enteringtemp\" />
     <Folder Include="state\generateserial" />
-    <Folder Include="store" />
     <Folder Include="patient\" />
     <Folder Include="state\" />
     <Folder Include="state\enteringage\" />

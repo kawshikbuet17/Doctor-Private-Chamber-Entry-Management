@@ -3,7 +3,6 @@
 char curr[5];
 void DisplaySerial()
 {
-    Lcd_ClearScreen(LCDNOTICE);
 	Lcd_Position(LCDNOTICE,0,0);
 	Lcd_Prints(LCDNOTICE,"Current: ");
 	Current_Serial();

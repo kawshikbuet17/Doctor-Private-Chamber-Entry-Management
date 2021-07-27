@@ -7,12 +7,12 @@
 
 void GenerateSerial_Init()
 {
-    Lcd_ClearScreen(LCDKEYPAD);
+    
 	Lcd_Position(LCDKEYPAD,0,0);
-	Lcd_Prints(LCDKEYPAD,"Your Serial: ");
+	Lcd_PrintLine(LCDKEYPAD,0,"Your Serial: ");
 	Update_Serial();
 	Lcd_Position(LCDKEYPAD,1,0);
-	Lcd_Prints(LCDKEYPAD,"N:Confirm P:Back");
+	Lcd_PrintLine(LCDKEYPAD,1,"N:Confirm P:Back");
 }
 
 void GenerateSerial_ProcessKey(int_fast8_t key)
@@ -22,15 +22,15 @@ void GenerateSerial_ProcessKey(int_fast8_t key)
 		Lcd_ClearScreen(LCDKEYPAD);
 		Lcd_Position(LCDKEYPAD,0,3);
 		patientsCount++;
+		Update_PatientsList();
 		Lcd_Prints(LCDKEYPAD,"Thank You");
-		_delay_ms(2000);
-		
+		_delay_ms(800);
 		States_GotoState(IDLE);
 		Clear_CurrentPatient_Data();
 	}
 	else if(key == 30)
 	{
-		States_GotoState(ENTERING_PHONE);
+		States_GotoState(ENTERING_BP);
 	}
 	else 
 	{
@@ -45,7 +45,7 @@ void Update_Serial()
 	Lcd_Position(LCDKEYPAD,0,13);
 	Lcd_Prints(LCDKEYPAD,s);
 	Patient_UpdateSerial(&currentPatient, patientsCount);
-	Update_PatientsList();
+	
 }
 
 void Update_PatientsList()
@@ -57,7 +57,8 @@ void Update_PatientsList()
 	cp->serial = currentPatient.serial;
 	strcpy(cp->temperature, currentPatient.temperature);
 	strcpy(cp->bp, currentPatient.bp);
-	enqueue(cp);	
+	enqueue(&q,*cp);
+	free(cp);
 }
 
 void Clear_CurrentPatient_Data(){

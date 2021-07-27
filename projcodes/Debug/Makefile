@@ -35,6 +35,7 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../bp/ \
 ../bp/ \
+../button/ \
 ../Debug/ \
 ../Debug/bp/ \
 ../Debug/bp/information/ \
@@ -48,7 +49,6 @@ SUBDIRS :=  \
 ../state/enteringbp/ \
 ../state/enteringtemp/ \
 ../state/generateserial \
-../store \
 ../patient/ \
 ../state/ \
 ../state/enteringage/ \
@@ -62,6 +62,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../bp/bp.c \
+../button/button.c \
 ../error.c \
 ../hc05/hc05.c \
 ../keypad/keypad8.c \
@@ -82,7 +83,6 @@ C_SRCS +=  \
 ../state/generateserial/generateserial.c \
 ../state/idle/idle.c \
 ../state/states.c \
-../store/store.c \
 ../twimaster.c
 
 
@@ -94,6 +94,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 bp/bp.o \
+button/button.o \
 error.o \
 hc05/hc05.o \
 keypad/keypad8.o \
@@ -114,11 +115,11 @@ state/enteringtemp/enteringtemp.o \
 state/generateserial/generateserial.o \
 state/idle/idle.o \
 state/states.o \
-store/store.o \
 twimaster.o
 
 OBJS_AS_ARGS +=  \
 bp/bp.o \
+button/button.o \
 error.o \
 hc05/hc05.o \
 keypad/keypad8.o \
@@ -139,11 +140,11 @@ state/enteringtemp/enteringtemp.o \
 state/generateserial/generateserial.o \
 state/idle/idle.o \
 state/states.o \
-store/store.o \
 twimaster.o
 
 C_DEPS +=  \
 bp/bp.d \
+button/button.d \
 error.d \
 hc05/hc05.d \
 keypad/keypad8.d \
@@ -164,11 +165,11 @@ state/enteringtemp/enteringtemp.d \
 state/generateserial/generateserial.d \
 state/idle/idle.d \
 state/states.d \
-store/store.d \
 twimaster.d
 
 C_DEPS_AS_ARGS +=  \
 bp/bp.d \
+button/button.d \
 error.d \
 hc05/hc05.d \
 keypad/keypad8.d \
@@ -189,7 +190,6 @@ state/enteringtemp/enteringtemp.d \
 state/generateserial/generateserial.d \
 state/idle/idle.d \
 state/states.d \
-store/store.d \
 twimaster.d
 
 OUTPUT_FILE_PATH +=projcodes.elf
@@ -207,6 +207,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 bp/bp.o: ../bp/bp.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+button/button.o: ../button/button.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -347,13 +354,6 @@ state/idle/idle.o: ../state/idle/idle.c
 	
 
 state/states.o: ../state/states.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-store/store.o: ../store/store.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32a -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32a" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -4,6 +4,8 @@
 
 bp\bp.c
 
+button\button.c
+
 error.c
 
 hc05\hc05.c
@@ -43,8 +45,6 @@ state\generateserial\generateserial.c
 state\idle\idle.c
 
 state\states.c
-
-store\store.c
 
 twimaster.c
 
