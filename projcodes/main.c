@@ -129,15 +129,16 @@ int main(void)
 			{
 				int_fast8_t x = Keypad_GetKey();
 				KeyProcessor_ProcessKey(x);
-				_delay_ms(20);
+				_delay_ms(100);
 				Keypad_Init();
+				
 			}
 		}
 		States_Refresh();
 		if(Button_ButtonPressed())
 		{
 			
-			Buzzer_Sound();
+			//Buzzer_Sound();
 			Error_ErrorNum("dc",doctorSeeing);
 			if(doctorSeeing)
 			{
@@ -179,7 +180,7 @@ int main(void)
 					Lcd_PrintLine(LCDNOTICE , 1,s);
 				}
 			}
-			//_delay_ms(400);
+			_delay_ms(500);
 		}
 		
 	}
