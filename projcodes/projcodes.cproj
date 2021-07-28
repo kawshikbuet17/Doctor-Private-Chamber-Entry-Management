@@ -163,6 +163,12 @@
     <Compile Include="button\button.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="buzzer\buzzer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="buzzer\buzzer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="error.c">
       <SubType>compile</SubType>
     </Compile>
@@ -294,6 +300,7 @@
     <Folder Include="bp\" />
     <Folder Include="bp\" />
     <Folder Include="button\" />
+    <Folder Include="buzzer\" />
     <Folder Include="Debug\" />
     <Folder Include="Debug\bp\" />
     <Folder Include="Debug\bp\information\" />

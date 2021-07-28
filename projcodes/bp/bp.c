@@ -38,7 +38,7 @@ int Bp_Read()
 void Bp_Init()
 {
 	DDRA &= ~2;		/* Vref: Avcc, ADC channel: 1 */
-	ADMUX = 0b11000001; 		//internal voltage 2.56V, right-justified, input ADC0
+	ADMUX = 0b11000000; 		//internal voltage 2.56V, right-justified, input ADC0
 	ADCSRA =0b10000000; 		//enable = true ,start conversion = false , auto trigger = false , 
 							//interrupt flag = false  ,interrupt enable = false ,  prescaler factor 2
 }
@@ -104,7 +104,11 @@ void Bp_PrintBp()
 		}
 	}
 	
-    itoa(count3*(60/time_limit),val,10);
+	int bpm = 60 + (count3*(60/time_limit))/10;
+	
+	bpm  =  (count3*(60/time_limit));
+	
+    itoa(bpm,val,10);
 	Lcd_Position(LCDKEYPAD , 1,  10);
 	Lcd_Prints(LCDKEYPAD , val);
 	

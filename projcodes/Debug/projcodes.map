@@ -103,12 +103,17 @@ Discarded input sections
  .text          0x00000000        0x0 button/button.o
  .data          0x00000000        0x0 button/button.o
  .bss           0x00000000        0x0 button/button.o
+ .text          0x00000000        0x0 buzzer/buzzer.o
+ .data          0x00000000        0x0 buzzer/buzzer.o
+ .bss           0x00000000        0x0 buzzer/buzzer.o
  .text          0x00000000        0x0 error.o
  .data          0x00000000        0x0 error.o
  .bss           0x00000000        0x0 error.o
  .text          0x00000000        0x0 hc05/hc05.o
  .data          0x00000000        0x0 hc05/hc05.o
  .bss           0x00000000        0x0 hc05/hc05.o
+ .text.HC05_Init_Data_Mode
+                0x00000000       0x12 hc05/hc05.o
  .text.HC05_Init_ATCommand_Mode
                 0x00000000       0x12 hc05/hc05.o
  .text.HC05_ReceiveChar
@@ -462,6 +467,7 @@ Linker script and memory map
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
 LOAD bp/bp.o
 LOAD button/button.o
+LOAD buzzer/buzzer.o
 LOAD error.o
 LOAD hc05/hc05.o
 LOAD keypad/keypad8.o
@@ -592,7 +598,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x2e56
+.text           0x00000000     0x2d64
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
                 0x00000000                __vector_default
@@ -699,352 +705,352 @@ END GROUP
  .text.Button_ButtonPressed
                 0x0000060e        0xe button/button.o
                 0x0000060e                Button_ButtonPressed
+ .text.Buzzer_Sound
+                0x0000061c       0x3c buzzer/buzzer.o
+                0x0000061c                Buzzer_Sound
  .text.Error_Error
-                0x0000061c        0x6 error.o
-                0x0000061c                Error_Error
+                0x00000658        0x2 error.o
+                0x00000658                Error_Error
  .text.Error_ErrorNum
-                0x00000622       0x6a error.o
-                0x00000622                Error_ErrorNum
+                0x0000065a        0x2 error.o
+                0x0000065a                Error_ErrorNum
  .text.Error_ErrorBin
-                0x0000068c       0x6c error.o
-                0x0000068c                Error_ErrorBin
- .text.HC05_Init_Data_Mode
-                0x000006f8       0x12 hc05/hc05.o
-                0x000006f8                HC05_Init_Data_Mode
+                0x0000065c        0x2 error.o
+                0x0000065c                Error_ErrorBin
  .text.HC05_SendChar
-                0x0000070a        0x8 hc05/hc05.o
-                0x0000070a                HC05_SendChar
+                0x0000065e        0x8 hc05/hc05.o
+                0x0000065e                HC05_SendChar
  .text.HC05_SendString
-                0x00000712       0x1e hc05/hc05.o
-                0x00000712                HC05_SendString
+                0x00000666       0x1e hc05/hc05.o
+                0x00000666                HC05_SendString
  .text.Keypad_Init
-                0x00000730        0xe keypad/keypad8.o
-                0x00000730                Keypad_Init
+                0x00000684        0xe keypad/keypad8.o
+                0x00000684                Keypad_Init
  .text.Keypad_ResetBuffer
-                0x0000073e       0x16 keypad/keypad8.o
-                0x0000073e                Keypad_ResetBuffer
+                0x00000692       0x16 keypad/keypad8.o
+                0x00000692                Keypad_ResetBuffer
  .text.Keypad_WriteToBuffer
-                0x00000754       0x86 keypad/keypad8.o
-                0x00000754                Keypad_WriteToBuffer
+                0x000006a8       0x86 keypad/keypad8.o
+                0x000006a8                Keypad_WriteToBuffer
  .text.Keypad_InitNumpad
-                0x000007da        0x8 keypad/keypad8.o
-                0x000007da                Keypad_InitNumpad
+                0x0000072e        0x8 keypad/keypad8.o
+                0x0000072e                Keypad_InitNumpad
  .text.Keypad_GetMode
-                0x000007e2       0x22 keypad/keypad8.o
-                0x000007e2                Keypad_GetMode
+                0x00000736       0x22 keypad/keypad8.o
+                0x00000736                Keypad_GetMode
  .text.Keypad_UpdateKeyMode
-                0x00000804       0x34 keypad/keypad8.o
-                0x00000804                Keypad_UpdateKeyMode
+                0x00000758       0x34 keypad/keypad8.o
+                0x00000758                Keypad_UpdateKeyMode
  .text.Keypad_KeyPressed
-                0x00000838        0x8 keypad/keypad8.o
-                0x00000838                Keypad_KeyPressed
+                0x0000078c        0x8 keypad/keypad8.o
+                0x0000078c                Keypad_KeyPressed
  .text.Keypad_GetRow
-                0x00000840       0x56 keypad/keypad8.o
-                0x00000840                Keypad_GetRow
+                0x00000794       0x56 keypad/keypad8.o
+                0x00000794                Keypad_GetRow
  .text.Keypad_GetCol
-                0x00000896       0x54 keypad/keypad8.o
-                0x00000896                Keypad_GetCol
- .text.addChar  0x000008ea       0x32 keypad/keypad8.o
-                0x000008ea                addChar
+                0x000007ea       0x54 keypad/keypad8.o
+                0x000007ea                Keypad_GetCol
+ .text.addChar  0x0000083e       0x32 keypad/keypad8.o
+                0x0000083e                addChar
  .text.Keypad_AddKey
-                0x0000091c       0xec keypad/keypad8.o
-                0x0000091c                Keypad_AddKey
+                0x00000870       0xec keypad/keypad8.o
+                0x00000870                Keypad_AddKey
  .text.Keypad_GetKey
-                0x00000a08       0x40 keypad/keypad8.o
-                0x00000a08                Keypad_GetKey
+                0x0000095c       0x40 keypad/keypad8.o
+                0x0000095c                Keypad_GetKey
  .text.KeyProcessor_ProcessKey
-                0x00000a48       0x52 keyprocessor.o
-                0x00000a48                KeyProcessor_ProcessKey
+                0x0000099c       0x52 keyprocessor.o
+                0x0000099c                KeyProcessor_ProcessKey
  .text.Lcd_Init
-                0x00000a9a       0x5c lcd/lcdgeneric.o
-                0x00000a9a                Lcd_Init
+                0x000009ee       0x5c lcd/lcdgeneric.o
+                0x000009ee                Lcd_Init
  .text.Lcd_ClearScreen
-                0x00000af6       0x20 lcd/lcdgeneric.o
-                0x00000af6                Lcd_ClearScreen
+                0x00000a4a       0x20 lcd/lcdgeneric.o
+                0x00000a4a                Lcd_ClearScreen
  .text.Lcd_Prints
-                0x00000b16       0x24 lcd/lcdgeneric.o
-                0x00000b16                Lcd_Prints
+                0x00000a6a       0x24 lcd/lcdgeneric.o
+                0x00000a6a                Lcd_Prints
  .text.Lcd_Position
-                0x00000b3a       0x28 lcd/lcdgeneric.o
-                0x00000b3a                Lcd_Position
+                0x00000a8e       0x28 lcd/lcdgeneric.o
+                0x00000a8e                Lcd_Position
  .text.Lcd_Printc
-                0x00000b62       0x22 lcd/lcdgeneric.o
-                0x00000b62                Lcd_Printc
+                0x00000ab6       0x22 lcd/lcdgeneric.o
+                0x00000ab6                Lcd_Printc
  .text.Lcd_PrintLine
-                0x00000b84       0x60 lcd/lcdgeneric.o
-                0x00000b84                Lcd_PrintLine
+                0x00000ad8       0x60 lcd/lcdgeneric.o
+                0x00000ad8                Lcd_PrintLine
  .text.pinChange
-                0x00000be4      0x280 lcd/lcd_4bit.o
-                0x00000be4                pinChange
+                0x00000b38      0x280 lcd/lcd_4bit.o
+                0x00000b38                pinChange
  .text.Lcd4_Port
-                0x00000e64       0x80 lcd/lcd_4bit.o
-                0x00000e64                Lcd4_Port
+                0x00000db8       0x80 lcd/lcd_4bit.o
+                0x00000db8                Lcd4_Port
  .text.Lcd4_Cmd
-                0x00000ee4       0x4a lcd/lcd_4bit.o
-                0x00000ee4                Lcd4_Cmd
+                0x00000e38       0x4a lcd/lcd_4bit.o
+                0x00000e38                Lcd4_Cmd
  .text.Lcd4_Clear
-                0x00000f2e        0xe lcd/lcd_4bit.o
-                0x00000f2e                Lcd4_Clear
+                0x00000e82        0xe lcd/lcd_4bit.o
+                0x00000e82                Lcd4_Clear
  .text.Lcd4_Set_Cursor
-                0x00000f3c       0x3a lcd/lcd_4bit.o
-                0x00000f3c                Lcd4_Set_Cursor
+                0x00000e90       0x3a lcd/lcd_4bit.o
+                0x00000e90                Lcd4_Set_Cursor
  .text.Lcd4_Init
-                0x00000f76       0x6c lcd/lcd_4bit.o
-                0x00000f76                Lcd4_Init
+                0x00000eca       0x6c lcd/lcd_4bit.o
+                0x00000eca                Lcd4_Init
  .text.Lcd4_Write_Char
-                0x00000fe2       0x86 lcd/lcd_4bit.o
-                0x00000fe2                Lcd4_Write_Char
+                0x00000f36       0x86 lcd/lcd_4bit.o
+                0x00000f36                Lcd4_Write_Char
  .text.Lcd4_Write_String
-                0x00001068       0x1e lcd/lcd_4bit.o
-                0x00001068                Lcd4_Write_String
+                0x00000fbc       0x1e lcd/lcd_4bit.o
+                0x00000fbc                Lcd4_Write_String
  .text.I2C_WRITESEQ
-                0x00001086       0x58 lcd/lcd_i2cmaster.o
-                0x00001086                I2C_WRITESEQ
+                0x00000fda       0x58 lcd/lcd_i2cmaster.o
+                0x00000fda                I2C_WRITESEQ
  .text.wr_lcd_mode
-                0x000010de       0x94 lcd/lcd_i2cmaster.o
+                0x00001032       0x94 lcd/lcd_i2cmaster.o
  .text.lcd_gotoxy
-                0x00001172       0x2c lcd/lcd_i2cmaster.o
-                0x00001172                lcd_gotoxy
+                0x000010c6       0x2c lcd/lcd_i2cmaster.o
+                0x000010c6                lcd_gotoxy
  .text.lcd_clrscr
-                0x0000119e       0x12 lcd/lcd_i2cmaster.o
-                0x0000119e                lcd_clrscr
+                0x000010f2       0x12 lcd/lcd_i2cmaster.o
+                0x000010f2                lcd_clrscr
  .text.lcd_putc
-                0x000011b0       0x52 lcd/lcd_i2cmaster.o
-                0x000011b0                lcd_putc
+                0x00001104       0x52 lcd/lcd_i2cmaster.o
+                0x00001104                lcd_putc
  .text.lcd_puts
-                0x00001202       0x1e lcd/lcd_i2cmaster.o
-                0x00001202                lcd_puts
+                0x00001156       0x1e lcd/lcd_i2cmaster.o
+                0x00001156                lcd_puts
  .text.lcd_init
-                0x00001220       0xe2 lcd/lcd_i2cmaster.o
-                0x00001220                lcd_init
+                0x00001174       0xe2 lcd/lcd_i2cmaster.o
+                0x00001174                lcd_init
  .text.lcd_backlight
-                0x00001302        0x8 lcd/lcd_i2cmaster.o
-                0x00001302                lcd_backlight
+                0x00001256        0x8 lcd/lcd_i2cmaster.o
+                0x00001256                lcd_backlight
  .text.Lm35_Init
-                0x0000130a        0xc lm35/lm35.o
-                0x0000130a                Lm35_Init
+                0x0000125e        0xc lm35/lm35.o
+                0x0000125e                Lm35_Init
  .text.Lm35_GetTemp
-                0x00001316       0x38 lm35/lm35.o
-                0x00001316                Lm35_GetTemp
- .text.enqueue  0x0000134e       0x78 main.o
-                0x0000134e                enqueue
- .text.dequeue  0x000013c6       0x3a main.o
-                0x000013c6                dequeue
- .text.front    0x00001400       0x2e main.o
-                0x00001400                front
- .text.main     0x0000142e      0x278 main.o
-                0x0000142e                main
+                0x0000126a       0x38 lm35/lm35.o
+                0x0000126a                Lm35_GetTemp
+ .text.enqueue  0x000012a2       0x78 main.o
+                0x000012a2                enqueue
+ .text.dequeue  0x0000131a       0x3a main.o
+                0x0000131a                dequeue
+ .text.front    0x00001354       0x2e main.o
+                0x00001354                front
+ .text.main     0x00001382      0x244 main.o
+                0x00001382                main
  .text.Patient_UpdateName
-                0x000016a6        0x6 patient/patient.o
-                0x000016a6                Patient_UpdateName
+                0x000015c6        0x6 patient/patient.o
+                0x000015c6                Patient_UpdateName
  .text.Patient_UpdateAge
-                0x000016ac        0x8 patient/patient.o
-                0x000016ac                Patient_UpdateAge
+                0x000015cc        0x8 patient/patient.o
+                0x000015cc                Patient_UpdateAge
  .text.Patient_UpdatePhone
-                0x000016b4        0x8 patient/patient.o
-                0x000016b4                Patient_UpdatePhone
+                0x000015d4        0x8 patient/patient.o
+                0x000015d4                Patient_UpdatePhone
  .text.Patient_UpdateSerial
-                0x000016bc        0xc patient/patient.o
-                0x000016bc                Patient_UpdateSerial
+                0x000015dc        0xc patient/patient.o
+                0x000015dc                Patient_UpdateSerial
  .text.Patient_UpdateTemperature
-                0x000016c8        0x8 patient/patient.o
-                0x000016c8                Patient_UpdateTemperature
+                0x000015e8        0x8 patient/patient.o
+                0x000015e8                Patient_UpdateTemperature
  .text.Patient_UpdateBp
-                0x000016d0        0x8 patient/patient.o
-                0x000016d0                Patient_UpdateBp
+                0x000015f0        0x8 patient/patient.o
+                0x000015f0                Patient_UpdateBp
  .text.EnteringAge_Init
-                0x000016d8       0x2e state/enteringage/enteringage.o
-                0x000016d8                EnteringAge_Init
+                0x000015f8       0x2e state/enteringage/enteringage.o
+                0x000015f8                EnteringAge_Init
  .text.EnteringAge_ProcessKey
-                0x00001706       0x58 state/enteringage/enteringage.o
-                0x00001706                EnteringAge_ProcessKey
+                0x00001626       0x58 state/enteringage/enteringage.o
+                0x00001626                EnteringAge_ProcessKey
  .text.EnteringBp_Init
-                0x0000175e       0x26 state/enteringbp/enteringbp.o
-                0x0000175e                EnteringBp_Init
+                0x0000167e       0x26 state/enteringbp/enteringbp.o
+                0x0000167e                EnteringBp_Init
  .text.EntetingBp_Refresh
-                0x00001784        0x2 state/enteringbp/enteringbp.o
-                0x00001784                EntetingBp_Refresh
+                0x000016a4        0x2 state/enteringbp/enteringbp.o
+                0x000016a4                EntetingBp_Refresh
  .text.EnteringBp_ProcessKey
-                0x00001786       0x5e state/enteringbp/enteringbp.o
-                0x00001786                EnteringBp_ProcessKey
+                0x000016a6       0x5e state/enteringbp/enteringbp.o
+                0x000016a6                EnteringBp_ProcessKey
  .text.EnteringName_Init
-                0x000017e4       0x3a state/enteringname/enteringname.o
-                0x000017e4                EnteringName_Init
+                0x00001704       0x3a state/enteringname/enteringname.o
+                0x00001704                EnteringName_Init
  .text.EnteringName_ProcessKey
-                0x0000181e       0x58 state/enteringname/enteringname.o
-                0x0000181e                EnteringName_ProcessKey
+                0x0000173e       0x58 state/enteringname/enteringname.o
+                0x0000173e                EnteringName_ProcessKey
  .text.EnteringPhone_Init
-                0x00001876       0x2e state/enteringphone/enteringphone.o
-                0x00001876                EnteringPhone_Init
+                0x00001796       0x2e state/enteringphone/enteringphone.o
+                0x00001796                EnteringPhone_Init
  .text.EnteringPhone_ProcessKey
-                0x000018a4       0x5c state/enteringphone/enteringphone.o
-                0x000018a4                EnteringPhone_ProcessKey
+                0x000017c4       0x5c state/enteringphone/enteringphone.o
+                0x000017c4                EnteringPhone_ProcessKey
  .text.EnteringTemp_Init
-                0x00001900       0x14 state/enteringtemp/enteringtemp.o
-                0x00001900                EnteringTemp_Init
+                0x00001820       0x14 state/enteringtemp/enteringtemp.o
+                0x00001820                EnteringTemp_Init
  .text.EnteringTemp_Refresh
-                0x00001914       0x56 state/enteringtemp/enteringtemp.o
-                0x00001914                EnteringTemp_Refresh
+                0x00001834       0x56 state/enteringtemp/enteringtemp.o
+                0x00001834                EnteringTemp_Refresh
  .text.EnteringTemp_ProcessKey
-                0x0000196a       0x38 state/enteringtemp/enteringtemp.o
-                0x0000196a                EnteringTemp_ProcessKey
+                0x0000188a       0x38 state/enteringtemp/enteringtemp.o
+                0x0000188a                EnteringTemp_ProcessKey
  .text.Update_Serial
-                0x000019a2       0x82 state/generateserial/generateserial.o
-                0x000019a2                Update_Serial
+                0x000018c2       0x82 state/generateserial/generateserial.o
+                0x000018c2                Update_Serial
  .text.GenerateSerial_Init
-                0x00001a24       0x3e state/generateserial/generateserial.o
-                0x00001a24                GenerateSerial_Init
+                0x00001944       0x3e state/generateserial/generateserial.o
+                0x00001944                GenerateSerial_Init
  .text.Update_PatientsList
-                0x00001a62       0xa2 state/generateserial/generateserial.o
-                0x00001a62                Update_PatientsList
+                0x00001982       0xa2 state/generateserial/generateserial.o
+                0x00001982                Update_PatientsList
  .text.Clear_CurrentPatient_Data
-                0x00001b04       0x10 state/generateserial/generateserial.o
-                0x00001b04                Clear_CurrentPatient_Data
+                0x00001a24       0x10 state/generateserial/generateserial.o
+                0x00001a24                Clear_CurrentPatient_Data
  .text.GenerateSerial_ProcessKey
-                0x00001b14       0x62 state/generateserial/generateserial.o
-                0x00001b14                GenerateSerial_ProcessKey
+                0x00001a34       0x62 state/generateserial/generateserial.o
+                0x00001a34                GenerateSerial_ProcessKey
  .text.Idle_ProcessKey
-                0x00001b76        0x8 state/idle/idle.o
-                0x00001b76                Idle_ProcessKey
+                0x00001a96        0x8 state/idle/idle.o
+                0x00001a96                Idle_ProcessKey
  .text.Idle_Init
-                0x00001b7e       0x38 state/idle/idle.o
-                0x00001b7e                Idle_Init
+                0x00001a9e       0x38 state/idle/idle.o
+                0x00001a9e                Idle_Init
  .text.States_GotoState
-                0x00001bb6       0x58 state/states.o
-                0x00001bb6                States_GotoState
+                0x00001ad6       0x58 state/states.o
+                0x00001ad6                States_GotoState
  .text.States_Refresh
-                0x00001c0e       0x2c state/states.o
-                0x00001c0e                States_Refresh
+                0x00001b2e       0x1a state/states.o
+                0x00001b2e                States_Refresh
  .text.i2c_init
-                0x00001c3a        0x8 twimaster.o
-                0x00001c3a                i2c_init
+                0x00001b48        0x8 twimaster.o
+                0x00001b48                i2c_init
  .text.i2c_start
-                0x00001c42       0x3c twimaster.o
-                0x00001c42                i2c_start
+                0x00001b50       0x3c twimaster.o
+                0x00001b50                i2c_start
  .text.i2c_stop
-                0x00001c7e        0xc twimaster.o
-                0x00001c7e                i2c_stop
+                0x00001b8c        0xc twimaster.o
+                0x00001b8c                i2c_stop
  .text.i2c_write
-                0x00001c8a       0x1a twimaster.o
-                0x00001c8a                i2c_write
+                0x00001b98       0x1a twimaster.o
+                0x00001b98                i2c_write
  .text.avr-libc.fplib
-                0x00001ca4        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x00001ca4                __subsf3
-                0x00001ca6                __addsf3
+                0x00001bb2        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x00001bb2                __subsf3
+                0x00001bb4                __addsf3
  .text.avr-libc.fplib
-                0x00001cb2       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x00001cd4                __addsf3x
+                0x00001bc0       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x00001be2                __addsf3x
  .text.avr-libc.fplib
-                0x00001d7e        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x00001d7e                __divsf3
+                0x00001c8c        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00001c8c                __divsf3
  .text.avr-libc.fplib
-                0x00001d86       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x00001da6                __divsf3x
-                0x00001dac                __divsf3_pse
+                0x00001c94       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x00001cb4                __divsf3x
+                0x00001cba                __divsf3_pse
  .text.avr-libc.fplib
-                0x00001e62        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                0x00001e62                __fixsfsi
+                0x00001d70        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
+                0x00001d70                __fixsfsi
  .text.avr-libc.fplib
-                0x00001e70       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x00001e70                __fixunssfsi
+                0x00001d7e       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x00001d7e                __fixunssfsi
  .text.avr-libc.fplib
-                0x00001ece       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00001ece                __floatunsisf
-                0x00001ed2                __floatsisf
+                0x00001ddc       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x00001ddc                __floatunsisf
+                0x00001de0                __floatsisf
  .text.avr-libc.fplib
-                0x00001f48        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x00001f48                __fp_inf
+                0x00001e56        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00001e56                __fp_inf
  .text.avr-libc.fplib
-                0x00001f54        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00001f54                __fp_nan
+                0x00001e62        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x00001e62                __fp_nan
  .text.avr-libc.fplib
-                0x00001f5a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00001f5a                __fp_pscA
+                0x00001e68        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00001e68                __fp_pscA
  .text.avr-libc.fplib
-                0x00001f68        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x00001f68                __fp_pscB
+                0x00001e76        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00001e76                __fp_pscB
  .text.avr-libc.fplib
-                0x00001f76       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x00001f76                __fp_round
+                0x00001e84       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00001e84                __fp_round
  .text.avr-libc.fplib
-                0x00001f98       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x00001f98                __fp_split3
-                0x00001fa8                __fp_splitA
+                0x00001ea6       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x00001ea6                __fp_split3
+                0x00001eb6                __fp_splitA
  .text.avr-libc.fplib
-                0x00001fdc        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x00001fdc                __fp_zero
-                0x00001fde                __fp_szero
+                0x00001eea        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x00001eea                __fp_zero
+                0x00001eec                __fp_szero
  .text.avr-libc.fplib
-                0x00001fea        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x00001fea                __mulsf3
+                0x00001ef8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x00001ef8                __mulsf3
  .text.avr-libc.fplib
-                0x00001ff2       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x00002010                __mulsf3x
-                0x00002016                __mulsf3_pse
+                0x00001f00       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x00001f1e                __mulsf3x
+                0x00001f24                __mulsf3_pse
  .text.libgcc.div
-                0x000020c4       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
-                0x000020c4                _div
-                0x000020c4                __divmodhi4
- .text.libgcc   0x000020ec        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x000020ec                __tablejump2__
+                0x00001fd2       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+                0x00001fd2                _div
+                0x00001fd2                __divmodhi4
+ .text.libgcc   0x00001ffa        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00001ffa                __tablejump2__
  .text.libgcc.div
-                0x000020f8       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                0x000020f8                __udivmodhi4
+                0x00002006       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x00002006                __udivmodhi4
  .text.avr-libc
-                0x00002120       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(dtostrf.o)
-                0x00002120                dtostrf
+                0x0000202e       0x40 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(dtostrf.o)
+                0x0000202e                dtostrf
  .text.avr-libc
-                0x00002160      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00002160                malloc
-                0x00002290                free
+                0x0000206e      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x0000206e                malloc
+                0x0000219e                free
  .text.avr-libc
-                0x000023a2        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
-                0x000023a2                strcpy
+                0x000022b0        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strcpy.o)
+                0x000022b0                strcpy
  .text.avr-libc
-                0x000023b0       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
-                0x000023b0                __itoa_ncheck
+                0x000022be       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(itoa_ncheck.o)
+                0x000022be                __itoa_ncheck
  .text.avr-libc
-                0x000023c6       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
-                0x000023c6                __utoa_ncheck
-                0x000023c8                __utoa_common
+                0x000022d4       0x34 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(utoa_ncheck.o)
+                0x000022d4                __utoa_ncheck
+                0x000022d6                __utoa_common
  .text.avr-libc
-                0x000023fa       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x000023fa                sprintf
+                0x00002308       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x00002308                sprintf
  .text.avr-libc
-                0x0000243e      0x3c2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x0000243e                vfprintf
+                0x0000234c      0x3c2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x0000234c                vfprintf
  .text.avr-libc
-                0x00002800      0x2b4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(dtoa_prf.o)
-                0x00002800                dtoa_prf
+                0x0000270e      0x2b4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(dtoa_prf.o)
+                0x0000270e                dtoa_prf
  .text.avr-libc
-                0x00002ab4      0x1b0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ftoa_engine.o)
-                0x00002ab4                __ftoa_engine
+                0x000029c2      0x1b0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ftoa_engine.o)
+                0x000029c2                __ftoa_engine
  .text.avr-libc
-                0x00002c64       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00002c64                strnlen_P
+                0x00002b72       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00002b72                strnlen_P
  .text.avr-libc
-                0x00002c7a       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00002c7a                strnlen
+                0x00002b88       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00002b88                strnlen
  .text.avr-libc
-                0x00002c90       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
-                0x00002c90                strrev
+                0x00002b9e       0x20 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strrev.o)
+                0x00002b9e                strrev
  .text.avr-libc
-                0x00002cb0       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00002cb0                fputc
+                0x00002bbe       0x78 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00002bbe                fputc
  .text.avr-libc
-                0x00002d28       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00002d28                __ultoa_invert
+                0x00002c36       0xbc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00002c36                __ultoa_invert
  .text.libgcc.prologue
-                0x00002de4       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00002de4                __prologue_saves__
+                0x00002cf2       0x38 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00002cf2                __prologue_saves__
  .text.libgcc.prologue
-                0x00002e1c       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00002e1c                __epilogue_restores__
-                0x00002e52                . = ALIGN (0x2)
+                0x00002d2a       0x36 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00002d2a                __epilogue_restores__
+                0x00002d60                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00002e52        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00002e52                _exit
-                0x00002e52                exit
+ .fini9         0x00002d60        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00002d60                _exit
+                0x00002d60                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1063,11 +1069,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00002e52        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00002d60        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00002e56                _etext = .
+                0x00002d64                _etext = .
 
-.data           0x00800060      0x268 load address 0x00002e56
+.data           0x00800060      0x216 load address 0x00002d64
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
@@ -1084,85 +1090,86 @@ END GROUP
  .rodata.str1.1
                 0x0080006b        0x9 bp/bp.o
  .rodata.str1.1
-                0x00800074        0xa error.o
+                0x00800074        0x4 buzzer/buzzer.o
  .rodata.str1.1
-                0x0080007e       0x64 keypad/keypad8.o
+                0x00800078       0x64 keypad/keypad8.o
  .rodata.str1.1
-                0x008000e2       0x24 keyprocessor.o
+                0x008000dc       0x24 keyprocessor.o
  .rodata.str1.1
-                0x00800106       0x6a lcd/lcdgeneric.o
+                0x00800100       0x6a lcd/lcdgeneric.o
  .rodata.str1.1
-                0x00800170       0x79 main.o
+                0x0080016a       0x55 main.o
  .rodata.str1.1
-                0x008001e9        0xb state/enteringage/enteringage.o
+                0x008001bf        0xb state/enteringage/enteringage.o
  .rodata.str1.1
-                0x008001f4       0x29 state/enteringbp/enteringbp.o
+                0x008001ca       0x29 state/enteringbp/enteringbp.o
  .rodata.str1.1
-                0x0080021d        0xc state/enteringname/enteringname.o
+                0x008001f3        0xc state/enteringname/enteringname.o
  .rodata.str1.1
-                0x00800229        0xa state/enteringphone/enteringphone.o
+                0x008001ff        0xa state/enteringphone/enteringphone.o
  .rodata.str1.1
-                0x00800233        0xd state/enteringtemp/enteringtemp.o
+                0x00800209        0xd state/enteringtemp/enteringtemp.o
  .rodata.str1.1
-                0x00800240       0x29 state/generateserial/generateserial.o
+                0x00800216       0x29 state/generateserial/generateserial.o
  .rodata.str1.1
-                0x00800269       0x16 state/idle/idle.o
+                0x0080023f       0x16 state/idle/idle.o
  .rodata.str1.1
-                0x0080027f       0x49 state/states.o
+                0x00800255       0x20 state/states.o
  *(.gnu.linkonce.r*)
-                0x008002c8                . = ALIGN (0x2)
-                0x008002c8                _edata = .
-                0x008002c8                PROVIDE (__data_end, .)
+                0x00800276                . = ALIGN (0x2)
+ *fill*         0x00800275        0x1 
+                0x00800276                _edata = .
+                0x00800276                PROVIDE (__data_end, .)
 
-.bss            0x008002c8      0x354
-                0x008002c8                PROVIDE (__bss_start, .)
+.bss            0x00800276      0x354
+                0x00800276                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.c         0x008002c8        0x4 bp/bp.o
-                0x008002c8                c
- .bss.m         0x008002cc        0x4 bp/bp.o
-                0x008002cc                m
- .bss.position  0x008002d0        0x2 keypad/keypad8.o
-                0x008002d0                position
+ .bss.c         0x00800276        0x4 bp/bp.o
+                0x00800276                c
+ .bss.m         0x0080027a        0x4 bp/bp.o
+                0x0080027a                m
+ .bss.position  0x0080027e        0x2 keypad/keypad8.o
+                0x0080027e                position
  .bss.isUpperCase
-                0x008002d2        0x1 keypad/keypad8.o
-                0x008002d2                isUpperCase
- .bss.isNumber  0x008002d3        0x1 keypad/keypad8.o
-                0x008002d3                isNumber
+                0x00800280        0x1 keypad/keypad8.o
+                0x00800280                isUpperCase
+ .bss.isNumber  0x00800281        0x1 keypad/keypad8.o
+                0x00800281                isNumber
  .bss.doctorSeeing
-                0x008002d4        0x1 main.o
-                0x008002d4                doctorSeeing
+                0x00800282        0x1 main.o
+                0x00800282                doctorSeeing
  .bss.patientsCount
-                0x008002d5        0x2 patient/patient.o
-                0x008002d5                patientsCount
- .bss.scanning  0x008002d7        0x1 state/enteringbp/enteringbp.o
-                0x008002d7                scanning
+                0x00800283        0x2 patient/patient.o
+                0x00800283                patientsCount
+ .bss.scanning  0x00800285        0x1 state/enteringbp/enteringbp.o
+                0x00800285                scanning
  *(COMMON)
- COMMON         0x008002d8       0x11 keypad/keypad8.o
-                0x008002d8                keyBuffer
- COMMON         0x008002e9        0x3 lcd/lcd_i2cmaster.o
-                0x008002e9                _lcd_maxx
-                0x008002ea                _lcd_x
-                0x008002eb                _lcd_y
- COMMON         0x008002ec      0x2e2 main.o
-                0x008002ec                q
- COMMON         0x008005ce       0x49 patient/patient.o
-                0x008005ce                currentPatient
- COMMON         0x00800617        0x1 state/states.o
-                0x00800617                currentState
- COMMON         0x00800618        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
-                0x00800618                __brkval
-                0x0080061a                __flp
-                0x0080061c                PROVIDE (__bss_end, .)
-                0x00002e56                __data_load_start = LOADADDR (.data)
-                0x000030be                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800286       0x11 keypad/keypad8.o
+                0x00800286                keyBuffer
+ COMMON         0x00800297        0x3 lcd/lcd_i2cmaster.o
+                0x00800297                _lcd_maxx
+                0x00800298                _lcd_x
+                0x00800299                _lcd_y
+ COMMON         0x0080029a      0x2e2 main.o
+                0x0080029a                q
+ COMMON         0x0080057c       0x49 patient/patient.o
+                0x0080057c                currentPatient
+ COMMON         0x008005c5        0x1 state/states.o
+                0x008005c5                currentState
+ COMMON         0x008005c6        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(malloc.o)
+                0x008005c6                __brkval
+                0x008005c8                __flp
+                0x008005ca                PROVIDE (__bss_end, .)
+                0x00002d64                __data_load_start = LOADADDR (.data)
+                0x00002f7a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080061c        0x0
+.noinit         0x008005ca        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080061c                _end = .
-                0x0080061c                PROVIDE (__heap_start, .)
+                0x008005ca                _end = .
+                0x008005ca                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -1206,6 +1213,7 @@ END GROUP
  .comment       0x00000000       0x30 bp/bp.o
                                  0x31 (size before relaxing)
  .comment       0x00000030       0x31 button/button.o
+ .comment       0x00000030       0x31 buzzer/buzzer.o
  .comment       0x00000030       0x31 error.o
  .comment       0x00000030       0x31 hc05/hc05.o
  .comment       0x00000030       0x31 keypad/keypad8.o
@@ -1253,221 +1261,229 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x538
+.debug_aranges  0x00000000      0x558
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x48 bp/bp.o
  .debug_aranges
                 0x00000048       0x28 button/button.o
  .debug_aranges
-                0x00000070       0x30 error.o
+                0x00000070       0x20 buzzer/buzzer.o
  .debug_aranges
-                0x000000a0       0x40 hc05/hc05.o
+                0x00000090       0x30 error.o
  .debug_aranges
-                0x000000e0       0x78 keypad/keypad8.o
+                0x000000c0       0x40 hc05/hc05.o
  .debug_aranges
-                0x00000158       0x20 keyprocessor.o
+                0x00000100       0x78 keypad/keypad8.o
  .debug_aranges
-                0x00000178       0x48 lcd/lcdgeneric.o
+                0x00000178       0x20 keyprocessor.o
  .debug_aranges
-                0x000001c0       0x68 lcd/lcd_4bit.o
+                0x00000198       0x48 lcd/lcdgeneric.o
  .debug_aranges
-                0x00000228       0x78 lcd/lcd_i2cmaster.o
+                0x000001e0       0x68 lcd/lcd_4bit.o
  .debug_aranges
-                0x000002a0       0x28 lm35/lm35.o
+                0x00000248       0x78 lcd/lcd_i2cmaster.o
  .debug_aranges
-                0x000002c8       0x68 main.o
+                0x000002c0       0x28 lm35/lm35.o
  .debug_aranges
-                0x00000330       0x48 patient/patient.o
+                0x000002e8       0x68 main.o
  .debug_aranges
-                0x00000378       0x28 state/enteringage/enteringage.o
+                0x00000350       0x48 patient/patient.o
  .debug_aranges
-                0x000003a0       0x30 state/enteringbp/enteringbp.o
+                0x00000398       0x28 state/enteringage/enteringage.o
  .debug_aranges
-                0x000003d0       0x28 state/enteringname/enteringname.o
+                0x000003c0       0x30 state/enteringbp/enteringbp.o
  .debug_aranges
-                0x000003f8       0x28 state/enteringphone/enteringphone.o
+                0x000003f0       0x28 state/enteringname/enteringname.o
  .debug_aranges
-                0x00000420       0x30 state/enteringtemp/enteringtemp.o
+                0x00000418       0x28 state/enteringphone/enteringphone.o
  .debug_aranges
-                0x00000450       0x40 state/generateserial/generateserial.o
+                0x00000440       0x30 state/enteringtemp/enteringtemp.o
  .debug_aranges
-                0x00000490       0x28 state/idle/idle.o
+                0x00000470       0x40 state/generateserial/generateserial.o
  .debug_aranges
-                0x000004b8       0x28 state/states.o
+                0x000004b0       0x28 state/idle/idle.o
  .debug_aranges
-                0x000004e0       0x58 twimaster.o
+                0x000004d8       0x28 state/states.o
+ .debug_aranges
+                0x00000500       0x58 twimaster.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5234
+.debug_info     0x00000000     0x51e8
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_info    0x000004e6      0x65c bp/bp.o
- .debug_info    0x00000b42       0xb0 button/button.o
- .debug_info    0x00000bf2      0x22e error.o
- .debug_info    0x00000e20      0x116 hc05/hc05.o
- .debug_info    0x00000f36      0x50f keypad/keypad8.o
- .debug_info    0x00001445      0x17c keyprocessor.o
- .debug_info    0x000015c1      0x4cb lcd/lcdgeneric.o
- .debug_info    0x00001a8c      0x8d0 lcd/lcd_4bit.o
- .debug_info    0x0000235c      0x743 lcd/lcd_i2cmaster.o
- .debug_info    0x00002a9f       0xf3 lm35/lm35.o
- .debug_info    0x00002b92      0x9ea main.o
- .debug_info    0x0000357c      0x32d patient/patient.o
- .debug_info    0x000038a9      0x2ba state/enteringage/enteringage.o
- .debug_info    0x00003b63      0x2f7 state/enteringbp/enteringbp.o
- .debug_info    0x00003e5a      0x2fb state/enteringname/enteringname.o
- .debug_info    0x00004155      0x2c3 state/enteringphone/enteringphone.o
- .debug_info    0x00004418      0x339 state/enteringtemp/enteringtemp.o
- .debug_info    0x00004751      0x596 state/generateserial/generateserial.o
- .debug_info    0x00004ce7      0x1ac state/idle/idle.o
- .debug_info    0x00004e93      0x1e4 state/states.o
- .debug_info    0x00005077      0x1bd twimaster.o
+ .debug_info    0x000004e6      0x66b bp/bp.o
+ .debug_info    0x00000b51       0xb0 button/button.o
+ .debug_info    0x00000c01      0x1a6 buzzer/buzzer.o
+ .debug_info    0x00000da7      0x122 error.o
+ .debug_info    0x00000ec9      0x116 hc05/hc05.o
+ .debug_info    0x00000fdf      0x50f keypad/keypad8.o
+ .debug_info    0x000014ee      0x17c keyprocessor.o
+ .debug_info    0x0000166a      0x4cb lcd/lcdgeneric.o
+ .debug_info    0x00001b35      0x8d0 lcd/lcd_4bit.o
+ .debug_info    0x00002405      0x743 lcd/lcd_i2cmaster.o
+ .debug_info    0x00002b48       0xf3 lm35/lm35.o
+ .debug_info    0x00002c3b      0x90d main.o
+ .debug_info    0x00003548      0x32d patient/patient.o
+ .debug_info    0x00003875      0x2ba state/enteringage/enteringage.o
+ .debug_info    0x00003b2f      0x2f7 state/enteringbp/enteringbp.o
+ .debug_info    0x00003e26      0x2fb state/enteringname/enteringname.o
+ .debug_info    0x00004121      0x2c3 state/enteringphone/enteringphone.o
+ .debug_info    0x000043e4      0x339 state/enteringtemp/enteringtemp.o
+ .debug_info    0x0000471d      0x596 state/generateserial/generateserial.o
+ .debug_info    0x00004cb3      0x1ac state/idle/idle.o
+ .debug_info    0x00004e5f      0x1cc state/states.o
+ .debug_info    0x0000502b      0x1bd twimaster.o
 
-.debug_abbrev   0x00000000     0x1f78
+.debug_abbrev   0x00000000     0x1ff6
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_abbrev  0x000004a3      0x2ae bp/bp.o
  .debug_abbrev  0x00000751       0x67 button/button.o
- .debug_abbrev  0x000007b8      0x11c error.o
- .debug_abbrev  0x000008d4       0xcd hc05/hc05.o
- .debug_abbrev  0x000009a1      0x1c1 keypad/keypad8.o
- .debug_abbrev  0x00000b62       0xa7 keyprocessor.o
- .debug_abbrev  0x00000c09      0x174 lcd/lcdgeneric.o
- .debug_abbrev  0x00000d7d      0x17e lcd/lcd_4bit.o
- .debug_abbrev  0x00000efb      0x1e2 lcd/lcd_i2cmaster.o
- .debug_abbrev  0x000010dd       0xa1 lm35/lm35.o
- .debug_abbrev  0x0000117e      0x286 main.o
- .debug_abbrev  0x00001404       0xf5 patient/patient.o
- .debug_abbrev  0x000014f9      0x10b state/enteringage/enteringage.o
- .debug_abbrev  0x00001604      0x155 state/enteringbp/enteringbp.o
- .debug_abbrev  0x00001759      0x10b state/enteringname/enteringname.o
- .debug_abbrev  0x00001864      0x10b state/enteringphone/enteringphone.o
- .debug_abbrev  0x0000196f      0x17f state/enteringtemp/enteringtemp.o
- .debug_abbrev  0x00001aee      0x22f state/generateserial/generateserial.o
- .debug_abbrev  0x00001d1d       0xb0 state/idle/idle.o
- .debug_abbrev  0x00001dcd       0xc6 state/states.o
- .debug_abbrev  0x00001e93       0xe5 twimaster.o
+ .debug_abbrev  0x000007b8      0x129 buzzer/buzzer.o
+ .debug_abbrev  0x000008e1       0x8c error.o
+ .debug_abbrev  0x0000096d       0xcd hc05/hc05.o
+ .debug_abbrev  0x00000a3a      0x1c1 keypad/keypad8.o
+ .debug_abbrev  0x00000bfb       0xa7 keyprocessor.o
+ .debug_abbrev  0x00000ca2      0x174 lcd/lcdgeneric.o
+ .debug_abbrev  0x00000e16      0x17e lcd/lcd_4bit.o
+ .debug_abbrev  0x00000f94      0x1e2 lcd/lcd_i2cmaster.o
+ .debug_abbrev  0x00001176       0xa1 lm35/lm35.o
+ .debug_abbrev  0x00001217      0x26b main.o
+ .debug_abbrev  0x00001482       0xf5 patient/patient.o
+ .debug_abbrev  0x00001577      0x10b state/enteringage/enteringage.o
+ .debug_abbrev  0x00001682      0x155 state/enteringbp/enteringbp.o
+ .debug_abbrev  0x000017d7      0x10b state/enteringname/enteringname.o
+ .debug_abbrev  0x000018e2      0x10b state/enteringphone/enteringphone.o
+ .debug_abbrev  0x000019ed      0x17f state/enteringtemp/enteringtemp.o
+ .debug_abbrev  0x00001b6c      0x22f state/generateserial/generateserial.o
+ .debug_abbrev  0x00001d9b       0xb0 state/idle/idle.o
+ .debug_abbrev  0x00001e4b       0xc6 state/states.o
+ .debug_abbrev  0x00001f11       0xe5 twimaster.o
 
-.debug_line     0x00000000     0x344d
+.debug_line     0x00000000     0x34df
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x116 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_line    0x00000116      0x2f9 bp/bp.o
  .debug_line    0x0000040f       0xc0 button/button.o
- .debug_line    0x000004cf      0x127 error.o
- .debug_line    0x000005f6      0x15c hc05/hc05.o
- .debug_line    0x00000752      0x3fe keypad/keypad8.o
- .debug_line    0x00000b50      0x222 keyprocessor.o
- .debug_line    0x00000d72      0x29d lcd/lcdgeneric.o
- .debug_line    0x0000100f      0x650 lcd/lcd_4bit.o
- .debug_line    0x0000165f      0x3c4 lcd/lcd_i2cmaster.o
- .debug_line    0x00001a23       0xe0 lm35/lm35.o
- .debug_line    0x00001b03      0x436 main.o
- .debug_line    0x00001f39      0x13b patient/patient.o
- .debug_line    0x00002074      0x20d state/enteringage/enteringage.o
- .debug_line    0x00002281      0x210 state/enteringbp/enteringbp.o
- .debug_line    0x00002491      0x21a state/enteringname/enteringname.o
- .debug_line    0x000026ab      0x221 state/enteringphone/enteringphone.o
- .debug_line    0x000028cc      0x22e state/enteringtemp/enteringtemp.o
- .debug_line    0x00002afa      0x316 state/generateserial/generateserial.o
- .debug_line    0x00002e10      0x122 state/idle/idle.o
- .debug_line    0x00002f32      0x29d state/states.o
- .debug_line    0x000031cf      0x27e twimaster.o
+ .debug_line    0x000004cf      0x168 buzzer/buzzer.o
+ .debug_line    0x00000637       0x56 error.o
+ .debug_line    0x0000068d      0x15c hc05/hc05.o
+ .debug_line    0x000007e9      0x3fe keypad/keypad8.o
+ .debug_line    0x00000be7      0x222 keyprocessor.o
+ .debug_line    0x00000e09      0x29d lcd/lcdgeneric.o
+ .debug_line    0x000010a6      0x650 lcd/lcd_4bit.o
+ .debug_line    0x000016f6      0x3c4 lcd/lcd_i2cmaster.o
+ .debug_line    0x00001aba       0xe0 lm35/lm35.o
+ .debug_line    0x00001b9a      0x43d main.o
+ .debug_line    0x00001fd7      0x13b patient/patient.o
+ .debug_line    0x00002112      0x20d state/enteringage/enteringage.o
+ .debug_line    0x0000231f      0x210 state/enteringbp/enteringbp.o
+ .debug_line    0x0000252f      0x21a state/enteringname/enteringname.o
+ .debug_line    0x00002749      0x221 state/enteringphone/enteringphone.o
+ .debug_line    0x0000296a      0x22e state/enteringtemp/enteringtemp.o
+ .debug_line    0x00002b98      0x316 state/generateserial/generateserial.o
+ .debug_line    0x00002eae      0x122 state/idle/idle.o
+ .debug_line    0x00002fd0      0x291 state/states.o
+ .debug_line    0x00003261      0x27e twimaster.o
 
-.debug_frame    0x00000000      0xb0c
+.debug_frame    0x00000000      0xaf8
  *(.debug_frame)
  .debug_frame   0x00000000      0x180 bp/bp.o
  .debug_frame   0x00000180       0x34 button/button.o
- .debug_frame   0x000001b4       0x7c error.o
- .debug_frame   0x00000230       0x70 hc05/hc05.o
- .debug_frame   0x000002a0      0x118 keypad/keypad8.o
- .debug_frame   0x000003b8       0x24 keyprocessor.o
- .debug_frame   0x000003dc       0xa0 lcd/lcdgeneric.o
- .debug_frame   0x0000047c       0xe0 lcd/lcd_4bit.o
- .debug_frame   0x0000055c      0x158 lcd/lcd_i2cmaster.o
- .debug_frame   0x000006b4       0x34 lm35/lm35.o
- .debug_frame   0x000006e8       0xdc main.o
- .debug_frame   0x000007c4       0x74 patient/patient.o
- .debug_frame   0x00000838       0x34 state/enteringage/enteringage.o
- .debug_frame   0x0000086c       0x44 state/enteringbp/enteringbp.o
- .debug_frame   0x000008b0       0x34 state/enteringname/enteringname.o
- .debug_frame   0x000008e4       0x34 state/enteringphone/enteringphone.o
- .debug_frame   0x00000918       0x60 state/enteringtemp/enteringtemp.o
- .debug_frame   0x00000978       0x90 state/generateserial/generateserial.o
- .debug_frame   0x00000a08       0x34 state/idle/idle.o
- .debug_frame   0x00000a3c       0x3c state/states.o
- .debug_frame   0x00000a78       0x94 twimaster.o
+ .debug_frame   0x000001b4       0x24 buzzer/buzzer.o
+ .debug_frame   0x000001d8       0x44 error.o
+ .debug_frame   0x0000021c       0x70 hc05/hc05.o
+ .debug_frame   0x0000028c      0x118 keypad/keypad8.o
+ .debug_frame   0x000003a4       0x24 keyprocessor.o
+ .debug_frame   0x000003c8       0xa0 lcd/lcdgeneric.o
+ .debug_frame   0x00000468       0xe0 lcd/lcd_4bit.o
+ .debug_frame   0x00000548      0x158 lcd/lcd_i2cmaster.o
+ .debug_frame   0x000006a0       0x34 lm35/lm35.o
+ .debug_frame   0x000006d4       0xdc main.o
+ .debug_frame   0x000007b0       0x74 patient/patient.o
+ .debug_frame   0x00000824       0x34 state/enteringage/enteringage.o
+ .debug_frame   0x00000858       0x44 state/enteringbp/enteringbp.o
+ .debug_frame   0x0000089c       0x34 state/enteringname/enteringname.o
+ .debug_frame   0x000008d0       0x34 state/enteringphone/enteringphone.o
+ .debug_frame   0x00000904       0x60 state/enteringtemp/enteringtemp.o
+ .debug_frame   0x00000964       0x90 state/generateserial/generateserial.o
+ .debug_frame   0x000009f4       0x34 state/idle/idle.o
+ .debug_frame   0x00000a28       0x3c state/states.o
+ .debug_frame   0x00000a64       0x94 twimaster.o
 
-.debug_str      0x00000000      0xd26
+.debug_str      0x00000000      0xd46
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_str     0x00000196      0x283 bp/bp.o
                                 0x2d5 (size before relaxing)
  .debug_str     0x00000419       0x3a button/button.o
                                 0x1b4 (size before relaxing)
- .debug_str     0x00000453       0x51 error.o
-                                0x1cb (size before relaxing)
- .debug_str     0x000004a4       0x5b hc05/hc05.o
+ .debug_str     0x00000453       0x2c buzzer/buzzer.o
+                                0x1f1 (size before relaxing)
+ .debug_str     0x0000047f       0x30 error.o
+                                0x1ae (size before relaxing)
+ .debug_str     0x000004af       0x6b hc05/hc05.o
                                 0x1e1 (size before relaxing)
- .debug_str     0x000004ff      0x102 keypad/keypad8.o
+ .debug_str     0x0000051a      0x102 keypad/keypad8.o
                                 0x2d5 (size before relaxing)
- .debug_str     0x00000601       0xd9 keyprocessor.o
+ .debug_str     0x0000061c       0xd9 keyprocessor.o
                                 0x26a (size before relaxing)
- .debug_str     0x000006da       0xbb lcd/lcdgeneric.o
+ .debug_str     0x000006f5       0xbb lcd/lcdgeneric.o
                                 0x2b7 (size before relaxing)
- .debug_str     0x00000795       0x60 lcd/lcd_4bit.o
+ .debug_str     0x000007b0       0x65 lcd/lcd_4bit.o
                                 0x261 (size before relaxing)
- .debug_str     0x000007f5       0xe2 lcd/lcd_i2cmaster.o
+ .debug_str     0x00000815       0xe2 lcd/lcd_i2cmaster.o
                                 0x302 (size before relaxing)
- .debug_str     0x000008d7       0x37 lm35/lm35.o
+ .debug_str     0x000008f7       0x37 lm35/lm35.o
                                 0x1c0 (size before relaxing)
- .debug_str     0x0000090e       0xdb main.o
-                                0x384 (size before relaxing)
- .debug_str     0x000009e9       0xdb patient/patient.o
+ .debug_str     0x0000092e       0xdb main.o
+                                0x364 (size before relaxing)
+ .debug_str     0x00000a09       0xdb patient/patient.o
                                 0x27a (size before relaxing)
- .debug_str     0x00000ac4       0x34 state/enteringage/enteringage.o
+ .debug_str     0x00000ae4       0x34 state/enteringage/enteringage.o
                                 0x2ad (size before relaxing)
- .debug_str     0x00000af8       0x4d state/enteringbp/enteringbp.o
+ .debug_str     0x00000b18       0x4d state/enteringbp/enteringbp.o
                                 0x283 (size before relaxing)
- .debug_str     0x00000b45       0x37 state/enteringname/enteringname.o
+ .debug_str     0x00000b65       0x37 state/enteringname/enteringname.o
                                 0x2c8 (size before relaxing)
- .debug_str     0x00000b7c       0x3a state/enteringphone/enteringphone.o
+ .debug_str     0x00000b9c       0x3a state/enteringphone/enteringphone.o
                                 0x2b7 (size before relaxing)
- .debug_str     0x00000bb6       0x5e state/enteringtemp/enteringtemp.o
+ .debug_str     0x00000bd6       0x5e state/enteringtemp/enteringtemp.o
                                 0x2b0 (size before relaxing)
- .debug_str     0x00000c14       0x85 state/generateserial/generateserial.o
+ .debug_str     0x00000c34       0x85 state/generateserial/generateserial.o
                                 0x32b (size before relaxing)
- .debug_str     0x00000c99       0x1f state/idle/idle.o
+ .debug_str     0x00000cb9       0x1f state/idle/idle.o
                                 0x1ed (size before relaxing)
- .debug_str     0x00000cb8       0x1b state/states.o
+ .debug_str     0x00000cd8       0x1b state/states.o
                                 0x277 (size before relaxing)
- .debug_str     0x00000cd3       0x53 twimaster.o
+ .debug_str     0x00000cf3       0x53 twimaster.o
                                 0x1ea (size before relaxing)
 
-.debug_loc      0x00000000     0x2ac2
+.debug_loc      0x00000000     0x29df
  *(.debug_loc)
  .debug_loc     0x00000000      0x7e5 bp/bp.o
- .debug_loc     0x000007e5      0x1b4 error.o
- .debug_loc     0x00000999       0x64 hc05/hc05.o
- .debug_loc     0x000009fd      0x3f8 keypad/keypad8.o
- .debug_loc     0x00000df5       0xd0 keyprocessor.o
- .debug_loc     0x00000ec5      0x4d4 lcd/lcdgeneric.o
- .debug_loc     0x00001399      0x662 lcd/lcd_4bit.o
- .debug_loc     0x000019fb      0x698 lcd/lcd_i2cmaster.o
- .debug_loc     0x00002093       0x49 lm35/lm35.o
- .debug_loc     0x000020dc      0x36b main.o
- .debug_loc     0x00002447      0x1d6 patient/patient.o
- .debug_loc     0x0000261d       0x53 state/enteringage/enteringage.o
- .debug_loc     0x00002670       0x3a state/enteringbp/enteringbp.o
- .debug_loc     0x000026aa       0x53 state/enteringname/enteringname.o
- .debug_loc     0x000026fd       0x53 state/enteringphone/enteringphone.o
- .debug_loc     0x00002750       0xb9 state/enteringtemp/enteringtemp.o
- .debug_loc     0x00002809      0x156 state/generateserial/generateserial.o
- .debug_loc     0x0000295f       0x21 state/idle/idle.o
- .debug_loc     0x00002980       0x4f state/states.o
- .debug_loc     0x000029cf       0xf3 twimaster.o
+ .debug_loc     0x000007e5       0xd1 buzzer/buzzer.o
+ .debug_loc     0x000008b6       0x64 hc05/hc05.o
+ .debug_loc     0x0000091a      0x3f8 keypad/keypad8.o
+ .debug_loc     0x00000d12       0xd0 keyprocessor.o
+ .debug_loc     0x00000de2      0x4d4 lcd/lcdgeneric.o
+ .debug_loc     0x000012b6      0x662 lcd/lcd_4bit.o
+ .debug_loc     0x00001918      0x698 lcd/lcd_i2cmaster.o
+ .debug_loc     0x00001fb0       0x49 lm35/lm35.o
+ .debug_loc     0x00001ff9      0x36b main.o
+ .debug_loc     0x00002364      0x1d6 patient/patient.o
+ .debug_loc     0x0000253a       0x53 state/enteringage/enteringage.o
+ .debug_loc     0x0000258d       0x3a state/enteringbp/enteringbp.o
+ .debug_loc     0x000025c7       0x53 state/enteringname/enteringname.o
+ .debug_loc     0x0000261a       0x53 state/enteringphone/enteringphone.o
+ .debug_loc     0x0000266d       0xb9 state/enteringtemp/enteringtemp.o
+ .debug_loc     0x00002726      0x156 state/generateserial/generateserial.o
+ .debug_loc     0x0000287c       0x21 state/idle/idle.o
+ .debug_loc     0x0000289d       0x4f state/states.o
+ .debug_loc     0x000028ec       0xf3 twimaster.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1487,29 +1503,30 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x448
+.debug_ranges   0x00000000      0x458
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x38 bp/bp.o
  .debug_ranges  0x00000038       0x18 button/button.o
- .debug_ranges  0x00000050       0x20 error.o
- .debug_ranges  0x00000070       0x30 hc05/hc05.o
- .debug_ranges  0x000000a0       0x80 keypad/keypad8.o
- .debug_ranges  0x00000120       0x10 keyprocessor.o
- .debug_ranges  0x00000130       0x38 lcd/lcdgeneric.o
- .debug_ranges  0x00000168       0x58 lcd/lcd_4bit.o
- .debug_ranges  0x000001c0       0x98 lcd/lcd_i2cmaster.o
- .debug_ranges  0x00000258       0x18 lm35/lm35.o
- .debug_ranges  0x00000270       0x70 main.o
- .debug_ranges  0x000002e0       0x38 patient/patient.o
- .debug_ranges  0x00000318       0x18 state/enteringage/enteringage.o
- .debug_ranges  0x00000330       0x20 state/enteringbp/enteringbp.o
- .debug_ranges  0x00000350       0x18 state/enteringname/enteringname.o
- .debug_ranges  0x00000368       0x18 state/enteringphone/enteringphone.o
- .debug_ranges  0x00000380       0x20 state/enteringtemp/enteringtemp.o
- .debug_ranges  0x000003a0       0x30 state/generateserial/generateserial.o
- .debug_ranges  0x000003d0       0x18 state/idle/idle.o
- .debug_ranges  0x000003e8       0x18 state/states.o
- .debug_ranges  0x00000400       0x48 twimaster.o
+ .debug_ranges  0x00000050       0x10 buzzer/buzzer.o
+ .debug_ranges  0x00000060       0x20 error.o
+ .debug_ranges  0x00000080       0x30 hc05/hc05.o
+ .debug_ranges  0x000000b0       0x80 keypad/keypad8.o
+ .debug_ranges  0x00000130       0x10 keyprocessor.o
+ .debug_ranges  0x00000140       0x38 lcd/lcdgeneric.o
+ .debug_ranges  0x00000178       0x58 lcd/lcd_4bit.o
+ .debug_ranges  0x000001d0       0x98 lcd/lcd_i2cmaster.o
+ .debug_ranges  0x00000268       0x18 lm35/lm35.o
+ .debug_ranges  0x00000280       0x70 main.o
+ .debug_ranges  0x000002f0       0x38 patient/patient.o
+ .debug_ranges  0x00000328       0x18 state/enteringage/enteringage.o
+ .debug_ranges  0x00000340       0x20 state/enteringbp/enteringbp.o
+ .debug_ranges  0x00000360       0x18 state/enteringname/enteringname.o
+ .debug_ranges  0x00000378       0x18 state/enteringphone/enteringphone.o
+ .debug_ranges  0x00000390       0x20 state/enteringtemp/enteringtemp.o
+ .debug_ranges  0x000003b0       0x30 state/generateserial/generateserial.o
+ .debug_ranges  0x000003e0       0x18 state/idle/idle.o
+ .debug_ranges  0x000003f8       0x18 state/states.o
+ .debug_ranges  0x00000410       0x48 twimaster.o
 
 .debug_macro
  *(.debug_macro)

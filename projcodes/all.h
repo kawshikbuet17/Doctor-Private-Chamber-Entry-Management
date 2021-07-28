@@ -33,6 +33,7 @@
 #include "patient/patient.h"
 
 #include "button/button.h"
+#include "buzzer/buzzer.h"
 
 #ifndef max
 #define max(a,b) ((a) > (b) ? (a) : (b))

@@ -6,6 +6,8 @@ bp\bp.c
 
 button\button.c
 
+buzzer\buzzer.c
+
 error.c
 
 hc05\hc05.c

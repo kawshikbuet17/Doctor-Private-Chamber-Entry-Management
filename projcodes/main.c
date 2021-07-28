@@ -44,10 +44,10 @@ void enqueue(struct Queue *qptr, struct Patient x)
 	{
 		
 		Lcd_PrintLine(LCDNOTICE , 0 , "Patients are Wai");
-		Lcd_PrintLine(LCDNOTICE , 1 , "ting use button");
+		Lcd_PrintLine(LCDNOTICE , 1 , "ting.use button");
 		
 	}
-	qptr->queue[++qptr->rear_num] = x;
+	qptr->queue[++(qptr->rear_num)] = x;
 }
 
 struct Patient* dequeue(struct Queue *qptr)
@@ -94,24 +94,25 @@ bool doctorSeeing = 0;
 int main(void)
 {
 	Queue_Init(&q);
+	doctorSeeing = 0;
 	
-	HC05_Init_Data_Mode();
+	//HC05_Init_Data_Mode();
 	//HC05_Init_ATCommand_Mode();
 	
-	HC05_SendString("hello there");
+	//HC05_SendString("hello there");
 	
 	Lcd_Init(LCDKEYPAD);
 	Lcd_Init(LCDNOTICE);
 	
-	Lcd_Position(LCDNOTICE , 0,0);
-	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
-	Lcd_Position(LCDNOTICE , 0,0);
-	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
-	Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
+	//Lcd_Position(LCDNOTICE , 0,0);
+	//Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
+	//Lcd_Position(LCDNOTICE , 0,0);
+	//Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
+	//Lcd_Prints(LCDNOTICE , "abcdefghijklmnopqrstuvwxyz");
 	
 	States_GotoState(IDLE);
 	//States_GotoState(GENERATE_SERIAL);
-	States_GotoState(ENTERING_BP);
+	//States_GotoState(ENTERING_BP);
 	
 	Keypad_Init();
 	Button_Init();
@@ -135,11 +136,12 @@ int main(void)
 		States_Refresh();
 		if(Button_ButtonPressed())
 		{
-			// buzzer
 			
+			Buzzer_Sound();
+			Error_ErrorNum("dc",doctorSeeing);
 			if(doctorSeeing)
 			{
-				
+				dequeue(&q);// ager ta falailam
 				if(empty(&q))
 				{
 					Lcd_PrintLine(LCDNOTICE , 0,"No Patient in ");
@@ -154,7 +156,7 @@ int main(void)
 					Lcd_PrintLine(LCDNOTICE , 0,s);
 					sprintf(s,"%6sF%3sBPM%2sY",now->temperature,now->bp,now->age);
 					Lcd_PrintLine(LCDNOTICE , 1,s);
-					dequeue(&q);// ager ta falailam
+					
 				}
 				
 			}
@@ -162,7 +164,8 @@ int main(void)
 			{
 				if(empty(&q))
 				{
-					;
+					Lcd_PrintLine(LCDNOTICE , 0,"No Patient in ");
+					Lcd_PrintLine(LCDNOTICE , 1,"the queue");
 				}
 				else 
 				{
@@ -174,10 +177,10 @@ int main(void)
 					Lcd_PrintLine(LCDNOTICE , 0,s);
 					sprintf(s,"%6sF%3sBPM%2sY",now->temperature,now->bp,now->age);
 					Lcd_PrintLine(LCDNOTICE , 1,s);
-					dequeue(&q);// ager ta falailam
 				}
 			}
+			//_delay_ms(400);
 		}
-		_delay_ms(100);
+		
 	}
 }

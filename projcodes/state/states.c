@@ -52,6 +52,7 @@ void States_Refresh()
 			EntetingBp_Refresh();
 			break;
 		default:
-		Error_Error("States_Refresh: currentstate not defined");
+		;
+		//Error_Error("States_Refresh: currentstate not defined");
 	}
 }
