@@ -17,8 +17,8 @@ float Lm35_GetTemp()
 	while(ADCSRA & (1<<ADSC));
 
 	unsigned int i = ADC;
-	tempC = (i * vref * 1000.0) / (10.0 * 1024);
-	tempF = tempC * (9.0 / 5)  + 32.0;
+	//tempC = i/4;  
+	tempF = i * 9.0 / 20  + 32.0;
 
 	return tempF;
 }

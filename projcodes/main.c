@@ -111,6 +111,7 @@ int main(void)
 	
 	States_GotoState(IDLE);
 	//States_GotoState(GENERATE_SERIAL);
+	States_GotoState(ENTERING_BP);
 	
 	Keypad_Init();
 	Button_Init();
@@ -122,9 +123,14 @@ int main(void)
 	{
 		if(Keypad_KeyPressed())
 		{
-			int_fast8_t x = Keypad_GetKey();
-			KeyProcessor_ProcessKey(x);
-			Keypad_Init();
+			_delay_ms(20);
+			if(Keypad_KeyPressed())
+			{
+				int_fast8_t x = Keypad_GetKey();
+				KeyProcessor_ProcessKey(x);
+				_delay_ms(20);
+				Keypad_Init();
+			}
 		}
 		States_Refresh();
 		if(Button_ButtonPressed())
