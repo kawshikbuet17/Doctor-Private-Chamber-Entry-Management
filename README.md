@@ -1,5 +1,3 @@
-﻿![image](imgs/buet.png) [fig:buet~l~ogo]
-
 ### Bangladesh University of Engineering and Technology
 ### CSE 316 Report
 
