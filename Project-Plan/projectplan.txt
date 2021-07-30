@@ -1,7 +1,0 @@
-temperature
-gsm
-heart rate
-weight
-pir
-buzzer
-
